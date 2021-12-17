@@ -1,0 +1,29 @@
+$lt-gray: rgb(255, 255, 255);
+$background-dark: #512DA8;
+$background-light: #5a5a5a8f;
+$background-pale: #D1C4E9;
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+
+.container-jumbotron {
+    @include zero-margin(0px,0px);
+    background: $background-light ;
+    color:floralwhite;
+    min-height: 150px;
+}
+a {
+    color: white;
+    margin-left: 20px;
+}
+
+h1 {
+    color: white;
+    font-style: italic;
+}
+
+.submenu{
+    color: black;
+}

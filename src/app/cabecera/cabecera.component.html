@@ -1,0 +1,64 @@
+<mat-toolbar color="primary">
+    <span><img src="../assets/images/logo.png" height=50 width=90></span>
+    <a mat-button [matMenuTriggerFor]="menu"><fa-icon [icon]="faBars"></fa-icon>Menu</a>
+    <a mat-button routerLink="/inicio"><fa-icon [icon]="faHome"></fa-icon> Inicio </a>
+    <a mat-button routerLink="/nosotros"><fa-icon [icon]="faInfo"></fa-icon> Nosotros </a>
+    <a mat-button routerLink="/contacto"><fa-icon [icon]="faAddressCard"></fa-icon> Contacto </a>
+
+    <span class="flex-spacer"></span> 
+    <a mat-button (click)="abrirFormularioLogin()">
+    <fa-icon [icon]="faSignInAlt"></fa-icon>Login</a>
+    
+  
+  </mat-toolbar>
+
+  <div class="container-jumbotron"
+      fxLayout="row"
+      fxLayout.sm="column" 
+      fxLayout.xs="column" 
+      fxLayoutAlign.xs="start center"
+      fxLayoutAlign.sm="start center" 
+      fxLayoutAlign.gt-sm="center center" 
+      fxLayoutGap="10px">
+  
+      <div fxFlex fxFlex.gt-sm="10%">
+      <img src="../assets/images/logo.png" alt="Logo" height=140 width=200>
+
+  <mat-menu #menu="matMenu">
+<button mat-menu-item [matMenuTriggerFor]="jugador">Jugador</button>
+<button mat-menu-item [matMenuTriggerFor]="administrador">Administración</button>
+<button mat-menu-item [matMenuTriggerFor]="gerente">Gerencia</button>
+</mat-menu>
+
+<mat-menu #jugador="matMenu">
+<a class="submenu" mat-menu-item>Reservar entrenamiento</a>
+<a class="submenu" mat-menu-item>Introducir resultados</a>
+<a class="submenu" mat-menu-item>Apuntarse a un torneo</a>
+<a class="submenu" mat-menu-item>Cambio de club</a>
+</mat-menu>
+
+<mat-menu #administrador="matMenu">
+<a class="submenu" mat-menu-item>Listar jugadores</a>
+<a class="submenu" mat-menu-item>Alta jugador</a>
+<a class="submenu" mat-menu-item>Baja jugador</a>
+<a class="submenu" mat-menu-item>Modificar jugador</a>
+<a class="submenu" mat-menu-item>Asignar responasable a menor</a>
+<a class="submenu" mat-menu-item>Listar federaciones</a>
+<a class="submenu" mat-menu-item>Inscribir club en una federación</a>
+<a class="submenu" mat-menu-item>Asignar partidas a un torneo</a>
+
+</mat-menu>
+
+<mat-menu #gerente="matMenu">
+<a class="submenu" mat-menu-item>Multar a un jugador</a>
+<a class="submenu" mat-menu-item>Liberar la multa a un jugador</a>
+</mat-menu>
+
+    </div>
+    <div fxFlex fxFlex.gt-sm="20%">
+      <h1>Gestor de Ajedrez</h1>
+
+    </div>
+    
+    <div fxFlex></div>
+  </div>
