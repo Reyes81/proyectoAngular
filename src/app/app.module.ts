@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 
+import { AutenticarService } from './services/autenticar.service';
+
 import { AppComponent } from './app.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
@@ -48,7 +50,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
 
   ],
-  providers: [],
+  providers: [AutenticarService],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]
 })
