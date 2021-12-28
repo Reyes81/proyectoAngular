@@ -24,6 +24,10 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { AltaJugadorComponent } from './alta-jugador/alta-jugador.component';
+import { ListarJugadoresComponent } from './listar-jugadores/listar-jugadores.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { AltaJugadorComponent } from './alta-jugador/alta-jugador.component';
     InicioComponent,
     LoginComponent,
     AltaJugadorComponent,
+    ListarJugadoresComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +55,9 @@ import { AltaJugadorComponent } from './alta-jugador/alta-jugador.component';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule,
     FormsModule,
 
   ],

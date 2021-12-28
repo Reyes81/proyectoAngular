@@ -1,0 +1,43 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex>
+        <mat-list>
+            <div *ngFor="let elemento of vProductos">
+                <mat-card class="card">
+                    <mat-card-title>
+                        Jugador:  {{elemento.nombre}}  {{elemento.apellido}} 
+
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{elemento.categoria}} {{elemento.edad}} años
+                    </mat-card-subtitle>
+                    <mat-card-content>
+                        <div>
+                        
+                    </div>
+                    <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center">
+                 
+                        <div fxLayout="column">
+                            Este jugador pertenece a las siguientes federaciones: Federaciones
+                            <li class="listado"> Federacion 1</li>
+                            <li class="listado"> Federacion 2</li>
+                          </div>
+                          <div fxLayout="column"> Jugador perteneciente al club: 
+                              <li class="listado">
+                                 Nombre del club : {{elemento.club.nombre}}
+                              </li >  
+                            <li class="listado"> Ubicación de la sede:  {{elemento.club.sede}}</li></div>
+                          <div fxLayout="column" *ngIf="elemento.moroso"> Poner su multa correspondiente, precio y datos</div>
+                      </div>
+                      </mat-card-content>
+                    
+                </mat-card>
+                
+                    
+            </div>
+        </mat-list>
+    </div>
+  
+</div>
+
+
+
