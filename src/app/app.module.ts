@@ -14,6 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 
 import { AutenticarService } from './services/autenticar.service';
+import { AltaService } from './services/alta.service';
 
 import { AppComponent } from './app.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
@@ -22,6 +23,7 @@ import { PieComponent } from './pie/pie.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
+import { AltaJugadorComponent } from './alta-jugador/alta-jugador.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { LoginComponent } from './login/login.component';
     ContactoComponent,
     InicioComponent,
     LoginComponent,
+    AltaJugadorComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
 
   ],
-  providers: [AutenticarService],
+  providers: [AutenticarService,AltaService],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]
 })
