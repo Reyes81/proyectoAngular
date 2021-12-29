@@ -10,12 +10,15 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule} from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 
 import { AutenticarService } from './services/autenticar.service';
 import { AltaService } from './services/alta.service';
+import { BajaService } from './services/baja.service';
 import { ListarJugadoresService } from './services/listar-jugadores.service';
+import { ListarClubesService } from './services/listar-clubes.service';
 
 import { AppComponent } from './app.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
@@ -57,6 +60,7 @@ import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatCheckboxModule,
     MatGridListModule,
     MatCardModule,
@@ -64,7 +68,7 @@ import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
     FormsModule,
 
   ],
-  providers: [AutenticarService,AltaService,ListarJugadoresService],
+  providers: [AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]
 })

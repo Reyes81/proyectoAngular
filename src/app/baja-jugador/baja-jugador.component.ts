@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Jugador } from '../compartido/Jugador';
 import { ListarJugadoresComponent } from '../listar-jugadores/listar-jugadores.component';
 import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { BajaService } from '../services/baja.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -11,29 +12,19 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class BajaJugadorComponent implements OnInit {
 
-  constructor(public dialogo: MatDialog,private listarService: ListarJugadoresService) { }
+  constructor(public dialogRef: MatDialogRef<BajaJugadorComponent>,private listarService: ListarJugadoresService, private bajaService: BajaService) { }
  
-    vJugadores:any[]=[];
+    vJugadores:Jugador[]=this.listarService.getListaJugadores(); 
+    seleccionado:Jugador = this.vJugadores[0];
+
 
   ngOnInit(): void {
 
-    this.vJugadores = this.listarService.getListaJugadores(); 
-    console.log(this.vJugadores.length);
   }
 
   onSubmit() {
-    //console.log("Usuario: ", this.usuario);
-    //this.dialogRef.close(); 
-    /*
-    if (this.autenticarService.autenticar(this.usuario))
-    {
-      this.dialogRef.close(this.usuario);
-    } 
-    else {
-      let usuario = {nombre: '', password: '', nocerrar: false};
-      this.dialogRef.close(usuario);
-    }
-    */
-}
+    this.bajaService.bajaJugador(this.seleccionado);
+    this.dialogRef.close(this.seleccionado);
+  }
 
 }

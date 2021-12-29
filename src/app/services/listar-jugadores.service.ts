@@ -10,10 +10,9 @@ export class ListarJugadoresService {
     {
       id: 1,
       
-      
-      
       categoria: 'Junior',
       moroso: false,
+      responsable: '',
       
       // persona
       nombre: 'Alberto ',
@@ -38,6 +37,7 @@ export class ListarJugadoresService {
       
       categoria: 'Senior',
       moroso: true,
+      responsable: '',
       
       // persona
       nombre: 'Alex ',
@@ -54,12 +54,10 @@ export class ListarJugadoresService {
     }
     ];
 
-  listaJugadores:any[] = []
   constructor() { }
 
   public setListaJugadores(lista:any[]){
-    this.listaJugadores=lista;
-    console.log("Hola");
+    this.vJugadores=lista;
   }
 
   public getListaJugadores(){

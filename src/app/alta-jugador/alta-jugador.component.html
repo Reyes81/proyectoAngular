@@ -46,16 +46,24 @@
         
               </mat-form-field>
 
-              <mat-form-field>
-      
-                <input matInput placeholder="Club" type="text" [(ngModel)]="jugador.club" name="club" #club="ngModel" required>
-                <mat-hint>
-                  <span [hidden]="club.pristine">
-                  <span [hidden]="!club.errors?.['required']">El club es obligatorio</span> 
-                  </span>
-                  </mat-hint>
-        
+            
+              <mat-form-field appearance="fill">
+                <mat-label>Club</mat-label>
+                <mat-select [(ngModel)]="jugador.club" name="club" #club="ngModel" required >
+                  <mat-option style="color: black;" *ngFor="let elemento of vClubes" [value]="elemento.nombre">{{elemento.nombre}}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Categoría</mat-label>
+                <mat-select [(ngModel)]="jugador.categoria" name="categoria" #categoria="ngModel" required >
+                  <mat-option style="color: black;" *ngFor="let elemento of vCategorias" [value]="elemento">{{elemento}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+             
+        
 
               <mat-form-field>
               <input matInput placeholder="User" type="text" [(ngModel)]="jugador.user" name="user" #user="ngModel" required>
@@ -87,7 +95,7 @@
         
               </mat-form-field>
       
-          </p>
+          
       
         </mat-dialog-content>
       

@@ -11,61 +11,17 @@ import { ListarJugadoresService } from '../services/listar-jugadores.service';
 })
 export class ListarJugadoresComponent implements OnInit {
 
-  vJugadores: Jugador[] = [
-    {
-      id: 1,
-      
-      
-      
-      categoria: 'Junior',
-      moroso: false,
-      
-      // persona
-      nombre: 'Alberto ',
-      apellido: "Gaspar Villaba",
-      edad: 18,
-      user: "usuario",
-      passwd: "password",
 
-      // club
-      club: {
-        nombre : "club1",
-        sede: "sede 1",
-      }
-      
-     
-      
-    },
-    {
-      id: 2,
-      
-      
-      
-      categoria: 'Senior',
-      moroso: true,
-      
-      // persona
-      nombre: 'Alex ',
-      apellido: "Reyes ",
-      edad: 44,
-      user: "usuario2",
-      passwd: "password2",
-
-      // club
-      club: {
-        nombre : "club2",
-        sede: "sede 2",
-      } 
-    }
-    ];
+  vJugadores:Jugador[]=this.listarService.getListaJugadores();
 
   constructor(private listarService: ListarJugadoresService) { }
 
 
   ngOnInit(): void {
 
+
   }
+
   }
  
-    
-       
+  
