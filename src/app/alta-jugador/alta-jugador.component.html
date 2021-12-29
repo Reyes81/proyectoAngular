@@ -49,7 +49,7 @@
             
               <mat-form-field appearance="fill">
                 <mat-label>Club</mat-label>
-                <mat-select [(ngModel)]="jugador.club" name="club" #club="ngModel" required >
+                <mat-select [(ngModel)]="jugador.club.nombre" name="club" #club="ngModel" required >
                   <mat-option style="color: black;" *ngFor="let elemento of vClubes" [value]="elemento.nombre">{{elemento.nombre}}
                   </mat-option>
                 </mat-select>
@@ -95,7 +95,7 @@
         
               </mat-form-field>
       
-          
+              
       
         </mat-dialog-content>
       

@@ -14,6 +14,7 @@ export class BajaService {
   public bajaJugador(jugadorBaja:Jugador): void{
 
     this.vJugadores = this.listarJugadoresService.getListaJugadores();
+    console.log("indice = " +jugadorBaja.id)
     let indice = -1;
     for(var i=0;i< this.vJugadores.length;i++){
       if(this.vJugadores[i].id == jugadorBaja.id){

@@ -23,7 +23,9 @@ export class BajaJugadorComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.seleccionado);
     this.bajaService.bajaJugador(this.seleccionado);
+    
     this.dialogRef.close(this.seleccionado);
   }
 

@@ -10,7 +10,8 @@
       
      
         <p>
-            <select name="seleccionado" class="select-css" [(ngModel)] = "seleccionado"> 
+          <!-- Seleccionado. id == El elemento que selecciona el usuario y el campo id-->
+            <select  name="seleccionado" class="select-css" [(ngModel)] = "seleccionado.id"> 
             <option *ngFor="let elemento of vJugadores">{{elemento.nombre}} {{elemento.apellido}} - ID: {{elemento.id}}</option>
             </select>
             </p>

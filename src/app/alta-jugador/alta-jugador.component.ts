@@ -5,6 +5,7 @@ import { Jugador } from '../compartido/Jugador';
 import { ListarClubesService } from '../services/listar-clubes.service';
 import { ListarJugadoresService } from '../services/listar-jugadores.service';
 import { Club } from '../compartido/Club';
+
 @Component({
   selector: 'app-alta-jugador',
   templateUrl: './alta-jugador.component.html',
@@ -18,15 +19,18 @@ export class AltaJugadorComponent implements OnInit {
   vClubes = this.listarClubesService.getListaClubes();
 
   vCategorias: string[] = ["Junior", "Senior"];
-  jugador = {nombre: '', apellido: '', edad: 18, club: Club, user: '',password: '', responsable: '', categoria: ''};
+  jugador = { nombre: '', apellido: '', edad: 18, club:  new Club(), user: '',password: '', responsable: '', categoria: ''};
   id:number = this.vJugadores.length +1;
-  //newJugador: Jugador = new Jugador(this.id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.jugador.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
+  club:Club = new Club();
 
   ngOnInit(): void {
   }
   onSubmit() {
-    
-    //this.altaJugadorService.altaJugador(this.nuevoJugador);
+    console.log("jugador añadido = " + this.jugador.club.nombre);
+    this.club.nombre = this.jugador.club.nombre;
+
+    const newJugador= new Jugador(this.id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
+    this.altaJugadorService.altaJugador(newJugador);
     
   }
 }
