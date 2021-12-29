@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Club } from '../compartido/Club';
+import { Injectable } from '@angular/core';
 import { Jugador } from '../compartido/Jugador';
-import { Persona } from "../compartido/Persona";
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
 
-@Component({
-  selector: 'app-listar-jugadores',
-  templateUrl: './listar-jugadores.component.html',
-  styleUrls: ['./listar-jugadores.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class ListarJugadoresComponent implements OnInit {
+export class ListarJugadoresService {
 
   vJugadores: Jugador[] = [
     {
@@ -59,13 +54,15 @@ export class ListarJugadoresComponent implements OnInit {
     }
     ];
 
-  constructor(private listarService: ListarJugadoresService) { }
+  listaJugadores:any[] = []
+  constructor() { }
 
-
-  ngOnInit(): void {
-
+  public setListaJugadores(lista:any[]){
+    this.listaJugadores=lista;
+    console.log("Hola");
   }
+
+  public getListaJugadores(){
+    return this.vJugadores;
   }
- 
-    
-       
+}

@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AutenticarService } from './services/autenticar.service';
 import { AltaService } from './services/alta.service';
+import { ListarJugadoresService } from './services/listar-jugadores.service';
 
 import { AppComponent } from './app.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
@@ -28,6 +29,7 @@ import { ListarJugadoresComponent } from './listar-jugadores/listar-jugadores.co
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent,
     AltaJugadorComponent,
     ListarJugadoresComponent,
+    BajaJugadorComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,7 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
 
   ],
-  providers: [AutenticarService,AltaService],
+  providers: [AutenticarService,AltaService,ListarJugadoresService],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]
 })

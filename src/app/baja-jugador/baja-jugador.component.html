@@ -1,0 +1,32 @@
+<mat-toolbar color="primary"> Baja Jugador
+    <span class="flex-spacer"></span>
+   
+    <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
+      
+      <!--<p>{{ usuario | json }}</p>-->
+      
+      
+      <form novalidate #formularioBajaJugador="ngForm" (ngSubmit)="onSubmit()">
+      
+     
+        <p>
+            <select class="select-css" name="miselect">
+            <option>Dar de baja al jugador:</option>
+            <option *ngFor="let elemento of vJugadores">Jugador:  {{elemento.nombre}}</option>
+            </select>
+            </p>
+
+                
+                
+       
+        
+        <mat-dialog-actions>
+      
+          <span class="flex-spacer"></span>
+      
+          <button mat-button mat-dialog-close>Deshacer</button>
+      
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioBajaJugador.form.invalid">Baja</button>
+      
+        </mat-dialog-actions>
+      </form>
