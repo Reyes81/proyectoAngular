@@ -5,7 +5,7 @@ import { Jugador } from '../compartido/Jugador';
   providedIn: 'root'
 })
 export class ListarJugadoresService {
-
+  
   vJugadores: Jugador[] = [
     {
       id: 1,
@@ -54,6 +54,8 @@ export class ListarJugadoresService {
     }
     ];
 
+    identificador:number = this.vJugadores.length +1;
+
   constructor() { }
 
   public setListaJugadores(lista:any[]){
@@ -62,5 +64,20 @@ export class ListarJugadoresService {
 
   public getListaJugadores(){
     return this.vJugadores;
+  }
+
+  public addPlayer(jugador:Jugador){
+    
+    this.vJugadores.push(jugador);
+    this.identificador+=1;
+  }
+
+  
+ /**
+  * Necesario para evitar duplicidad de ids sin tener que recorrer todos los jugadores
+  * @returns El identicador actual del jugador
+  */
+  public getId():number{
+    return this.identificador;
   }
 }

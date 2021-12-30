@@ -15,13 +15,14 @@ export class BajaService {
 
     this.vJugadores = this.listarJugadoresService.getListaJugadores();
     //console.log("indice = " +jugadorBaja.id)
-    let indice = -1;
+    
     /*for(var i=0;i< this.vJugadores.length;i++){
       if(this.vJugadores[i].id == jugadorBaja.id){
         indice = i;
       }
     }*/
+    
     this.vJugadores.splice(id-1,1);
-    this.listarJugadoresService.setListaJugadores(this.vJugadores);
+    //this.listarJugadoresService.setListaJugadores(this.vJugadores);
   }
 }
