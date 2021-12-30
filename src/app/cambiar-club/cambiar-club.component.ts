@@ -34,15 +34,12 @@ export class CambiarClubComponent implements OnInit {
     if(this.clubOrigen.nombre == this.clubDestino.nombre){
       alert("Los clubes origen y destino deben ser diferentes");
     }
-    else if(this.jugadorSeleccionado == null)
-    {
-      alert("Debe seleccionar un jugador");
-    }
+
     else{
       for(var i = 0; i < this.vJugadores.length;i++){
         if(this.vJugadores[i].id == this.jugadorSeleccionado.id)
         {
-          alert("Hola");
+          
           this.vJugadores[i].club = this.clubDestino;
         }
         

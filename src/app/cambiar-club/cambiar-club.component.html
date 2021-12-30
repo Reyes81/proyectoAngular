@@ -15,7 +15,7 @@
           <!-- Seleccionado. id == El elemento que selecciona el usuario y el campo id-->
             <p style="font-size: 14; font-family: sans-serif; font-style: italic; font-weight: bold;">Seleccione el jugador</p>
             <select  name="jugadorSeleccionado" class="select-css" [(ngModel)] = "jugadorSeleccionado.id"> 
-            <option [value]="jugadorSeleccionado" *ngFor="let elemento of vJugadores">{{elemento.nombre}} {{elemento.apellido}} - ID: {{elemento.id}}</option>
+            <option *ngFor="let elemento of vJugadores">{{elemento.nombre}} {{elemento.apellido}} - ID: {{elemento.id}}</option>
             </select>
         </div></div>
         <br>
