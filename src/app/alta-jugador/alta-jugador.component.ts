@@ -29,8 +29,8 @@ export class AltaJugadorComponent implements OnInit {
     console.log("jugador añadido = " + this.jugador.club.nombre);
     this.club.nombre = this.jugador.club.nombre;
 
-    const newJugador= new Jugador(this.id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
-    this.altaJugadorService.altaJugador(newJugador);
+    //const newJugador= new Jugador(this.id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
+    this.altaJugadorService.altaJugador(this.id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
     
   }
 }

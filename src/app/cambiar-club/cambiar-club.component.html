@@ -1,0 +1,52 @@
+<mat-toolbar color="primary"> Cambio de Club
+    <span class="flex-spacer"></span>
+   
+    <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
+      
+      <!--<p>{{ usuario | json }}</p>-->
+      
+      
+      <form novalidate #formularioCambiarClub="ngForm" (ngSubmit)="onSubmit()">
+      
+     
+      <br>
+      <div class="row">
+        <div class="col-md-10">
+          <!-- Seleccionado. id == El elemento que selecciona el usuario y el campo id-->
+            <p style="font-size: 14; font-family: sans-serif; font-style: italic; font-weight: bold;">Seleccione el jugador</p>
+            <select  name="jugadorSeleccionado" class="select-css" [(ngModel)] = "jugadorSeleccionado.id"> 
+            <option [value]="jugadorSeleccionado" *ngFor="let elemento of vJugadores">{{elemento.nombre}} {{elemento.apellido}} - ID: {{elemento.id}}</option>
+            </select>
+        </div></div>
+        <br>
+       
+          <div class="row">
+            <div class="col-md-3">
+                <p style="font-size: 14; font-family: sans-serif; font-style: italic; font-weight: bold;">Club Origen</p>
+                <select  name="clubOrigen" [(ngModel)] = "clubOrigen.nombre"> 
+                
+                      <option *ngFor="let club_origen of vClubes">{{club_origen.nombre}}</option>
+                
+                   </select>
+            </div>
+            <div class="col-md-3">
+                <p style="font-size: 14; font-family: sans-serif; font-style: italic; font-weight: bold;">Club Destino</p>
+                <select  name="clubDestino" [(ngModel)] = "clubDestino.nombre"> 
+                       
+                    <option *ngFor="let club_destino of vClubes">{{club_destino.nombre}}</option>
+                  
+                </select>
+            </div>
+          </div>
+
+         
+        <mat-dialog-actions>
+      
+          <span class="flex-spacer"></span>
+      
+          <button mat-button mat-dialog-close>Cancelar</button>
+      
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioCambiarClub.form.invalid">Cambiar Club</button>
+      
+        </mat-dialog-actions>
+      </form>

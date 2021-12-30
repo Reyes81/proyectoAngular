@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { AltaJugadorComponent } from '../alta-jugador/alta-jugador.component';
 import { BajaJugadorComponent } from '../baja-jugador/baja-jugador.component';
+import { CambiarClubComponent } from '../cambiar-club/cambiar-club.component';
 
 import { HostListener } from '@angular/core';
 import { AutenticarService } from '../services/autenticar.service';
@@ -45,6 +46,11 @@ export class CabeceraComponent implements OnInit {
 
     abrirFormularioBajaJugador() { 
       let dialogo = this.dialogo.open(BajaJugadorComponent, {width: '500px', height: '450px'});
+      //dialogo.afterClosed().subscribe(result =>this.login=result); 
+      }
+
+    abrirFormularioCambiarClub() { 
+      let dialogo = this.dialogo.open(CambiarClubComponent, {width: '500px', height: '450px'});
       //dialogo.afterClosed().subscribe(result =>this.login=result); 
       }
   abrirFormularioListarJugadores() { 

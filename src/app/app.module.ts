@@ -33,6 +33,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
+import { CambiarClubComponent } from './cambiar-club/cambiar-club.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
     AltaJugadorComponent,
     ListarJugadoresComponent,
     BajaJugadorComponent,
+    CambiarClubComponent,
   ],
   imports: [
     BrowserModule,

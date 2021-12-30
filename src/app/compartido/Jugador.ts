@@ -9,21 +9,21 @@ export class Jugador extends Persona {
     moroso: boolean;
     club: Club
     
-  
-    constructor(id: number, nombre:string, apellido:string, edad:number, club: Club, user:string, password: string, responsable: string, categoria:string){
+    
+    constructor(){
         super();
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
+        this.id = -1;
+        this.nombre = '';
+        this.apellido = '';
+        this.edad = 0;
 
-        this.user = user;
-        this.passwd = password
+        this.user = '';
+        this.passwd = '';
        
-        this.responsable = responsable;
-        this.categoria = categoria ;
+        this.responsable = '';
+        this.categoria = '' ;
         this.moroso = false;
-        this.club =  club;
+        this.club = new Club();
         
         }
         
