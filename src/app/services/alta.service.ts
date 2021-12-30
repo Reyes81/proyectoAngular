@@ -16,8 +16,8 @@ export class AltaService {
   constructor(private listarJugadoresService:ListarJugadoresService) { }
    
     altaJugador(id:number,nombre: string, apellido:string, edad:number, club: Club, user:string, password: string, responsable: string, categoria: string) {
-      
-      this.jugador.id = id;
+      console.log("id " + id);
+      this.jugador.id = this.listarJugadoresService.getListaJugadores().length +1;
       this.jugador.nombre = nombre;
       this.jugador.apellido = apellido;
       this.jugador.edad = edad;
@@ -30,6 +30,13 @@ export class AltaService {
       this.jugadores = this.listarJugadoresService.getListaJugadores();
       this.jugadores.push(this.jugador);
       this.listarJugadoresService.setListaJugadores(this.jugadores);
+      console.log("tamaño servicio=" +this.listarJugadoresService.getListaJugadores().length)
+
+
+      for(let i = 0; i < this.listarJugadoresService.getListaJugadores().length; i++){
+        console.log("jugador " + i + ": " + this.jugadores[i].nombre);
+
+      }
     }
     
 }

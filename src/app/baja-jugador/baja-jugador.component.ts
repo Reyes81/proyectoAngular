@@ -24,9 +24,18 @@ export class BajaJugadorComponent implements OnInit {
 
   onSubmit() {
     
-    this.bajaService.bajaJugador(this.jugadorSeleccionado);
+    
+    console.log("Jugador boirrado" + this.jugadorSeleccionado.id);
+    
+    this.bajaService.bajaJugador(this.ObtenerId());
     
     this.dialogRef.close(this.jugadorSeleccionado);
+  }
+
+  ObtenerId(): number{
+    const datos: string[] = this.jugadorSeleccionado.id.toString().split(" ");
+    console.log("valor " + datos[datos.length-1]);
+    return parseInt( datos[datos.length-1])
   }
 
 }

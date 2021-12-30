@@ -30,14 +30,16 @@ export class CambiarClubComponent implements OnInit {
 
   onSubmit() {
 
-    alert(this.jugadorSeleccionado.nombre);
+    //alert(this.jugadorSeleccionado.nombre);
     if(this.clubOrigen.nombre == this.clubDestino.nombre){
       alert("Los clubes origen y destino deben ser diferentes");
     }
-
+    
     else{
+      // Obtenermos id de la respuesta
+    const id:number = this.ObtenerId();
       for(var i = 0; i < this.vJugadores.length;i++){
-        if(this.vJugadores[i].id == this.jugadorSeleccionado.id)
+        if(this.vJugadores[i].id == id)
         {
           
           this.vJugadores[i].club = this.clubDestino;
@@ -49,6 +51,12 @@ export class CambiarClubComponent implements OnInit {
       this.dialogRef.close(this.jugadorSeleccionado);
     }
    
+  }
+
+  ObtenerId(): number{
+    const datos: string[] = this.jugadorSeleccionado.id.toString().split(" ");
+    console.log("valor " + datos[datos.length-1]);
+    return parseInt( datos[datos.length-1])
   }
 
 }
