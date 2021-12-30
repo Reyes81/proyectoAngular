@@ -1,0 +1,23 @@
+<mat-toolbar color="primary"> Listar Federaciones
+    <span class="flex-spacer"></span>
+   
+    <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex>
+        <mat-list>
+            <div *ngFor="let elemento of vFederaciones">
+                <mat-card class="card">
+                    <mat-card-title>
+                        Federacion:  {{elemento.nombre}} 
+
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        Presidente:  {{elemento.presidente}} 
+                    </mat-card-subtitle>
+                </mat-card>
+                <br>
+                </div>
+        </mat-list>
+    </div>
+  
+</div>

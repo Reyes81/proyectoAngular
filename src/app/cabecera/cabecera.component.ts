@@ -5,6 +5,7 @@ import { LoginComponent } from '../login/login.component';
 import { AltaJugadorComponent } from '../alta-jugador/alta-jugador.component';
 import { BajaJugadorComponent } from '../baja-jugador/baja-jugador.component';
 import { CambiarClubComponent } from '../cambiar-club/cambiar-club.component';
+import { ListarFederacionesComponent } from '../listar-federaciones/listar-federaciones.component';
 
 import { HostListener } from '@angular/core';
 import { AutenticarService } from '../services/autenticar.service';
@@ -58,6 +59,10 @@ export class CabeceraComponent implements OnInit {
         //dialogo.afterClosed().subscribe(result =>this.login=result); 
         }
 
+  abrirFormularioListarFederaciones() { 
+        let dialogo = this.dialogo.open(ListarFederacionesComponent, {width: '500px', height: '450px'});
+        //dialogo.afterClosed().subscribe(result =>this.login=result); 
+        }
   cerrarSesion(){
     this.autenticarService.cerrarSesion().subscribe(login=>this.login=login);
     return false;

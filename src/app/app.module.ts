@@ -19,6 +19,7 @@ import { AltaService } from './services/alta.service';
 import { BajaService } from './services/baja.service';
 import { ListarJugadoresService } from './services/listar-jugadores.service';
 import { ListarClubesService } from './services/listar-clubes.service';
+import { ListarFederacionesService } from './services/listar-federaciones.service';
 
 import { AppComponent } from './app.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
@@ -34,6 +35,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
 import { CambiarClubComponent } from './cambiar-club/cambiar-club.component';
+import { ListarFederacionesComponent } from './listar-federaciones/listar-federaciones.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { CambiarClubComponent } from './cambiar-club/cambiar-club.component';
     ListarJugadoresComponent,
     BajaJugadorComponent,
     CambiarClubComponent,
+    ListarFederacionesComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,7 @@ import { CambiarClubComponent } from './cambiar-club/cambiar-club.component';
     FormsModule,
 
   ],
-  providers: [AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService],
+  providers: [AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService, ListarFederacionesService],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]
 })
