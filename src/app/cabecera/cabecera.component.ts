@@ -7,7 +7,7 @@ import { BajaJugadorComponent } from '../baja-jugador/baja-jugador.component';
 import { CambiarClubComponent } from '../cambiar-club/cambiar-club.component';
 import { ListarFederacionesComponent } from '../listar-federaciones/listar-federaciones.component';
 import { AltaClubFederacionComponent } from '../alta-club-federacion/alta-club-federacion.component';
-
+import { ReservarEntrenamientoComponent } from '../reservar-entrenamiento/reservar-entrenamiento.component';
 import { HostListener } from '@angular/core';
 import { AutenticarService } from '../services/autenticar.service';
 import { ListarJugadoresComponent } from '../listar-jugadores/listar-jugadores.component';
@@ -56,16 +56,21 @@ export class CabeceraComponent implements OnInit {
       //dialogo.afterClosed().subscribe(result =>this.login=result); 
       }
   abrirFormularioListarJugadores() { 
-        let dialogo = this.dialogo.open(ListarJugadoresComponent, {width: '500px', height: '450px'});
+     let dialogo = this.dialogo.open(ListarJugadoresComponent, {width: '500px', height: '450px'});
         //dialogo.afterClosed().subscribe(result =>this.login=result); 
         }
 
   abrirFormularioListarFederaciones() { 
-        let dialogo = this.dialogo.open(ListarFederacionesComponent, {width: '500px', height: '450px'});
+     let dialogo = this.dialogo.open(ListarFederacionesComponent, {width: '500px', height: '450px'});
         //dialogo.afterClosed().subscribe(result =>this.login=result); 
   }
   abrirFormularioInscribirClubFederacion() { 
-          let dialogo = this.dialogo.open(AltaClubFederacionComponent, {width: '500px', height: '450px'});
+      let dialogo = this.dialogo.open(AltaClubFederacionComponent, {width: '500px', height: '450px'});
+          //dialogo.afterClosed().subscribe(result =>this.login=result);
+        }
+  
+  abrirFormularioReservarEntrenamiento() { 
+      let dialogo = this.dialogo.open(ReservarEntrenamientoComponent, {width: '500px', height: '450px'});
           //dialogo.afterClosed().subscribe(result =>this.login=result);
         }
 

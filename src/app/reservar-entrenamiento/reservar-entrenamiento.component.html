@@ -1,0 +1,19 @@
+<mat-toolbar color="primary"> Reserva Entrenamiento
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
+<br>
+    <p>Seleccione el día de reserva</p>
+    <form novalidate #formularioReservaEntrenamiento="ngForm" (ngSubmit)="onSubmit()"></form>
+    <input matInput [matDatepicker]="picker" placeholder="Pick a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+
+    <mat-dialog-actions>
+      
+        <span class="flex-spacer"></span>
+    
+        <button mat-button mat-dialog-close>Cancelar</button>
+    
+        <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioReservaEntrenamiento.form.invalid">Reserva</button>
+    
+      </mat-dialog-actions>

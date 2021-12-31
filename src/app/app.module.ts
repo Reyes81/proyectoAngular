@@ -13,6 +13,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule} from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule }from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 import { AutenticarService } from './services/autenticar.service';
 import { AltaService } from './services/alta.service';
@@ -37,6 +40,7 @@ import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
 import { CambiarClubComponent } from './cambiar-club/cambiar-club.component';
 import { ListarFederacionesComponent } from './listar-federaciones/listar-federaciones.component';
 import { AltaClubFederacionComponent } from './alta-club-federacion/alta-club-federacion.component';
+import { ReservarEntrenamientoComponent } from './reservar-entrenamiento/reservar-entrenamiento.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,7 @@ import { AltaClubFederacionComponent } from './alta-club-federacion/alta-club-fe
     CambiarClubComponent,
     ListarFederacionesComponent,
     AltaClubFederacionComponent,
+    ReservarEntrenamientoComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +78,9 @@ import { AltaClubFederacionComponent } from './alta-club-federacion/alta-club-fe
     MatCardModule,
     MatButtonModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+  
 
   ],
   providers: [AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService, ListarFederacionesService],
