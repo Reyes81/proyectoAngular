@@ -36,6 +36,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
 import { CambiarClubComponent } from './cambiar-club/cambiar-club.component';
 import { ListarFederacionesComponent } from './listar-federaciones/listar-federaciones.component';
+import { AltaClubFederacionComponent } from './alta-club-federacion/alta-club-federacion.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ListarFederacionesComponent } from './listar-federaciones/listar-federa
     BajaJugadorComponent,
     CambiarClubComponent,
     ListarFederacionesComponent,
+    AltaClubFederacionComponent,
   ],
   imports: [
     BrowserModule,

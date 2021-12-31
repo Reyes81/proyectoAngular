@@ -4,6 +4,7 @@ import { observable, Observable, of } from 'rxjs';
 import { ListarJugadoresService } from './listar-jugadores.service';
 import { Jugador } from '../compartido/Jugador';
 import { Club } from '../compartido/Club';
+import { Federacion } from '../compartido/Federacion';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,10 @@ export class AltaService {
 
       // Anyadir Jugador al vector
       this.listarJugadoresService.addPlayer(this.jugador);
+    }
+
+    altaClubFederacion(federacion: Federacion, club: Club): void{
+
     }
     
 }

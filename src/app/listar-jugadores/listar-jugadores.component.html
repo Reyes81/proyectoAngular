@@ -1,3 +1,28 @@
+<mat-toolbar color="primary"> Listado de Jugadores
+    <span class="flex-spacer"></span>
+   
+</mat-toolbar>
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex>
+        <mat-list>
+            <div *ngFor="let elemento of vJugadores">
+                <mat-card class="card">
+                    <mat-card-title>
+                        Jugador:  {{elemento.nombre}}  {{elemento.apellido}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                          {{elemento.categoria}} {{elemento.edad}} años 
+                    </mat-card-subtitle>
+                </mat-card>
+                <br>
+                </div>
+        </mat-list>
+    </div>
+  
+</div>
+<!--
+<mat-toolbar color="primary"> Listado de Jugadores
+    <span class="flex-spacer"></span>
 <div class="container" fxLayout="column" fxLayoutGap="10px">
     <div fxFlex>
         <mat-list>
@@ -31,13 +56,11 @@
                       </mat-card-content>
                     
                 </mat-card>
-                
-                    
             </div>
         </mat-list>
     </div>
   
 </div>
-
+-->
 
 

@@ -11,15 +11,13 @@ export class LoginComponent implements OnInit {
 
   usuario = {nombre: '', password: '', nocerrar: false};
 
-
   constructor(public dialogRef: MatDialogRef<LoginComponent>,private autenticarService: AutenticarService) { }
 
   ngOnInit(): void {
   }
 
     onSubmit() {
-      //console.log("Usuario: ", this.usuario);
-      //this.dialogRef.close(); 
+      
       if (this.autenticarService.autenticar(this.usuario))
       {
         this.dialogRef.close(this.usuario);
