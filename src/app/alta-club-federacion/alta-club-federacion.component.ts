@@ -4,6 +4,7 @@ import { Club } from '../compartido/Club';
 import { AltaService } from '../services/alta.service';
 import { ListarFederacionesService } from '../services/listar-federaciones.service';
 import { ListarClubesService } from '../services/listar-clubes.service';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-alta-club-federacion',
@@ -12,7 +13,7 @@ import { ListarClubesService } from '../services/listar-clubes.service';
 })
 export class AltaClubFederacionComponent implements OnInit {
 
-  constructor(private listarClubesService:ListarClubesService, private listarFederacionesService:ListarFederacionesService, private altaClubFederacionService:AltaService) { }
+  constructor(public dialogRef: MatDialogRef<AltaClubFederacionComponent>,private listarClubesService:ListarClubesService, private listarFederacionesService:ListarFederacionesService, private altaClubFederacionService:AltaService) { }
 
   vFederaciones = this.listarFederacionesService.getListaFederaciones();
   vClubes = this.listarClubesService.getListaClubes();
@@ -24,7 +25,23 @@ export class AltaClubFederacionComponent implements OnInit {
   }
 
   onSubmit() {
-    this.altaClubFederacionService.altaClubFederacion(this.federacion, this.club);
+  
+    alert(this.federacion.clubes.length);
+    if(this.federacion.clubes.length==0)
+    {
+      this.altaClubFederacionService.altaClubFederacion(this.federacion, this.club);
+      this.dialogRef.close(this.club.nombre);
+    }
+    else{
+    for(var i = 0; i < this.federacion.clubes.length; i++ ){
+        if(this.federacion.clubes[i].nombre == this.club.nombre){
+          alert("El club de nombre " + this.club.nombre + "ya está inscrito en la " + this.vFederaciones[i].nombre );
+        }
+        else{
+          this.altaClubFederacionService.altaClubFederacion(this.federacion, this.club);
+          this.dialogRef.close(this.club.nombre);
+        }
+      }
+    }
   }
-
 }

@@ -2,6 +2,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { observable, Observable, of } from 'rxjs';
 import { ListarJugadoresService } from './listar-jugadores.service';
+import { ListarFederacionesService } from './listar-federaciones.service';
 import { Jugador } from '../compartido/Jugador';
 import { Club } from '../compartido/Club';
 import { Federacion } from '../compartido/Federacion';
@@ -13,9 +14,13 @@ export class AltaService {
 
   jugadores:Jugador[] =[];
   jugador: Jugador = new Jugador();
+  federacion: Federacion = new Federacion();
+  club: Club = new Club();
+  vFederaciones: Federacion[] = [];
+
   
 
-  constructor(private listarJugadoresService:ListarJugadoresService) { }
+  constructor(private listarJugadoresService:ListarJugadoresService, private listarFederacionesService: ListarFederacionesService) { }
    
     altaJugador(id:number,nombre: string, apellido:string, edad:number, club: Club, user:string, password: string, responsable: string, categoria: string) {
       console.log("id " + id);
@@ -37,6 +42,15 @@ export class AltaService {
     }
 
     altaClubFederacion(federacion: Federacion, club: Club): void{
+
+      this.vFederaciones = this.listarFederacionesService.getListaFederaciones();
+      for(var i = 0; i < this.vFederaciones.length; i++){
+        if(this.vFederaciones[i].nombre == federacion.nombre){
+          this.vFederaciones[i].clubes.push(club);
+          this.listarFederacionesService.setListaFederaciones(this.vFederaciones);
+          alert("El club " + club.nombre + " se ha inscrito correctamente en la federación " + federacion.nombre)
+        }
+      } 
 
     }
     
