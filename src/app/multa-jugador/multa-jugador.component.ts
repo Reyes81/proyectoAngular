@@ -25,10 +25,9 @@ export class MultaJugadorComponent implements OnInit {
       {
         this.vJugadores[i].multa = this.vJugadores[i].multa + this.multa;
         this.listarJugadoresService.setListaJugadores(this.vJugadores);
-        alert(this.vJugadores[i].multa);
         this.dialogRef.close(this.jugadorSeleccionado);
       }
-    
+      alert(this.vJugadores[i].multa);
   }
 
 }

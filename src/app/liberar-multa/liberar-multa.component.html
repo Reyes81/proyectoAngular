@@ -1,0 +1,37 @@
+<mat-toolbar color="primary"> Liberar Multa Jugador
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
+      
+      <!--<p>{{ usuario | json }}</p>-->
+      
+      
+      <form novalidate #formularioLiberarMultaJugador="ngForm" (ngSubmit)="onSubmit()">
+      
+      <div>
+        <mat-dialog-content>
+              <mat-form-field appearance="fill">
+                <mat-label>Jugador</mat-label>
+                <mat-select [(ngModel)]="jugadorSeleccionado.nombre" name="jugadorSeleccionado" required >
+                  <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.nombre">{{elemento.nombre}} {{elemento.apellido}}
+                  </mat-option>
+                </mat-select>
+                
+              </mat-form-field>      
+              <div><p> El Jugador {{jugadorSeleccionado.nombre}} tiene una multa de {{jugadorSeleccionado.multa}} Euros</p></div>
+      
+        </mat-dialog-content>
+
+        </div>
+             
+      
+        <mat-dialog-actions>
+      
+          <span class="flex-spacer"></span>
+      
+          <button mat-button mat-dialog-close>Cancelar</button>
+      
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioLiberarMultaJugador.form.invalid">Liberar Multa</button>
+      
+        </mat-dialog-actions>
+      </form>
+

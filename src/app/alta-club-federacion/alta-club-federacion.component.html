@@ -10,24 +10,26 @@
       
      
       <br>
-      <div class="row">
-        <div class="col-md-10">
-            <p style="font-size: 14; font-family: sans-serif; font-style: italic; font-weight: bold;">Seleccione la Federación</p>
-            <select  name="federacion" class="select-css" [(ngModel)] = "federacion.nombre"> 
-            <option *ngFor="let elemento of vFederaciones">{{elemento.nombre}}</option>
-            </select>
-        </div></div>
+
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Federación</mat-label>
+            <mat-select [(ngModel)]="federacion.nombre" name="federacion" required >
+              <mat-option style="color: black;" *ngFor="let elemento of vFederaciones" [value]="elemento.nombre">{{elemento.nombre}} 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
         <br>
        
-          <div class="row">
-            <div class="col-md-3">
-                <p style="font-size: 14; font-family: sans-serif; font-style: italic; font-weight: bold;">Seleccione el club a inscribir</p>
-                <select  name="club" [(ngModel)] = "club.nombre"> 
-                
-                      <option *ngFor="let club of vClubes">{{club.nombre}}</option>
-                
-                   </select>
-            </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Club</mat-label>
+              <mat-select [(ngModel)]="club.nombre" name="club" required >
+                <mat-option style="color: black;" *ngFor="let club of vClubes" [value]="club.nombre">{{club.nombre}} 
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
 
          

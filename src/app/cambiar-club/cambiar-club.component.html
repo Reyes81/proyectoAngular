@@ -10,34 +10,37 @@
       
      
       <br>
-      <div class="row">
-        <div class="col-md-10">
-          <!-- Seleccionado. id == El elemento que selecciona el usuario y el campo id-->
-            <p style="font-size: 14; font-family: sans-serif; font-style: italic; font-weight: bold;">Seleccione el jugador</p>
-            <select  name="jugadorSeleccionado" class="select-css" [(ngModel)] = "jugadorSeleccionado.id"> 
-            <option *ngFor="let elemento of vJugadores">{{elemento.nombre}} {{elemento.apellido}} - ID: {{elemento.id}}</option>
-            </select>
-        </div></div>
+        <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Jugador</mat-label>
+              <mat-select [(ngModel)]="jugadorSeleccionado.nombre" name="jugadorSeleccionado" required >
+                <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.nombre">{{elemento.nombre}} {{elemento.apellido}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
         <br>
        
-          <div class="row">
-            <div class="col-md-3">
-                <p style="font-size: 14; font-family: sans-serif; font-style: italic; font-weight: bold;">Club Origen</p>
-                <select  name="clubOrigen" [(ngModel)] = "clubOrigen.nombre"> 
-                
-                      <option *ngFor="let club_origen of vClubes">{{club_origen.nombre}}</option>
-                
-                   </select>
+          <div>
+
+                   <mat-form-field appearance="fill">
+                    <mat-label>Club Origen</mat-label>
+                    <mat-select [(ngModel)]="clubOrigen.nombre" name="clubOrigen" required >
+                      <mat-option style="color: black;" *ngFor="let club_origen of vClubes" [value]="club_origen.nombre">{{club_origen.nombre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
             </div>
-            <div class="col-md-3">
-                <p style="font-size: 14; font-family: sans-serif; font-style: italic; font-weight: bold;">Club Destino</p>
-                <select  name="clubDestino" [(ngModel)] = "clubDestino.nombre"> 
-                       
-                    <option *ngFor="let club_destino of vClubes">{{club_destino.nombre}}</option>
-                  
-                </select>
-            </div>
-          </div>
+            <div>
+
+              <mat-form-field appearance="fill">
+               <mat-label>Club Destino</mat-label>
+               <mat-select [(ngModel)]="clubDestino.nombre" name="clubDestino" required >
+                 <mat-option style="color: black;" *ngFor="let club_destino of vClubes" [value]="club_destino.nombre">{{club_destino.nombre}}
+                 </mat-option>
+               </mat-select>
+             </mat-form-field>
+       </div>
 
          
         <mat-dialog-actions>

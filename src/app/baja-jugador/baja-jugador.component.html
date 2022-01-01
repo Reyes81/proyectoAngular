@@ -8,13 +8,16 @@
       
       <form novalidate #formularioBajaJugador="ngForm" (ngSubmit)="onSubmit()">
       
-     
-        <p>
-          <!-- Seleccionado. id == El elemento que selecciona el usuario y el campo id-->
-            <select  name="jugadorSeleccionado" class="select-css" [(ngModel)] = "jugadorSeleccionado.id"> 
-            <option *ngFor="let elemento of vJugadores">{{elemento.nombre}} {{elemento.apellido}} - ID: {{elemento.id}}</option>
-            </select>
-            </p>
+     <br><br>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Jugador</mat-label>
+            <mat-select [(ngModel)]="jugadorSeleccionado.nombre" name="jugadorSeleccionado" required >
+              <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.nombre">{{elemento.nombre}} {{elemento.apellido}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
         
         <mat-dialog-actions>
       
