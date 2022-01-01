@@ -13,7 +13,7 @@ export class ListarJugadoresService {
       categoria: 'Junior',
       moroso: false,
       responsable: '',
-      
+      multa: 0,
       // persona
       nombre: 'Alberto ',
       apellido: "Gaspar Villaba",
@@ -27,8 +27,7 @@ export class ListarJugadoresService {
         sede: "sede 1",
       }
       
-     
-      
+
     },
     {
       id: 2,
@@ -38,11 +37,11 @@ export class ListarJugadoresService {
       categoria: 'Senior',
       moroso: true,
       responsable: '',
-      
+      multa: 0,
       // persona
       nombre: 'Alex ',
       apellido: "Reyes ",
-      edad: 44,
+      edad: 40,
       user: "usuario2",
       passwd: "password2",
 
@@ -50,7 +49,9 @@ export class ListarJugadoresService {
       club: {
         nombre : "club2",
         sede: "sede 2",
-      } 
+      }
+
+      
     }
     ];
 

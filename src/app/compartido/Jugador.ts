@@ -8,6 +8,7 @@ export class Jugador extends Persona {
     categoria: string;
     moroso: boolean;
     club: Club
+    multa: number;
     
     
     constructor(){
@@ -24,6 +25,8 @@ export class Jugador extends Persona {
         this.categoria = '' ;
         this.moroso = false;
         this.club = new Club();
+
+        this.multa = 0;
         
         }
         

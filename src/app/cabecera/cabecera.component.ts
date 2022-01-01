@@ -11,6 +11,7 @@ import { ReservarEntrenamientoComponent } from '../reservar-entrenamiento/reserv
 import { HostListener } from '@angular/core';
 import { AutenticarService } from '../services/autenticar.service';
 import { ListarJugadoresComponent } from '../listar-jugadores/listar-jugadores.component';
+import { MultaJugadorComponent } from '../multa-jugador/multa-jugador.component';
 
 @Component({
   selector: 'app-cabecera',
@@ -59,6 +60,11 @@ export class CabeceraComponent implements OnInit {
      let dialogo = this.dialogo.open(ListarJugadoresComponent, {width: '500px', height: '450px'});
         //dialogo.afterClosed().subscribe(result =>this.login=result); 
         }
+
+  abrirFormularioMultarJugador() { 
+      let dialogo = this.dialogo.open(MultaJugadorComponent, {width: '500px', height: '450px'});
+             //dialogo.afterClosed().subscribe(result =>this.login=result); 
+             }
 
   abrirFormularioListarFederaciones() { 
      let dialogo = this.dialogo.open(ListarFederacionesComponent, {width: '500px', height: '450px'});

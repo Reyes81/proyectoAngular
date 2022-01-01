@@ -1,0 +1,42 @@
+<mat-toolbar color="primary"> Multa Jugador
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
+      
+      <!--<p>{{ usuario | json }}</p>-->
+      
+      
+      <form novalidate #formularioMultaJugador="ngForm" (ngSubmit)="onSubmit()">
+      
+      
+        <mat-dialog-content>
+              <mat-form-field appearance="fill">
+                <mat-label>Jugador</mat-label>
+                <mat-select [(ngModel)]="jugadorSeleccionado.nombre" name="jugadorSeleccionado" required >
+                  <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.nombre">{{elemento.nombre}} {{elemento.apellido}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              
+              <mat-form-field appearance="fill">
+                <mat-label>Importe Multa</mat-label>
+                <input matInput placeholder="Multa" type="number" [(ngModel)]="multa" name="multa"required>
+                
+        
+              </mat-form-field>
+      
+              
+      
+        </mat-dialog-content>
+      
+      
+        <mat-dialog-actions>
+      
+          <span class="flex-spacer"></span>
+      
+          <button mat-button mat-dialog-close>Cancelar</button>
+      
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioMultaJugador.form.invalid">Multar</button>
+      
+        </mat-dialog-actions>
+      </form>
