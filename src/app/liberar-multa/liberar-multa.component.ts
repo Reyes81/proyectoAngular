@@ -14,6 +14,7 @@ export class LiberarMultaComponent implements OnInit {
 
   vJugadores:Jugador[] = this.listarJugadoresService.getListaJugadores();
   jugadorSeleccionado: Jugador = new Jugador();
+  jugador: Jugador = new Jugador();
 
   ngOnInit(): void {
   }
@@ -21,12 +22,20 @@ export class LiberarMultaComponent implements OnInit {
   onSubmit(){
     for(var i = 0; i < this.vJugadores.length; i++){
       if(this.vJugadores[i].nombre == this.jugadorSeleccionado.nombre){
+        console.log("Multa =" + this.vJugadores[i].multa)
         this.vJugadores[i].multa = 0;
+        this.vJugadores[i].moroso = false;
         this.listarJugadoresService.setListaJugadores(this.vJugadores);
+        
         alert(this.vJugadores[i].multa);
         this.dialogRef.close(this.jugadorSeleccionado);
       }
     }
+  }
+
+  onChange(jg:Jugador){
+    console.log(this.jugadorSeleccionado);
+    this.jugadorSeleccionado = jg;
   }
 
 }

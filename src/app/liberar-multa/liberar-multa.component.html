@@ -11,8 +11,8 @@
         <mat-dialog-content>
               <mat-form-field appearance="fill">
                 <mat-label>Jugador</mat-label>
-                <mat-select [(ngModel)]="jugadorSeleccionado.nombre" name="jugadorSeleccionado" required >
-                  <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.nombre">{{elemento.nombre}} {{elemento.apellido}}
+                <mat-select [(ngModel)]="jugadorSeleccionado" name="jugadorSeleccionado"  required >
+                  <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento">{{elemento.nombre}} {{elemento.apellido}}
                   </mat-option>
                 </mat-select>
                 
