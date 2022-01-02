@@ -43,6 +43,7 @@ import { AltaClubFederacionComponent } from './alta-club-federacion/alta-club-fe
 import { ReservarEntrenamientoComponent } from './reservar-entrenamiento/reservar-entrenamiento.component';
 import { MultaJugadorComponent } from './multa-jugador/multa-jugador.component';
 import { LiberarMultaComponent } from './liberar-multa/liberar-multa.component';
+import { ApuntarseTorneoComponent } from './apuntarse-torneo/apuntarse-torneo.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { LiberarMultaComponent } from './liberar-multa/liberar-multa.component';
     ReservarEntrenamientoComponent,
     MultaJugadorComponent,
     LiberarMultaComponent,
+    ApuntarseTorneoComponent,
   ],
   imports: [
     BrowserModule,

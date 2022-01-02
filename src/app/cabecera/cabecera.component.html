@@ -43,7 +43,7 @@
 <mat-menu #jugador="matMenu">
 <a class="submenu" mat-menu-item (click) = "abrirFormularioReservarEntrenamiento()">Reservar entrenamiento</a>
 <a class="submenu" mat-menu-item>Introducir resultados</a>
-<a class="submenu" mat-menu-item>Apuntarse a un torneo</a>
+<a class="submenu" mat-menu-item (click)= "abrirFormularioApuntarseATorneo()">Apuntarse a un torneo</a>
 <a class="submenu" mat-menu-item  (click)="abrirFormularioCambiarClub()">Cambio de club</a>
 </mat-menu>
 

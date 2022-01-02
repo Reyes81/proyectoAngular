@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { AltaJugadorComponent } from '../alta-jugador/alta-jugador.component';
 import { BajaJugadorComponent } from '../baja-jugador/baja-jugador.component';
+import { ApuntarseTorneoComponent } from '../apuntarse-torneo/apuntarse-torneo.component';
 import { CambiarClubComponent } from '../cambiar-club/cambiar-club.component';
 import { ListarFederacionesComponent } from '../listar-federaciones/listar-federaciones.component';
 import { AltaClubFederacionComponent } from '../alta-club-federacion/alta-club-federacion.component';
@@ -45,22 +46,26 @@ export class CabeceraComponent implements OnInit {
   
   abrirFormularioAltaJugador() { 
       let dialogo = this.dialogo.open(AltaJugadorComponent, {width: '500px', height: '450px'});
-      //dialogo.afterClosed().subscribe(result =>this.login=result); 
+        //dialogo.afterClosed().subscribe(result =>this.login=result); 
       }
 
     abrirFormularioBajaJugador() { 
       let dialogo = this.dialogo.open(BajaJugadorComponent, {width: '500px', height: '450px'});
-      //dialogo.afterClosed().subscribe(result =>this.login=result); 
+        //dialogo.afterClosed().subscribe(result =>this.login=result); 
       }
 
     abrirFormularioCambiarClub() { 
       let dialogo = this.dialogo.open(CambiarClubComponent, {width: '500px', height: '450px'});
-      //dialogo.afterClosed().subscribe(result =>this.login=result); 
-      }
-  abrirFormularioListarJugadores() { 
-     let dialogo = this.dialogo.open(ListarJugadoresComponent, {width: '500px', height: '450px'});
         //dialogo.afterClosed().subscribe(result =>this.login=result); 
-        }
+      }
+    abrirFormularioListarJugadores() { 
+      let dialogo = this.dialogo.open(ListarJugadoresComponent, {width: '500px', height: '450px'});
+        //dialogo.afterClosed().subscribe(result =>this.login=result); 
+      }
+    abrirFormularioApuntarseATorneo() { 
+      let dialogo = this.dialogo.open(ApuntarseTorneoComponent, {width: '500px', height: '450px'});
+        //dialogo.afterClosed().subscribe(result =>this.login=result);
+      }
 
   abrirFormularioMultarJugador() { 
       let dialogo = this.dialogo.open(MultaJugadorComponent, {width: '500px', height: '450px'});

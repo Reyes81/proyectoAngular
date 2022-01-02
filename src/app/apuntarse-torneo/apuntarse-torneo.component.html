@@ -1,0 +1,35 @@
+<mat-toolbar color="primary"> Apuntar Jugador a Torneo
+    <span class="flex-spacer"></span>
+   
+    <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
+      
+      <!--<p>{{ usuario | json }}</p>-->
+      
+      
+      <form novalidate #formularioInscribirjugadortorneo="ngForm" (ngSubmit)="onSubmit()">
+      <br>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Torneo</mat-label>
+            <mat-select [(ngModel)]="torneo.nombre" name="torneo" required >
+              <mat-option style="color: black;" *ngFor="let elemento of vTorneos" [value]="elemento.nombre">{{elemento.nombre}} 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+        <br>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Jugador</mat-label>
+              <mat-select [(ngModel)]="jugador.nombre" name="jugador" required >
+                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugador.nombre">{{jugador.nombre}} 
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        <mat-dialog-actions>
+          <span class="flex-spacer"></span>
+          <button mat-button mat-dialog-close>Cancelar</button>
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioInscribirjugadortorneo.form.invalid">Inscribir jugador</button>
+        </mat-dialog-actions>
+      </form>
