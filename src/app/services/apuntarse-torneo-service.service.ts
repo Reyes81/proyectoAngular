@@ -22,7 +22,7 @@ export class ApuntarseTorneoService {
       if(this.vTorneos[i].nombre == torneo.nombre){
         this.vTorneos[i].jugadores.push(jugador);
         this.listarTorneosService.setListaTorneos(this.vTorneos);
-        alert("El club " + jugador.nombre + " se ha inscrito correctamente en la federación " + torneo.nombre)
+        alert("El jugador " + this.vTorneos[i].jugadores[this.vTorneos[i].jugadores.length -1].nombre + " se ha inscrito correctamente en el torneo " + torneo.nombre)
       }
     } 
 

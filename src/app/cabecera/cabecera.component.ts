@@ -49,20 +49,20 @@ export class CabeceraComponent implements OnInit {
         //dialogo.afterClosed().subscribe(result =>this.login=result); 
       }
 
-    abrirFormularioBajaJugador() { 
+  abrirFormularioBajaJugador() { 
       let dialogo = this.dialogo.open(BajaJugadorComponent, {width: '500px', height: '450px'});
         //dialogo.afterClosed().subscribe(result =>this.login=result); 
       }
 
-    abrirFormularioCambiarClub() { 
+  abrirFormularioCambiarClub() { 
       let dialogo = this.dialogo.open(CambiarClubComponent, {width: '500px', height: '450px'});
         //dialogo.afterClosed().subscribe(result =>this.login=result); 
       }
-    abrirFormularioListarJugadores() { 
+  abrirFormularioListarJugadores() { 
       let dialogo = this.dialogo.open(ListarJugadoresComponent, {width: '500px', height: '450px'});
         //dialogo.afterClosed().subscribe(result =>this.login=result); 
       }
-    abrirFormularioApuntarseATorneo() { 
+  abrirFormularioApuntarseATorneo() { 
       let dialogo = this.dialogo.open(ApuntarseTorneoComponent, {width: '500px', height: '450px'});
         //dialogo.afterClosed().subscribe(result =>this.login=result);
       }

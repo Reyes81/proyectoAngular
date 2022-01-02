@@ -35,9 +35,9 @@ export class ApuntarseTorneoComponent implements OnInit {
       this.dialogRef.close(this.jugador.nombre);
     }
     else{
-    for(var i = 0; i < this.torneo.jugadores.length; i++ ){
-        if(this.torneo.jugadores[i].nombre == this.torneo.nombre){
-          alert("El Jugador de nombre " + this.torneo.nombre + "ya está inscrito en el " + this.vTorneos[i].nombre );
+      for(var i = 0; i < this.torneo.jugadores.length; i++ ){
+        if(this.torneo.jugadores[i].nombre == this.jugador.nombre){
+          alert("El Jugador de nombre " + this.jugador.nombre + "ya está inscrito en el " + this.vTorneos[i].nombre + "Los jugadores inscritos son: " + this.vJugadores );
         }
         else{
           this.apuntarseTorneoService.apuntarJugadorTorneo(this.torneo, this.jugador);
