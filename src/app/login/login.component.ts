@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
       });
 
       this.loginForm.valueChanges.subscribe(datos => this.onCambioValor(datos));
-this.onCambioValor();
+      this.onCambioValor();
   
       
   }

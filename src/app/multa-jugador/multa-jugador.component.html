@@ -21,7 +21,7 @@
                 <mat-label>Importe Multa</mat-label>
                 <input matInput  placeholder="Multa" type="number" formControlName="multa" name="multa"  required>
                 <mat-hint>
-                  <span [hidden]="!(multaForm.multa)">
+                  <span [hidden]="!(erroresForm.multa)">
                     {{erroresForm.multa}}</span>
                   
                   </mat-hint>
@@ -39,7 +39,7 @@
       
           <button mat-button mat-dialog-close>Cancelar</button>
       
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="multaForm.invalid">Multar</button>
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="multaForm.invalid" (click)="onSubmit()">Multar</button>
       
         </mat-dialog-actions>
       </form>

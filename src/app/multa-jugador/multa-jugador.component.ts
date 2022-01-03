@@ -49,11 +49,14 @@ export class MultaJugadorComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.jugador.nombre)
+    
+    //this.jugador = this.multaForm.value;
+    const nombre = this.multaForm.value.jugador;
+    console.log(this.multaForm.value);
     for(var i = 0; i< this.vJugadores.length; i++)
-      if(this.vJugadores[i].nombre == this.jugador.nombre)
+      if(this.vJugadores[i].nombre == nombre)
       {
-        this.vJugadores[i].multa +=  this.multa;
+        this.vJugadores[i].multa +=  this.multaForm.value.multa;
         this.vJugadores[i].moroso = true;
         this.listarJugadoresService.setListaJugadores(this.vJugadores);
         alert("Multas del jugador " + this.vJugadores[i].nombre + "=" +this.vJugadores[i].multa + "€");
@@ -62,7 +65,7 @@ export class MultaJugadorComponent implements OnInit {
     
       this.multaForm.reset({
         jugador: '',
-        multa: ''
+        multa: 0
         });
   }
 
@@ -70,7 +73,7 @@ export class MultaJugadorComponent implements OnInit {
   {
     this.multaForm = this.fb.group({
     jugador:  ['', Validators.required],
-    multa:  ['', Validators.required]
+    multa:  [0, Validators.required]
     });
   
     this.multaForm.valueChanges.subscribe(datos => this.onCambioValor(datos));
