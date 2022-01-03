@@ -25,7 +25,7 @@
           <div>
             <mat-form-field appearance="fill">
               <mat-label>Club</mat-label>
-              <mat-select [(ngModel)]="club.nombre" name="club" required >
+              <mat-select formControlName="club" name="club"  required>
                 <mat-option style="color: black;" *ngFor="let club of vClubes" [value]="club.nombre">{{club.nombre}} 
                 </mat-option>
               </mat-select>
