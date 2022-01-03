@@ -20,12 +20,8 @@ export class LoginComponent implements OnInit {
       
       if (this.autenticarService.autenticar(this.usuario))
       {
-        this.dialogRef.close(this.usuario);
-      } 
-      else {
-        let usuario = {nombre: '', password: '', nocerrar: false};
-        this.dialogRef.close(usuario);
+            this.dialogRef.close(this.usuario);
       }
-  }
+    }
 
 }

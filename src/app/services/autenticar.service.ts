@@ -25,6 +25,7 @@ export class AutenticarService {
     return true; 
     }
     else {
+      alert("El usuario no existe");
     return false;
     }
     }
@@ -75,10 +76,26 @@ getLogin(): Observable<any> {
       //Aquí el almacén "usuarios" ya ha esta creado y listo para ser usado
       //Introducimos usuario predefinidos
       let transaccion = db.transaction("usuarios","readwrite").objectStore("usuarios");
-      let req = transaccion.add({nombre: "aaa", password: "aaa"});
+      let req = transaccion.add({nombre: "admin", password: "12345"});
+      let req2 = transaccion.add({nombre: "gerente", password: "12345"});
+      let req3 = transaccion.add({nombre: "jugador1", password: "12345"});
+      let req4 = transaccion.add({nombre: "entrenador", password: "12345"});
+      
       req.onsuccess = function(event) {
         console.log("Exito");
         };
+
+      req2.onsuccess = function(event) {
+        console.log("Exito");
+        };
+      req3.onsuccess = function(event) {
+          console.log("Exito");
+        };
+
+      req4.onsuccess = function(event) {
+         console.log("Exito");
+        };
+
         }
         }
         } } }
