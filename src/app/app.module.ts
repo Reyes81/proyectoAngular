@@ -15,6 +15,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule }from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AutenticarService } from './services/autenticar.service';
@@ -86,6 +87,7 @@ import { ApuntarseTorneoComponent } from './apuntarse-torneo/apuntarse-torneo.co
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ReactiveFormsModule,
   
 
   ],
