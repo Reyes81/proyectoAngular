@@ -5,7 +5,7 @@
       <!--<p>{{ usuario | json }}</p>-->
       
       
-      <form novalidate #formularioAltaJugador="ngForm" (ngSubmit)="onSubmit()">
+      <form novalidate [formGroup]="consultaForm" >
       
       
         <mat-dialog-content>
@@ -14,11 +14,11 @@
       
             <mat-form-field>
       
-              <input matInput placeholder="Nombre:" type="text" [(ngModel)]="jugador.nombre" name="nombre" #nombre="ngModel" required>
+              <input matInput placeholder="Nombre:" type="text" formControlName="nombre" name="nombre"  required>
               <mat-hint>
-                <span [hidden]="nombre.pristine">
-                <span [hidden]="!nombre.errors?.['required']">El nombre es obligatorio</span> 
-                </span>
+                <span [hidden]="!(erroresForm.nombre)">
+                  {{erroresForm.nombre}}</span> 
+                
                 </mat-hint>
       
             </mat-form-field>
@@ -26,22 +26,22 @@
       
             <mat-form-field>
       
-              <input matInput placeholder="Apellido" type="text" [(ngModel)]="jugador.apellido" name="apellido" #apellido="ngModel" required>
+              <input matInput placeholder="Apellido" type="text" formControlName="apellido" name="apellido"  required>
               <mat-hint>
-                <span [hidden]="apellido.pristine">
-                <span [hidden]="!apellido.errors?.['required']">El apellido es obligatorio</span> 
-                </span>
+                <span [hidden]="!(erroresForm.apellido)">
+                  {{erroresForm.apellido}}</span>
+                
                 </mat-hint>
       
             </mat-form-field>
 
             <mat-form-field>
       
-                <input matInput placeholder="Edad" type="number" [(ngModel)]="jugador.edad" name="edad" #edad="ngModel" required>
+                <input matInput placeholder="Edad" type="number" formControlName="edad" name="edad"  required>
                 <mat-hint>
-                  <span [hidden]="edad.pristine">
-                  <span [hidden]="!edad.errors?.['required']">La edad es obligatoria</span> 
-                  </span>
+                  <span [hidden]="!(erroresForm.edad)">
+                    {{erroresForm.edad}}</span>
+                  
                   </mat-hint>
         
               </mat-form-field>
@@ -49,7 +49,7 @@
             
               <mat-form-field appearance="fill">
                 <mat-label>Club</mat-label>
-                <mat-select [(ngModel)]="jugador.club.nombre" name="club" #club="ngModel" required >
+                <mat-select formControlName="club" name="club"  required >
                   <mat-option style="color: black;" *ngFor="let elemento of vClubes" [value]="elemento.nombre">{{elemento.nombre}}
                   </mat-option>
                 </mat-select>
@@ -57,7 +57,7 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>Categoría</mat-label>
-                <mat-select [(ngModel)]="jugador.categoria" name="categoria" #categoria="ngModel" required >
+                <mat-select formControlName="categoria" name="categoria"  required >
                   <mat-option style="color: black;" *ngFor="let elemento of vCategorias" [value]="elemento">{{elemento}}
                   </mat-option>
                 </mat-select>
@@ -66,31 +66,29 @@
         
 
               <mat-form-field>
-              <input matInput placeholder="User" type="text" [(ngModel)]="jugador.user" name="user" #user="ngModel" required>
+              <input matInput placeholder="User" type="text" formControlName="user" name="user"  required>
               <mat-hint>
-                <span [hidden]="user.pristine">
-                <span [hidden]="!user.errors?.['required']">El nombre de usuario es obligatorio</span> 
-                </span>
+                <span [hidden]="!(erroresForm.user)">
+                  {{erroresForm.user}}</span>
+                
                 </mat-hint>
       
             </mat-form-field>
 
             <mat-form-field>
-                <input matInput placeholder="Password" type="text" [(ngModel)]="jugador.password" name="password" #password="ngModel" required>
+                <input matInput placeholder="Password" type="text" formControlName="password" name="password"  required>
                 <mat-hint>
-                  <span [hidden]="password.pristine">
-                  <span [hidden]="!password.errors?.['required']">El password del usuario es obligatorio</span> 
-                  </span>
+                  <span [hidden]="!(erroresForm.password)">
+                    {{erroresForm.password}}</span>
+                  
                   </mat-hint>
         
               </mat-form-field>
 
               <mat-form-field *ngIf="jugador.edad<18">
-                <input matInput placeholder="Responsable menor" type="text" [(ngModel)]="jugador.responsable" name="responasble" #responsable="ngModel" required>
+                <input matInput placeholder="Responsable menor" type="text" formControlName="responsable" name="responasble" >
                 <mat-hint>
-                  <span [hidden]="responsable.pristine">
-                  <span [hidden]="!responsable.errors?.['required']">El responsable es obligatorio</span> 
-                  </span>
+                  
                   </mat-hint>
         
               </mat-form-field>
@@ -106,7 +104,7 @@
       
           <button mat-button mat-dialog-close>Cancelar</button>
       
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioAltaJugador.form.invalid">Alta</button>
+          <button type="submit" mat-button class="background-primary text-floral-white" (click)="onSubmit()" [disabled]="consultaForm.invalid">Alta</button>
       
         </mat-dialog-actions>
       </form>
