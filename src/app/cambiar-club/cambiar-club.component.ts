@@ -15,8 +15,8 @@ export class CambiarClubComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<CambiarClubComponent>,private listarJugadoresService:ListarJugadoresService, private listarClubesService: ListarClubesService) { }
 
-  vJugadores:Jugador[] = this.listarJugadoresService.getListaJugadores(); 
-  vClubes: Club[] = this.listarClubesService.getListaClubes();
+  vJugadores:Jugador[] = []; 
+  vClubes: Club[] = [];
   selJugador="Seleccione un jugador";
 
   jugadorSeleccionado:Jugador = new Jugador();
@@ -25,7 +25,8 @@ export class CambiarClubComponent implements OnInit {
   clubDestino: Club = new Club();
 
   ngOnInit(): void {
-    
+    this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
+    this.listarClubesService.getClubes().subscribe(clubes=>this.vClubes=clubes);
   }
 
   onSubmit() {
@@ -46,7 +47,9 @@ export class CambiarClubComponent implements OnInit {
         }
         
       }
-      this.listarJugadoresService.setListaJugadores(this.vJugadores);
+
+      //ADAPTAR A HTTP
+      //this.listarJugadoresService.setListaJugadores(this.vJugadores);
       alert("Cambio de club realizado correctamente");
       this.dialogRef.close(this.jugadorSeleccionado);
     }

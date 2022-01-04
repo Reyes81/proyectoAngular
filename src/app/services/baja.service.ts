@@ -11,9 +11,13 @@ export class BajaService {
 
   constructor(private listarJugadoresService:ListarJugadoresService) { }
 
+  ngOninit(){
+    
+  }
+
   public bajaJugador(id:number): void{
 
-    this.vJugadores = this.listarJugadoresService.getListaJugadores();
+    
     //console.log("indice = " +jugadorBaja.id)
     
     /*for(var i=0;i< this.vJugadores.length;i++){

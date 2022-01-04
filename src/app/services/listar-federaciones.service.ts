@@ -1,50 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Federacion } from '../compartido/Federacion';
-import { Club } from '../compartido/Club';
+
+import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { baseURL } from '../compartido/baseurl';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListarFederacionesService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  vFederaciones: Federacion[] = [
-    {
-     
-        nombre : "Federacion Comunidad Valenciana",
-        presidente: "Alberto Gaspar",
-        numMax_clubes: 30,
-        id: 0,
-        clubes: []
-      },
-
-      {
-     
-        nombre : "Federacion Región de Murcia",
-        presidente: "Alejandro Huete",
-        numMax_clubes: 30,
-        id: 1,
-        clubes: []
-      },
-
-      {
-     
-        nombre : "Federacion Comunidad de Madrid",
-        presidente: "Alejandro Reyes",
-        numMax_clubes: 30,
-        id: 2,
-        clubes: []
-      },
-     
-    ];
+  vFederaciones: Federacion[] = [];
 
 
   public setListaFederaciones(lista:Federacion[]){
     this.vFederaciones=lista;
   }
 
-  public getListaFederaciones(){
-    return this.vFederaciones;
-  }
+ 
+  getFederaciones(): Observable<Federacion[]> {
+    return this.http.get<Federacion[]>(baseURL + 'federaciones');
+    }
+
+    getFederacion(id: number): Observable<Federacion> {
+    return this.http.get<Federacion>(baseURL + 'federaciones/'+ id);
+    }
+    getFederacionesIds(): Observable<number[] | any>{
+    return this.getFederaciones() 
+    .pipe(map(federaciones => federaciones.map(federacion => federacion.id))) ;
+    }
 }

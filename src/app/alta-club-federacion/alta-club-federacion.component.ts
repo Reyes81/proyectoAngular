@@ -15,13 +15,15 @@ export class AltaClubFederacionComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AltaClubFederacionComponent>,private listarClubesService:ListarClubesService, private listarFederacionesService:ListarFederacionesService, private altaClubFederacionService:AltaService) { }
 
-  vFederaciones = this.listarFederacionesService.getListaFederaciones();
-  vClubes = this.listarClubesService.getListaClubes();
+  vFederaciones: Federacion[] = [];
+  vClubes:Club[] =[];
 
   federacion: Federacion = new Federacion();
   club: Club = new Club();
 
   ngOnInit(): void {
+    this.listarFederacionesService.getFederaciones().subscribe(federciones=>this.vFederaciones=federciones);
+    this.listarClubesService.getClubes().subscribe(clubes=>this.vClubes=clubes);
   }
 
   onSubmit() {

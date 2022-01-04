@@ -14,12 +14,12 @@ export class BajaJugadorComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<BajaJugadorComponent>,private listarService: ListarJugadoresService, private bajaService: BajaService) { }
  
-    vJugadores:Jugador[]=this.listarService.getListaJugadores(); 
+    vJugadores:Jugador[]=[]; 
     jugadorSeleccionado:Jugador = new Jugador();
 
 
   ngOnInit(): void {
-
+    this.listarService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores)
   }
 
   onSubmit() {

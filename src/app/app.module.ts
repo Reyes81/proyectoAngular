@@ -37,6 +37,7 @@ import { ListarJugadoresComponent } from './listar-jugadores/listar-jugadores.co
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
 import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
 import { CambiarClubComponent } from './cambiar-club/cambiar-club.component';
 import { ListarFederacionesComponent } from './listar-federaciones/listar-federaciones.component';
@@ -46,6 +47,7 @@ import { MultaJugadorComponent } from './multa-jugador/multa-jugador.component';
 import { LiberarMultaComponent } from './liberar-multa/liberar-multa.component';
 import { ApuntarseTorneoComponent } from './apuntarse-torneo/apuntarse-torneo.component';
 import { DetalleJugadorComponent } from './detalle-jugador/detalle-jugador.component';
+import { baseURL } from './compartido/baseurl';
 
 @NgModule({
   declarations: [
@@ -90,10 +92,11 @@ import { DetalleJugadorComponent } from './detalle-jugador/detalle-jugador.compo
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    HttpClientModule,
   
 
   ],
-  providers: [AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService, ListarFederacionesService],
+  providers: [AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService, ListarFederacionesService, {provide: 'baseURL', useValue: baseURL}],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]
 })

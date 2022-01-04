@@ -15,8 +15,8 @@ export class ApuntarseTorneoComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ApuntarseTorneoComponent>,private apuntarseTorneoService: ApuntarseTorneoService, private listarTorneosService: ListarTorneosService, private listarJugadores: ListarJugadoresService) { }
 
-  vTorneos = this.listarTorneosService.getListaTorneos(); 
-  vJugadores = this.listarJugadores.getListaJugadores();
+  vTorneos: Torneo[] = []; 
+  vJugadores: Jugador[] = [];
   
   vCategorias: string[] = ["Junior", "Senior"]; 
 
@@ -24,6 +24,8 @@ export class ApuntarseTorneoComponent implements OnInit {
   jugador: Jugador = new Jugador();
 
   ngOnInit(): void {
+    this.listarJugadores.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
+    this.listarTorneosService.getTorneos().subscribe(torneos=>this.vTorneos=torneos);
   }
 
   onSubmit() {

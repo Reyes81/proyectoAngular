@@ -17,7 +17,7 @@ export class MultaJugadorComponent implements OnInit {
   
 
   jugador: Jugador = new Jugador();
-  vJugadores: Jugador [] = this.listarJugadoresService.getListaJugadores();
+  vJugadores: Jugador [] = [];
   multa:number = 0;
 
   multaForm !: FormGroup;
@@ -46,6 +46,7 @@ export class MultaJugadorComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores)
   }
 
   onSubmit(){
@@ -58,7 +59,9 @@ export class MultaJugadorComponent implements OnInit {
       {
         this.vJugadores[i].multa +=  this.multaForm.value.multa;
         this.vJugadores[i].moroso = true;
-        this.listarJugadoresService.setListaJugadores(this.vJugadores);
+
+        //ADAPTAR A HTTP
+        //this.listarJugadoresService.setListaJugadores(this.vJugadores);
         alert("Multas del jugador " + this.vJugadores[i].nombre + "=" +this.vJugadores[i].multa + "€");
         this.dialogRef.close(this.jugador);
       }

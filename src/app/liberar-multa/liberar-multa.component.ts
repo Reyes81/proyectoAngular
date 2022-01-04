@@ -12,11 +12,12 @@ export class LiberarMultaComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<LiberarMultaComponent>, private listarJugadoresService:ListarJugadoresService) { }
 
-  vJugadores:Jugador[] = this.listarJugadoresService.getListaJugadores();
+  vJugadores:Jugador[] = [];
   jugadorSeleccionado: Jugador = new Jugador();
   jugador: Jugador = new Jugador();
 
   ngOnInit(): void {
+    this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores)
   }
 
   onSubmit(){
@@ -25,7 +26,9 @@ export class LiberarMultaComponent implements OnInit {
         console.log("Multa =" + this.vJugadores[i].multa)
         this.vJugadores[i].multa = 0;
         this.vJugadores[i].moroso = false;
-        this.listarJugadoresService.setListaJugadores(this.vJugadores);
+
+        //ADAPTAR A HTTP
+        //this.listarJugadoresService.setListaJugadores(this.vJugadores);
         
         alert(this.vJugadores[i].multa);
         this.dialogRef.close(this.jugadorSeleccionado);

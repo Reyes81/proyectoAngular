@@ -20,13 +20,14 @@ export class AltaJugadorComponent implements OnInit {
     
    }
 
-  vJugadores = this.listarJugadoresService.getListaJugadores();
-  vClubes = this.listarClubesService.getListaClubes();
+  vJugadores:Jugador[] = [];
+  vClubes:Club[] = [];
 
   vCategorias: string[] = ["Junior", "Senior"];
   jugador = { nombre: '', apellido: '', edad: 18, club:  new Club(), user: '',password: '', responsable: '', categoria: ''};
   id:number = this.vJugadores.length +1;
   club:Club = new Club();
+  newJugador:Jugador =new Jugador();
 
   // anyadir para cambiar formulario
   consultaForm!: FormGroup;
@@ -100,6 +101,8 @@ export class AltaJugadorComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
+    this.listarClubesService.getClubes().subscribe(clubes=>this.vClubes=clubes);
   }
   onSubmit() {
     //console.log("jugador añadido = " + this.jugador.club.nombre);
@@ -108,13 +111,22 @@ export class AltaJugadorComponent implements OnInit {
     // añandir para cambiar formulario
     this.jugador = this.consultaForm.value;
 
-    console.log(this.jugador);
-    const id:number = this.listarJugadoresService.getListaJugadores().length +1;
- 
+    this.newJugador.id = this.vJugadores.length;
+    this.newJugador.nombre = this.jugador.nombre;
+    this.newJugador.apellido = this.jugador.apellido;
+    this.newJugador.edad = this.jugador.edad;
+    this.newJugador.club = this.jugador.club;
+    this.newJugador.categoria = this.jugador.categoria
+    this.newJugador.user = this.jugador.user;
+    this.newJugador.passwd = this.jugador.password;
+    this.newJugador.multa = 0;
+    this.newJugador.moroso = false;
+    this.newJugador.responsable = this.jugador.responsable;
     //const newJugador= new Jugador(this.id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
-    this.altaJugadorService.altaJugador(id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
-    //this.dialogRef.close();
-    // Hacer que se cierre al insertar
+    //this.altaJugadorService.altaJugador(id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
+    
+
+    this.altaJugadorService.setJugador(this.newJugador);
 
     this.consultaForm.reset({
       nombre: '',
@@ -126,7 +138,8 @@ export class AltaJugadorComponent implements OnInit {
       password: '',
       responsable:''
       });
-      
+
+      this.dialogRef.close();
    
   }
 

@@ -21,7 +21,7 @@ export class DetalleJugadorComponent implements OnInit {
               private listarJugadoresService: ListarJugadoresService, private listarClubesService: ListarClubesService,
               private router:Router, private route:ActivatedRoute,public dialog: MatDialog) { 
     this.id = parseInt(this.route.snapshot.paramMap.get('id')|| '');
-    this.jugador = this.listarJugadoresService.getJugador(this.id);
+    this.listarJugadoresService.getJugador(this.id).subscribe(jugador=>this.jugador=jugador);
     console.log(this.jugador);
     this.crearFormulario();
    
@@ -30,7 +30,7 @@ export class DetalleJugadorComponent implements OnInit {
     
   }
 
-  vJugadores = this.listarJugadoresService.getListaJugadores();
+  vJugadores:Jugador[] = [];
   vClubes = this.listarClubesService.getListaClubes();
 
   vCategorias: string[] = ["Junior", "Senior"];
@@ -110,9 +110,10 @@ export class DetalleJugadorComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores)
     //this.route.params.pipe(switchMap((params: Params) => this.listarJugadoresService.getJugador(+params['id'])));
     this.id = parseInt(this.route.snapshot.paramMap.get('id')|| '');
-    this.jugador = this.listarJugadoresService.getJugador(this.id);
+    this.listarJugadoresService.getJugador(this.id).subscribe(jugador=>this.jugador=jugador);
     this.jugador.id = this.id;
     console.log(this.jugador);
     this.crearFormulario();
