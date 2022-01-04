@@ -45,6 +45,7 @@ import { ReservarEntrenamientoComponent } from './reservar-entrenamiento/reserva
 import { MultaJugadorComponent } from './multa-jugador/multa-jugador.component';
 import { LiberarMultaComponent } from './liberar-multa/liberar-multa.component';
 import { ApuntarseTorneoComponent } from './apuntarse-torneo/apuntarse-torneo.component';
+import { DetalleJugadorComponent } from './detalle-jugador/detalle-jugador.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ApuntarseTorneoComponent } from './apuntarse-torneo/apuntarse-torneo.co
     MultaJugadorComponent,
     LiberarMultaComponent,
     ApuntarseTorneoComponent,
+    DetalleJugadorComponent,
   ],
   imports: [
     BrowserModule,

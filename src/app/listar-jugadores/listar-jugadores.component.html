@@ -5,7 +5,7 @@
 <div class="container" fxLayout="column" fxLayoutGap="10px">
     <div fxFlex>
         <mat-list>
-            <div *ngFor="let elemento of vJugadores">
+            <div *ngFor="let elemento of vJugadores;" [routerLink]="['/jugador',elemento.id]">
                 <mat-card class="card">
                     <mat-card-title>
                         Jugador:  {{elemento.nombre}}  {{elemento.apellido}}

@@ -1,20 +1,14 @@
-<mat-toolbar color="primary"> Alta Jugador
-    <span class="flex-spacer"></span>
-    <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
-      
+
+
+    
       <!--<p>{{ usuario | json }}</p>-->
-      
-      
+
       <form novalidate [formGroup]="consultaForm" >
-      
-      
-        <mat-dialog-content>
-      
-          <p>
-      
+          <mat-grid-list cols='2' rowHeight='70px' colHeight='70px'>
+            <mat-grid-tile>
             <mat-form-field>
       
-              <input matInput placeholder="Nombre:" type="text" formControlName="nombre" name="nombre"  required>
+              <input matInput placeholder="Nombre:" type="text" formControlName="nombre" name="nombre"   required> 
               <mat-hint>
                 <span [hidden]="!(erroresForm.nombre)">
                   {{erroresForm.nombre}}</span> 
@@ -23,10 +17,9 @@
       
             </mat-form-field>
       
-      
             <mat-form-field>
       
-              <input matInput placeholder="Apellido" type="text" formControlName="apellido" name="apellido"  required>
+              <input matInput placeholder="Apellido" type="text" formControlName="apellido" name="apellido"  required> 
               <mat-hint>
                 <span [hidden]="!(erroresForm.apellido)">
                   {{erroresForm.apellido}}</span>
@@ -35,9 +28,12 @@
       
             </mat-form-field>
 
+        </mat-grid-tile>
+
+        <mat-grid-tile>
             <mat-form-field>
       
-                <input matInput placeholder="Edad" type="number" formControlName="edad" name="edad"  required>
+                <input matInput placeholder="Edad" type="number" formControlName="edad" name="edad" value="{{jugador.edad}}" required>
                 <mat-hint>
                   <span [hidden]="!(erroresForm.edad)">
                     {{erroresForm.edad}}</span>
@@ -54,7 +50,8 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-
+            </mat-grid-tile>
+        <mat-grid-tile>
               <mat-form-field appearance="fill">
                 <mat-label>Categoría</mat-label>
                 <mat-select formControlName="categoria" name="categoria"  required >
@@ -74,7 +71,8 @@
                 </mat-hint>
       
             </mat-form-field>
-
+        </mat-grid-tile>
+    <mat-grid-tile>
             <mat-form-field>
                 <input matInput placeholder="Password" type="text" formControlName="password" name="password"  required>
                 <mat-hint>
@@ -94,17 +92,24 @@
               </mat-form-field>
       
               
+            </mat-grid-tile>
       
-        </mat-dialog-content>
-      
+        <mat-grid-tile>
       
         <mat-dialog-actions>
       
           <span class="flex-spacer"></span>
       
-          <button mat-button mat-dialog-close >Cancelar</button>
+          <button >volver a todos los jugadores</button>
       
-          <button type="submit" mat-button class="background-primary text-floral-white" (click)="onSubmit()" [disabled]="consultaForm.invalid">Alta</button>
+         <button type="submit" mat-button class="background-primary text-floral-white" (click)="onSubmit()" [disabled]="consultaForm.invalid">Modificar</button>
       
         </mat-dialog-actions>
+    </mat-grid-tile>
+    </mat-grid-list>
+   
       </form>
+
+
+
+
