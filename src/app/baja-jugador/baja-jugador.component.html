@@ -6,14 +6,14 @@
       <!--<p>{{ usuario | json }}</p>-->
       
       
-      <form novalidate #formularioBajaJugador="ngForm" (ngSubmit)="onSubmit()">
+      <form novalidate #formularioBajaJugador="ngForm" >
       
      <br><br>
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Jugador</mat-label>
-            <mat-select [(ngModel)]="jugadorSeleccionado.nombre" name="jugadorSeleccionado" required >
-              <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.nombre">{{elemento.nombre}} {{elemento.apellido}}
+            <mat-select [(ngModel)]="jugadorSeleccionado.id" name="jugadorSeleccionado" required >
+              <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.id">{{elemento.nombre}} {{elemento.apellido}}
               </mat-option>
             </mat-select>
           </mat-form-field>

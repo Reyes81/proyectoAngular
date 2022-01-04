@@ -34,9 +34,9 @@ export class ListarJugadoresService {
     this.vJugadores=lista;
   }
 */
-  public addPlayer(jugador:Jugador){
+  public addPlayer(){
     
-    this.vJugadores.push(jugador);
+    
     this.identificador+=1;
   }
   
@@ -69,6 +69,18 @@ export class ListarJugadoresService {
          this.vJugadores[i] = jug;
          console.log(this.vJugadores[i]);
       }
+  }
+
+  public MayorId():number{
+    let valor:number = 0;
+    
+    for(var i = 0; i< this.vJugadores.length; i++)
+      if(this.vJugadores[i].id >= valor){
+        valor = this.vJugadores[i].id +1; 
+         
+         
+      }
+      return valor;
   }
   
 }
