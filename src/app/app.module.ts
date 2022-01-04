@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule }from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { ProcesaHTTPMsjService } from './services/procesa-httpmsj.service';
 
 import { AutenticarService } from './services/autenticar.service';
 import { AltaService } from './services/alta.service';
@@ -96,7 +96,7 @@ import { baseURL } from './compartido/baseurl';
   
 
   ],
-  providers: [AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService, ListarFederacionesService, {provide: 'baseURL', useValue: baseURL}],
+  providers: [ProcesaHTTPMsjService,AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService, ListarFederacionesService, {provide: 'baseURL', useValue: baseURL}],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]
 })

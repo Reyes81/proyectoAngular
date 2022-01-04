@@ -15,7 +15,7 @@ export class ListarTorneosService {
   identificador:number = this.vTorneos.length +1;
 
   constructor(private http:HttpClient) { }
-
+ //limpiarlo
   public setListaTorneos(lista:any[]){
     this.vTorneos=lista;
   }
@@ -23,7 +23,7 @@ export class ListarTorneosService {
   public getListaTorneos(){
     return this.vTorneos;
   }
-
+//cambiarlo por put
   public addTorneo(torneo: Torneo){
     
     this.vTorneos.push(torneo);

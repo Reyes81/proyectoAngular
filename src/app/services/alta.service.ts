@@ -7,10 +7,12 @@ import { ListarFederacionesService } from './listar-federaciones.service';
 import { Jugador } from '../compartido/Jugador';
 import { Club } from '../compartido/Club';
 import { Federacion } from '../compartido/Federacion';
-import { map } from 'rxjs/operators';
+
 import { HttpClient } from '@angular/common/http';
 import { baseURL } from '../compartido/baseurl';
 import { HttpHeaders } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
+import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
 const httpOptions = {
 headers: new HttpHeaders({
 'Content-Type': 'application/json',
@@ -32,7 +34,7 @@ export class AltaService {
 
   
 
-  constructor(private http:HttpClient, private listarJugadoresService:ListarJugadoresService, private listarFederacionesService: ListarFederacionesService, @Inject('baseURL') public BaseURL:string) { }
+  constructor(private http:HttpClient, private listarJugadoresService:ListarJugadoresService, private listarFederacionesService: ListarFederacionesService, @Inject('baseURL') public BaseURL:string, private procesaHttpmsjService: ProcesaHTTPMsjService) { }
    
   /*
     altaJugador(id:number,nombre: string, apellido:string, edad:number, club: Club, user:string, password: string, responsable: string, categoria: string) {
@@ -60,7 +62,7 @@ ngOninit(){
 }
 setJugador(newJugador:Jugador): Observable<Jugador> {
   alert(newJugador.nombre + " - " + newJugador.id);
-  return this.http.put<Jugador>(baseURL + 'productos/'+ newJugador.id, newJugador, httpOptions);
+  return this.http.post<Jugador>(baseURL + 'jugadores/', newJugador, httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));;
   
 }
 
