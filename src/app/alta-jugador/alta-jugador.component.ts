@@ -124,8 +124,7 @@ export class AltaJugadorComponent implements OnInit {
     this.newJugador.responsable = this.jugador.responsable;
     this.altaJugadorService.setJugador(this.newJugador).subscribe(errorMensaje => this.errorMensaje = <any>errorMensaje);
     alert(this.errorMensaje);
-    //const newJugador= new Jugador(this.id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
-    //this.altaJugadorService.altaJugador(id,this.jugador.nombre, this.jugador.apellido, this.jugador.edad, this.club, this.jugador.user,this.jugador.password, this.jugador.responsable,this.jugador.categoria);
+    
     
 
     this.altaJugadorService.setJugador(this.newJugador);
