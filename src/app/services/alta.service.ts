@@ -62,7 +62,7 @@ ngOninit(){
 }
 setJugador(newJugador:Jugador): Observable<Jugador> {
   alert(newJugador.nombre + " - " + newJugador.id);
-  return this.http.post<Jugador>(baseURL + 'jugadores/', newJugador, httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));;
+  return this.http.post<Jugador>(baseURL + 'jugadores/', newJugador, httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));
   
 
   

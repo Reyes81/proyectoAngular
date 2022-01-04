@@ -16,6 +16,7 @@ export class BajaJugadorComponent implements OnInit {
  
     vJugadores:Jugador[]=[]; 
     jugadorSeleccionado:Jugador = new Jugador();
+    deleteMensaje: string = "";
 
 
   ngOnInit(): void {
@@ -25,9 +26,10 @@ export class BajaJugadorComponent implements OnInit {
   onSubmit() {
     
     
-    console.log("Jugador boirrado" + this.jugadorSeleccionado.id);
+    console.log("Jugador borrado" + this.jugadorSeleccionado.id);
     
-    this.bajaService.bajaJugador(this.ObtenerId());
+    //this.bajaService.bajaJugador(this.ObtenerId());
+    this.bajaService.bajaJugador(this.ObtenerId()).subscribe(deleteMensaje => this.deleteMensaje = <any>deleteMensaje);
     
     this.dialogRef.close(this.jugadorSeleccionado);
   }

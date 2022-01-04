@@ -25,7 +25,7 @@
       
           <button mat-button mat-dialog-close>Cancelar</button>
       
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioBajaJugador.form.invalid">Cursar Baja</button>
+          <button type="submit" mat-button class="background-primary text-floral-white" (click)="onSubmit()" [disabled]="formularioBajaJugador.form.invalid">Cursar Baja</button>
       
         </mat-dialog-actions>
       </form>

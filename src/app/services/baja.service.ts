@@ -1,6 +1,22 @@
+
+import { Component, OnInit, Inject } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { ListarJugadoresService } from './listar-jugadores.service';
 import { Jugador } from '../compartido/Jugador';
+import { Observable } from 'rxjs';
+
+import { HttpClient } from '@angular/common/http';
+import { baseURL } from '../compartido/baseurl';
+import { HttpHeaders } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
+import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
+const httpOptions = {
+  headers: new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Authorization': 'my-auth-token'
+  })
+  };
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +24,17 @@ import { Jugador } from '../compartido/Jugador';
 export class BajaService {
 
   vJugadores: Jugador[] = [];
+  jugador: Jugador = new Jugador();
 
-  constructor(private listarJugadoresService:ListarJugadoresService) { }
+  constructor(private http:HttpClient, private listarJugadoresService:ListarJugadoresService, @Inject('baseURL') public BaseURL:string, private procesaHttpmsjService: ProcesaHTTPMsjService) { }
 
   ngOninit(){
-    
+    this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
   }
 
-  public bajaJugador(id:number): void{
+  public bajaJugador(id: number): Observable<Jugador> {
+    return this.http.delete<Jugador>(baseURL + 'jugadores/'+ id);
+    }
 
     
     //console.log("indice = " +jugadorBaja.id)
@@ -26,7 +45,8 @@ export class BajaService {
       }
     }*/
     
-    this.vJugadores.splice(id-1,1);
+    
+    //this.vJugadores.splice(id-1,1);
     //this.listarJugadoresService.setListaJugadores(this.vJugadores);
-  }
+  
 }
