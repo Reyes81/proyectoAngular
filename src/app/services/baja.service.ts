@@ -33,7 +33,7 @@ export class BajaService {
   }
 
   public bajaJugador(id: number): Observable<Jugador> {
-    return this.http.delete<Jugador>(baseURL + 'jugadores/'+ id);
+    return this.http.delete<Jugador>(baseURL + 'jugadores/'+ id, httpOptions);
     }
 
     

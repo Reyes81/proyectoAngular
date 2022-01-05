@@ -1,13 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Jugador } from '../compartido/Jugador';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map,catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { baseURL } from '../compartido/baseurl';
+import { HttpHeaders } from '@angular/common/http';
+import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Authorization': 'my-auth-token'
+  })
+  };
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ListarJugadoresService {
   
   vJugadores:Jugador[] =[];
@@ -15,7 +27,7 @@ export class ListarJugadoresService {
     jugador:Jugador = new Jugador();
    
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private procesaHTTPMsService: ProcesaHTTPMsjService) { }
 
     getJugadores(): Observable<Jugador[]> {
     return this.http.get<Jugador[]>(baseURL + 'jugadores');
@@ -29,6 +41,11 @@ export class ListarJugadoresService {
     .pipe(map(jugadores => jugadores.map(jugador => jugador.id))) ;
     }
 
+    setJugador(producto:Jugador): Observable<Jugador> {
+      
+      return this.http.put<Jugador>(baseURL + 'jugadores/'+ producto.id, producto, httpOptions)
+      .pipe(catchError(this.procesaHTTPMsService.gestionError));
+    }
     /*
   public setListaJugadores(lista:any[]){
     this.vJugadores=lista;
@@ -81,6 +98,10 @@ export class ListarJugadoresService {
          
       }
       return valor;
+  }
+
+  public getListaJugdores(){
+    return this.vJugadores;
   }
   
 }

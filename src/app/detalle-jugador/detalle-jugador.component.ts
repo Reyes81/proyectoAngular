@@ -16,25 +16,31 @@ import { switchMap } from 'rxjs';
   styleUrls: ['./detalle-jugador.component.scss']
 })
 export class DetalleJugadorComponent implements OnInit {
-
+  jugador: Jugador = new Jugador();
+  vJugadores:Jugador[];
+  identificador:number;
   constructor(private fb: FormBuilder,private altaJugadorService: AltaService, 
               private listarJugadoresService: ListarJugadoresService, private listarClubesService: ListarClubesService,
               private router:Router, private route:ActivatedRoute,public dialog: MatDialog) { 
-    this.id = parseInt(this.route.snapshot.paramMap.get('id')|| '');
-    this.listarJugadoresService.getJugador(this.id).subscribe(jugador=>this.jugador=jugador);
-    console.log(this.jugador);
-    this.crearFormulario();
    
+    
+    this.vJugadores = [];
+    //this.listarJugadoresService.getJugadores().subscribe(jugadores => this.vJugadores = jugadores);
+    this.jugador = new Jugador();
+    this.jugador.id = 0;
+    this.jugador.nombre = 'Alberto';
+    this.identificador = 0;
+    console.log(this.vJugadores[this.identificador]);
     // cambiar por observables o no en función del tiempo
-    
-    
+
+
   }
 
-  vJugadores:Jugador[] = [];
+  
   vClubes = this.listarClubesService.getListaClubes();
 
   vCategorias: string[] = ["Junior", "Senior"];
-  jugador:Jugador = new Jugador();
+ 
   id:any = 0;
   club:Club = new Club();
 
@@ -67,13 +73,13 @@ export class DetalleJugadorComponent implements OnInit {
     'nombre': {
 	        'required':	'El nombre es obligatorio.',
 
-      		
+
     },
 
     'apellido': {
       'required':	'El nombre es obligatorio.',
 
-      
+
 },
 
   'edad': {
@@ -85,7 +91,7 @@ export class DetalleJugadorComponent implements OnInit {
 'club': {
   'required':	'El nombre es obligatorio.',
 
-  
+
 },
 
 'categoria': {
@@ -110,11 +116,10 @@ export class DetalleJugadorComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores)
     //this.route.params.pipe(switchMap((params: Params) => this.listarJugadoresService.getJugador(+params['id'])));
-    this.id = parseInt(this.route.snapshot.paramMap.get('id')|| '');
-    this.listarJugadoresService.getJugador(this.id).subscribe(jugador=>this.jugador=jugador);
-    this.jugador.id = this.id;
+    //this.id = parseInt(this.route.snapshot.paramMap.get('id')|| '');
+    
+    //this.jugador.id = this.id;
     console.log(this.jugador);
     this.crearFormulario();
 
@@ -123,15 +128,15 @@ export class DetalleJugadorComponent implements OnInit {
 
     // añandir para cambiar formulario
     this.jugador = this.consultaForm.value;
-
+    this.jugador.id = this.identificador;
     console.log(this.jugador);
-    
-    this.listarJugadoresService.ModifJugador(this.id, this.jugador);
+
+   this.listarJugadoresService.setJugador(this.jugador).subscribe(producto => {this.jugador = producto});;
     // Hacer que se cierre al insertar
 
-    
-      
-   
+
+
+
   }
 
   crearFormulario() 
@@ -156,7 +161,7 @@ export class DetalleJugadorComponent implements OnInit {
 
 
   onCambioValor(data?: any) {
-    
+
     this.jugador = this.consultaForm.value;
     if(!this.consultaForm) { return; }
     const form= this.consultaForm;
@@ -181,5 +186,3 @@ export class DetalleJugadorComponent implements OnInit {
 
 
 }
-
-
