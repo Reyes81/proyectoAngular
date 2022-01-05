@@ -10,6 +10,7 @@ import { AltaJugadorComponent } from '../alta-jugador/alta-jugador.component';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 
+
 @Component({
   selector: 'app-detalle-jugador',
   templateUrl: './detalle-jugador.component.html',
@@ -17,22 +18,11 @@ import { switchMap } from 'rxjs';
 })
 export class DetalleJugadorComponent implements OnInit {
   jugador: Jugador = new Jugador();
-  vJugadores:Jugador[];
-  identificador:number;
+  vJugadores:Jugador[] = [];
   constructor(private fb: FormBuilder,private altaJugadorService: AltaService, 
               private listarJugadoresService: ListarJugadoresService, private listarClubesService: ListarClubesService,
               private router:Router, private route:ActivatedRoute,public dialog: MatDialog) { 
    
-    
-    this.vJugadores = [];
-    //this.listarJugadoresService.getJugadores().subscribe(jugadores => this.vJugadores = jugadores);
-    this.jugador = new Jugador();
-    this.jugador.id = 0;
-    this.jugador.nombre = 'Alberto';
-    this.identificador = 0;
-    console.log(this.vJugadores[this.identificador]);
-    // cambiar por observables o no en función del tiempo
-
 
   }
 
@@ -118,20 +108,18 @@ export class DetalleJugadorComponent implements OnInit {
   ngOnInit(): void {
     //this.route.params.pipe(switchMap((params: Params) => this.listarJugadoresService.getJugador(+params['id'])));
     //this.id = parseInt(this.route.snapshot.paramMap.get('id')|| '');
-    
-    //this.jugador.id = this.id;
-    console.log(this.jugador);
+    this.route.params.pipe(switchMap((params: Params) => this.listarJugadoresService.getJugador(+params['id']))) .subscribe(jugador => this.jugador= jugador);
+   //this.listarJugadoresService.getProductosIds().subscribe(jugadoresIds=> this.jugadoresIds= jugadoresIds);
     this.crearFormulario();
 
   }
   onSubmit() {
 
     // añandir para cambiar formulario
-    this.jugador = this.consultaForm.value;
-    this.jugador.id = this.identificador;
-    console.log(this.jugador);
+    //this.jugador = this.consultaForm.value;
+    //this.jugador.id = this.identificador;
+    this.router.navigate(["/listajugadores"]);
 
-   this.listarJugadoresService.setJugador(this.jugador).subscribe(producto => {this.jugador = producto});;
     // Hacer que se cierre al insertar
 
 

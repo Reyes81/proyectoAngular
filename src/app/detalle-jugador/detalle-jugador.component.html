@@ -1,114 +1,47 @@
+<mat-toolbar color="primary"> Detalle Jugador
+  <span class="flex-spacer"></span>
+  <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
+ 
 
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+  <div fxFlex>
+      <mat-list>
+          <div>
+              <mat-card class="card">
+                  <mat-card-title>
+                      Jugador:  {{jugador.nombre}}  {{jugador.apellido}}
+                  </mat-card-title>
+                  <mat-card-subtitle>
+                      Edad:{{jugador.edad}} 
+                  </mat-card-subtitle>
+                  <mat-card-subtitle>
+                      Categoría:{{jugador.categoria}} 
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                  Club:{{jugador.club}} 
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                  Multa:{{jugador.multa}} Euros 
+                </mat-card-subtitle>
 
+              </mat-card>
+              <br>
+              </div>
+      </mat-list>
+  </div>
+
+  
+  <mat-dialog-actions>
     
-      <!--<p>{{ usuario | json }}</p>-->
+    <span class="flex-spacer"></span>
 
-      <form novalidate [formGroup]="consultaForm" >
-          <mat-grid-list cols='2' rowHeight='70px' colHeight='70px'>
-            <mat-grid-tile>
-            <mat-form-field>
-      
-              <input matInput placeholder="Nombre:" type="text" formControlName="nombre" name="nombre"   required> 
-              <mat-hint>
-                <span [hidden]="!(erroresForm.nombre)">
-                  {{erroresForm.nombre}}</span> 
-                
-                </mat-hint>
-      
-            </mat-form-field>
-      
-            <mat-form-field>
-      
-              <input matInput placeholder="Apellido" type="text" formControlName="apellido" name="apellido"  required> 
-              <mat-hint>
-                <span [hidden]="!(erroresForm.apellido)">
-                  {{erroresForm.apellido}}</span>
-                
-                </mat-hint>
-      
-            </mat-form-field>
 
-        </mat-grid-tile>
+    <button type="submit" mat-button class="background-primary text-floral-white" (click)="onSubmit()">Volver a lista Jugadores</button>
 
-        <mat-grid-tile>
-            <mat-form-field>
-      
-                <input matInput placeholder="Edad" type="number" formControlName="edad" name="edad" value="{{jugador.edad}}" required>
-                <mat-hint>
-                  <span [hidden]="!(erroresForm.edad)">
-                    {{erroresForm.edad}}</span>
-                  
-                  </mat-hint>
-        
-              </mat-form-field>
+  </mat-dialog-actions>
 
-            
-              <mat-form-field appearance="fill">
-                <mat-label>Club</mat-label>
-                <mat-select formControlName="club" name="club"  required >
-                  <mat-option style="color: black;" *ngFor="let elemento of vClubes" [value]="elemento.nombre">{{elemento.nombre}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </mat-grid-tile>
-        <mat-grid-tile>
-              <mat-form-field appearance="fill">
-                <mat-label>Categoría</mat-label>
-                <mat-select formControlName="categoria" name="categoria"  required >
-                  <mat-option style="color: black;" *ngFor="let elemento of vCategorias" [value]="elemento">{{elemento}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-             
-        
+</div>
 
-              <mat-form-field>
-              <input matInput placeholder="User" type="text" formControlName="user" name="user"  required>
-              <mat-hint>
-                <span [hidden]="!(erroresForm.user)">
-                  {{erroresForm.user}}</span>
-                
-                </mat-hint>
-      
-            </mat-form-field>
-        </mat-grid-tile>
-    <mat-grid-tile>
-            <mat-form-field>
-                <input matInput placeholder="Password" type="text" formControlName="password" name="password"  required>
-                <mat-hint>
-                  <span [hidden]="!(erroresForm.password)">
-                    {{erroresForm.password}}</span>
-                  
-                  </mat-hint>
-        
-              </mat-form-field>
-
-              <mat-form-field *ngIf="jugador.edad<18">
-                <input matInput placeholder="Responsable menor" type="text" formControlName="responsable" name="responasble" >
-                <mat-hint>
-                  
-                  </mat-hint>
-        
-              </mat-form-field>
-      
-              
-            </mat-grid-tile>
-      
-        <mat-grid-tile>
-      
-        <mat-dialog-actions>
-      
-          <span class="flex-spacer"></span>
-      
-          <button >volver a todos los jugadores</button>
-      
-         <button type="submit" mat-button class="background-primary text-floral-white" (click)="onSubmit()" [disabled]="consultaForm.invalid">Modificar</button>
-      
-        </mat-dialog-actions>
-    </mat-grid-tile>
-    </mat-grid-list>
-   
-      </form>
 
 
 

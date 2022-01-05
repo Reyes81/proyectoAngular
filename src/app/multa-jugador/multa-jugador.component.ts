@@ -46,7 +46,7 @@ export class MultaJugadorComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores)
+    this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
   }
 
   onSubmit(){
