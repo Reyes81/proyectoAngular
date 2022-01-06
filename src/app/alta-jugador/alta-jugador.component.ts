@@ -115,7 +115,9 @@ export class AltaJugadorComponent implements OnInit {
     this.newJugador.nombre = this.jugador.nombre;
     this.newJugador.apellido = this.jugador.apellido;
     this.newJugador.edad = this.jugador.edad;
-    this.newJugador.club = this.jugador.club;
+    // para obtener bien el clib y añadirlo correctamente a la BD
+    this.club = this.vClubes.find(element => element.nombre == this.consultaForm.value.club) || new Club();
+    this.newJugador.club = this.club;
     this.newJugador.categoria = this.jugador.categoria
     this.newJugador.user = this.jugador.user;
     this.newJugador.passwd = this.jugador.password;

@@ -48,6 +48,7 @@ import { LiberarMultaComponent } from './liberar-multa/liberar-multa.component';
 import { ApuntarseTorneoComponent } from './apuntarse-torneo/apuntarse-torneo.component';
 import { DetalleJugadorComponent } from './detalle-jugador/detalle-jugador.component';
 import { baseURL } from './compartido/baseurl';
+import { ModificarJugadorComponent } from './modificar-jugador/modificar-jugador.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { baseURL } from './compartido/baseurl';
     LiberarMultaComponent,
     ApuntarseTorneoComponent,
     DetalleJugadorComponent,
+    ModificarJugadorComponent,
   ],
   imports: [
     BrowserModule,

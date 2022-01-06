@@ -14,6 +14,7 @@ import { AutenticarService } from '../services/autenticar.service';
 import { ListarJugadoresComponent } from '../listar-jugadores/listar-jugadores.component';
 import { MultaJugadorComponent } from '../multa-jugador/multa-jugador.component';
 import { LiberarMultaComponent } from '../liberar-multa/liberar-multa.component';
+import { ModificarJugadorComponent } from '../modificar-jugador/modificar-jugador.component';
 
 @Component({
   selector: 'app-cabecera',
@@ -90,6 +91,11 @@ export class CabeceraComponent implements OnInit {
       let dialogo = this.dialogo.open(ReservarEntrenamientoComponent, {width: '500px', height: '450px'});
           //dialogo.afterClosed().subscribe(result =>this.login=result);
         }
+
+        abrirModificarJugador() { 
+      let dialogo = this.dialogo.open(ModificarJugadorComponent, {width: '500px', height: '450px'});
+         //dialogo.afterClosed().subscribe(result =>this.login=result);
+      }
 
   cerrarSesion(){
     this.autenticarService.cerrarSesion().subscribe(login=>this.login=login);
