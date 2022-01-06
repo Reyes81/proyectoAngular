@@ -119,12 +119,6 @@ export class DetalleJugadorComponent implements OnInit {
     //this.jugador = this.consultaForm.value;
     //this.jugador.id = this.identificador;
     this.router.navigate(["/listajugadores"]);
-
-    // Hacer que se cierre al insertar
-
-
-
-
   }
 
   crearFormulario() 

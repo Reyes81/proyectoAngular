@@ -5,14 +5,14 @@
       <!--<p>{{ usuario | json }}</p>-->
       
       
-      <form novalidate #formularioLiberarMultaJugador="ngForm" (ngSubmit)="onSubmit()">
+      <form novalidate [formGroup]="multaForm" (ngSubmit)="onSubmit()">
       
       <div>
         <mat-dialog-content>
               <mat-form-field appearance="fill">
                 <mat-label>Jugador</mat-label>
-                <mat-select [(ngModel)]="jugadorSeleccionado" name="jugadorSeleccionado"  required >
-                  <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento">{{elemento.nombre}} {{elemento.apellido}}
+                <mat-select formControlName="jugador" name="jugadorSeleccionado"  required >
+                  <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.id">{{elemento.nombre}} {{elemento.apellido}}
                   </mat-option>
                 </mat-select>
                 
@@ -30,7 +30,7 @@
       
           <button mat-button mat-dialog-close>Cancelar</button>
       
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioLiberarMultaJugador.form.invalid">Liberar Multa</button>
+          <button type="submit" mat-button class="background-primary text-floral-white"  [disabled]="multaForm.invalid">Liberar Multa</button>
       
         </mat-dialog-actions>
       </form>

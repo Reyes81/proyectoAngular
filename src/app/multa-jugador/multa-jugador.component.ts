@@ -52,20 +52,33 @@ export class MultaJugadorComponent implements OnInit {
   onSubmit(){
     
     //this.jugador = this.multaForm.value;
-    const nombre = this.multaForm.value.jugador;
+    const ident = this.multaForm.value.jugador;
     console.log(this.multaForm.value);
-    for(var i = 0; i< this.vJugadores.length; i++)
-      if(this.vJugadores[i].nombre == nombre)
+
+    // el || es porque puede dar jugador o no encontrarlo,(cosa imposible pero para typescript puede courrir)
+    this.jugador = this.vJugadores.find(element => element.id == ident) || new Jugador();
+    this.jugador.multa +=  this.multaForm.value.multa;
+    this.jugador.moroso = true;
+    this.listarJugadoresService.setJugador(this.jugador).subscribe(producto => {this.jugador = producto});
+    //alert("Multas del jugador " + this.vJugadores[i].nombre + "=" +this.vJugadores[i].multa + "€");
+    this.dialogRef.close(this.jugador);
+
+    // anterior(cuando funcione del todo borrar)
+    //console.log(found);
+   /* for(var i = 0; i< this.vJugadores.length; i++)
+      if(this.vJugadores[i].id == nombre)
       {
-        this.vJugadores[i].multa +=  this.multaForm.value.multa;
-        this.vJugadores[i].moroso = true;
+        let jugador = this.vJugadores[i];
+        jugador.multa +=  this.multaForm.value.multa;
+        jugador.moroso = true;
 
         //ADAPTAR A HTTP
         //this.listarJugadoresService.setListaJugadores(this.vJugadores);
-        alert("Multas del jugador " + this.vJugadores[i].nombre + "=" +this.vJugadores[i].multa + "€");
+        this.listarJugadoresService.setJugador(jugador).subscribe(producto => {this.jugador = producto});;
+        //alert("Multas del jugador " + this.vJugadores[i].nombre + "=" +this.vJugadores[i].multa + "€");
         this.dialogRef.close(this.jugador);
       }
-    
+    */
       this.multaForm.reset({
         jugador: '',
         multa: 0

@@ -12,9 +12,11 @@
               <mat-form-field appearance="fill">
                 <mat-label>Jugador</mat-label>
                 <mat-select formControlName="jugador" name="jugador"  required>
-                  <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.nombre">{{elemento.nombre}} {{elemento.apellido}}
+                  <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.id">{{elemento.nombre}} {{elemento.apellido}}
                   </mat-option>
                 </mat-select>
+                <span [hidden]="!(erroresForm.jugador)">
+                  {{erroresForm.jugador}}</span> 
               </mat-form-field>
               
               <mat-form-field appearance="fill">
