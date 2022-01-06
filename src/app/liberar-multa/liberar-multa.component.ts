@@ -43,10 +43,16 @@ export class LiberarMultaComponent implements OnInit {
     this.crearFormulario();
   }
 
+  onChange(){
+    this.jugador = this.vJugadores.find(element => element.id == this.multaForm.value.jugador) || new Jugador();
+    console.log(this.jugador);
+  }
+
   onSubmit(){
    
     // el || es porque puede dar jugador o no encontrarlo,(cosa imposible pero para typescript puede courrir)
     this.jugador = this.vJugadores.find(element => element.id == this.multaForm.value.jugador) || new Jugador();
+    console.log(this.jugador);
     this.jugador.multa =  0;
     this.jugador.moroso = false;
     this.listarJugadoresService.setJugador(this.jugador).subscribe(producto => {this.jugador = producto});
@@ -66,12 +72,10 @@ export class LiberarMultaComponent implements OnInit {
       }
     }
     */
+   
   }
 
-  onChange(jg:Jugador){
-    console.log(this.jugadorSeleccionado);
-    this.jugadorSeleccionado = jg;
-  }
+  
 
   crearFormulario() 
   {
@@ -85,7 +89,7 @@ export class LiberarMultaComponent implements OnInit {
     }
 
     onCambioValor(data?: any) {
-      
+      console.log("cambio");
       if(!this.multaForm) { return; }
       const form= this.multaForm;
       for(const field in this.erroresForm) {
