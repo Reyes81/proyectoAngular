@@ -20,10 +20,13 @@
           </div>
           <div>
             <mat-form-field appearance="fill">
+
               <mat-label>Jugador negras</mat-label>
               <mat-select formControlName="jugadorNegras" name="jugadorNegras" required >
-                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugador.id">{{jugador.nombre}} 
+                <ng-container  *ngFor="let jugador of vJugadores">
+                <mat-option style="color: black;"  *ngIf="jugadorBlancas.id != jugador.id" [value]="jugador.id">{{jugador.nombre}} 
                 </mat-option>
+              </ng-container>
               </mat-select>
             </mat-form-field>
           </div>
