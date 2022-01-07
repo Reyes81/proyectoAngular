@@ -6,15 +6,15 @@
       <!--<p>{{ usuario | json }}</p>-->
       
       
-      <form novalidate #formularioCambiarClub="ngForm" (ngSubmit)="onSubmit()">
+      <form novalidate [formGroup]="consultaForm" >
       
      
       <br>
         <div>
             <mat-form-field appearance="fill">
               <mat-label>Jugador</mat-label>
-              <mat-select [(ngModel)]="jugadorSeleccionado.nombre" name="jugadorSeleccionado" required >
-                <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.nombre">{{elemento.nombre}} {{elemento.apellido}}
+              <mat-select formControlName="jugador" name="jugadorSeleccionado" (selectionChange)="onChange()" required >
+                <mat-option style="color: black;" *ngFor="let elemento of vJugadores" [value]="elemento.id">{{elemento.nombre}} {{elemento.apellido}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -25,8 +25,8 @@
 
                    <mat-form-field appearance="fill">
                     <mat-label>Club Origen</mat-label>
-                    <mat-select [(ngModel)]="clubOrigen.nombre" name="clubOrigen" required >
-                      <mat-option style="color: black;" *ngFor="let club_origen of vClubes" [value]="club_origen.nombre">{{club_origen.nombre}}
+                    <mat-select formControlName="club1" name="club"  value="{{jugadorSeleccionado.club.nombre}}">
+                      <mat-option style="color: black;" *ngFor="let elemento of vClubes" [value]="elemento.nombre" >{{elemento.nombre}}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -35,10 +35,10 @@
 
               <mat-form-field appearance="fill">
                <mat-label>Club Destino</mat-label>
-               <mat-select [(ngModel)]="clubDestino.nombre" name="clubDestino" required >
-                 <mat-option style="color: black;" *ngFor="let club_destino of vClubes" [value]="club_destino.nombre">{{club_destino.nombre}}
-                 </mat-option>
-               </mat-select>
+               <mat-select formControlName="club2" name="club" required >
+                <mat-option style="color: black;" *ngFor="let elemento of vClubes" [value]="elemento.nombre" >{{elemento.nombre}}
+                </mat-option>
+              </mat-select>
              </mat-form-field>
        </div>
 
@@ -49,7 +49,7 @@
       
           <button mat-button mat-dialog-close>Cancelar</button>
       
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioCambiarClub.form.invalid">Cambiar Club</button>
+          <button type="submit" mat-button class="background-primary text-floral-white"  [disabled]="consultaForm.invalid" (click)="onSubmit()">Cambiar Club</button>
       
         </mat-dialog-actions>
       </form>
