@@ -12,6 +12,6 @@ export class Torneo {
         this.nombre = "";
         this.categoria = "";
         this.jugadores = [];
-
+        
         }
     }

@@ -50,6 +50,7 @@ import { DetalleJugadorComponent } from './detalle-jugador/detalle-jugador.compo
 import { baseURL } from './compartido/baseurl';
 import { ModificarJugadorComponent } from './modificar-jugador/modificar-jugador.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { IntroducirResultadosComponent } from './introducir-resultados/introducir-resultados.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ApuntarseTorneoComponent,
     DetalleJugadorComponent,
     ModificarJugadorComponent,
+    IntroducirResultadosComponent,
   ],
   imports: [
     BrowserModule,

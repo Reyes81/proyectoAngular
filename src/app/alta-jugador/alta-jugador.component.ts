@@ -173,16 +173,16 @@ export class AltaJugadorComponent implements OnInit {
     if(!this.consultaForm) { return; }
     const form= this.consultaForm;
     for(const field in this.erroresForm) {
-    // Se borrarán los mensajes de error previos
-    this.erroresForm[field] = '';
-    const control = form.get(field);
-    if(control && control.dirty&& !control.valid) {
-    const messages= this.mensajesError[field];
-    for(const key in control.errors) {
-    this.erroresForm[field] += messages[key] + ' ';
+      // Se borrarán los mensajes de error previos
+      this.erroresForm[field] = '';
+      const control = form.get(field);
+      if(control && control.dirty&& !control.valid) {
+        const messages= this.mensajesError[field];
+        for(const key in control.errors) {
+          this.erroresForm[field] += messages[key] + ' ';
+        }
+      }
     }
-    }
-    }
-    }
+  }
 
 }

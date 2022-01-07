@@ -13,6 +13,7 @@ export class ContactoComponent implements OnInit {
   faPhone = faPhone;
   faFax = faFax;
   faEnvelope = faEnvelope;
+  
   consultaForm!: FormGroup;
   consulta: Consulta;
   tipoContacto = TipoContacto;

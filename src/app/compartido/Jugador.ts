@@ -1,3 +1,4 @@
+//import * as internal from "stream";
 import { Club } from "./Club";
 import { Persona } from "./Persona";
 
@@ -9,6 +10,7 @@ export class Jugador extends Persona {
     moroso: boolean;
     club: Club
     multa: number;
+    record: number[];
     
     
     constructor(){
@@ -20,6 +22,8 @@ export class Jugador extends Persona {
 
         this.user = '';
         this.passwd = '';
+
+        this.record = [0, 0, 0];
        
         this.responsable = '';
         this.categoria = '' ;
@@ -29,7 +33,5 @@ export class Jugador extends Persona {
         this.multa = 0;
         
         }
-        
-
     }
     

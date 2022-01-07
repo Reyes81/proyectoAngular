@@ -1,0 +1,44 @@
+<mat-toolbar color="primary"> Introducir resultado
+    <span class="flex-spacer"></span>
+   
+    <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
+      
+      <!--<p>{{ usuario | json }}</p>-->
+      
+      
+      <form novalidate #formularioInscribirjugadortorneo="ngForm" (ngSubmit)="onSubmit()">
+      <br>
+        <br>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Jugador blancas</mat-label>
+              <mat-select [(ngModel)]="jugadorBlancas.nombre" name="jugadorBlancas" required >
+                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugadorBlancas.nombre">{{jugador.nombre}} 
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Jugador negras</mat-label>
+              <mat-select [(ngModel)]="jugadorNegras.nombre" name="jugadorNegras" required >
+                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugadorNegras.nombre">{{jugador.nombre}} 
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Ganador</mat-label>
+              <mat-select [(ngModel)]="resultado" name="resultado" required >
+                <mat-option style="color: black;" *ngFor="let jugador of resultados" [value]="resultados">{{resultados}} 
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        <mat-dialog-actions>
+          <span class="flex-spacer"></span>
+          <button mat-button mat-dialog-close>Cancelar</button>
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioIntroducirResultados.form.invalid">Introducir resultado</button>
+        </mat-dialog-actions>
+      </form>
