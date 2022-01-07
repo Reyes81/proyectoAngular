@@ -6,14 +6,14 @@
       <!--<p>{{ usuario | json }}</p>-->
       
       
-      <form novalidate #formularioInscribirjugadortorneo="ngForm" (ngSubmit)="onSubmit()">
+      <form novalidate [formGroup]="partidaForm" >
       <br>
         <br>
           <div>
             <mat-form-field appearance="fill">
               <mat-label>Jugador blancas</mat-label>
-              <mat-select [(ngModel)]="jugadorBlancas.nombre" name="jugadorBlancas" required >
-                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugador.nombre">{{jugador.nombre}} 
+              <mat-select formControlName="jugadorBlancas" name="jugadorBlancas" required >
+                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugador.id">{{jugador.nombre}} 
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -21,8 +21,8 @@
           <div>
             <mat-form-field appearance="fill">
               <mat-label>Jugador negras</mat-label>
-              <mat-select [(ngModel)]="jugadorNegras.nombre" name="jugadorNegras" required >
-                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugador.nombre">{{jugador.nombre}} 
+              <mat-select formControlName="jugadorNegras" name="jugadorNegras" required >
+                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugador.id">{{jugador.nombre}} 
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -30,7 +30,7 @@
           <div>
             <mat-form-field appearance="fill">
               <mat-label>Ganador</mat-label>
-              <mat-select [(ngModel)]="resultado" name="resultado" required >
+              <mat-select formControlName="resultado" name="resultado" required >
                 <mat-option *ngFor="let resultado of resultados" [value]="resultado.value">
                   {{resultado.viewValue}}
                 </mat-option>
@@ -40,6 +40,6 @@
         <mat-dialog-actions>
           <span class="flex-spacer"></span>
           <button mat-button mat-dialog-close>Cancelar</button>
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="partidaForm.invalid" (click)="onSubmit()">Introducir resultado</button>
+          <button type="submit" mat-button class="background-primary text-floral-white" (click)="onSubmit()" [disabled]="partidaForm.invalid" >Introducir resultado</button>
         </mat-dialog-actions>
       </form>

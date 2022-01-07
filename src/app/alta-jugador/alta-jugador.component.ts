@@ -124,6 +124,7 @@ export class AltaJugadorComponent implements OnInit {
     this.newJugador.multa = 0;
     this.newJugador.moroso = false;
     this.newJugador.responsable = this.jugador.responsable;
+    this.newJugador.record = [0,0,0];
     this.altaJugadorService.setJugador(this.newJugador).subscribe(errorMensaje => this.errorMensaje = <any>errorMensaje);
     
     

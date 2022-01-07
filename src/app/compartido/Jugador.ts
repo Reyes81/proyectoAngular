@@ -10,6 +10,7 @@ export class Jugador extends Persona {
     moroso: boolean;
     club: Club
     multa: number;
+    // Victorias, Derrotas, Empates
     record: number[];
     
     

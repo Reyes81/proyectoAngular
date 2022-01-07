@@ -73,30 +73,29 @@ export class IntroducirResultadosComponent implements OnInit {
     
     const blancas = this.partidaForm.value.jugadorBlancas;
     const negras = this.partidaForm.value.jugadorNegras;
-    console.log(this.partidaForm.value);
+    this.resultado =  this.partidaForm.value.resultado;
 
+    this.jugadorBlancas = this.vJugadores.find(element => element.id == blancas) || new Jugador();
+    this.jugadorNegras = this.vJugadores.find(element => element.id == negras) || new Jugador();
+    /*console.log(this.jugadorBlancas);
+    console.log(this.jugadorNegras);
+    console.log(this.resultado);*/
 
-
-    if(this.resultado == 'blancas'){
-      this.jugadorBlancas = this.vJugadores.find(element => element.id == blancas) || new Jugador();
-      this.jugadorBlancas.record[0]++;
-      this.jugadorNegras = this.vJugadores.find(element => element.id == negras) || new Jugador();
-      this.jugadorNegras.record[1]++;
-      console.log("ajjsijdbdpidb")
-
+    switch(this.resultado.toLowerCase()){
+      case 'blancas':
+        this.jugadorBlancas.record[0] += 1;
+        this.jugadorNegras.record[1] += 1;
+        break;
+      case("negras"):
+        this.jugadorBlancas.record[1] += 1;
+        this.jugadorNegras.record[0] += 1;
+        break;
+      case "tablas":
+        this.jugadorBlancas.record[2] += 1;
+        this.jugadorNegras.record[2] += 1;
+        break;
     }
-    else if(this.resultado == 'negras') {
-      this.jugadorBlancas = this.vJugadores.find(element => element.id == blancas) || new Jugador();
-      this.jugadorBlancas.record[1]++;
-      this.jugadorNegras = this.vJugadores.find(element => element.id == negras) || new Jugador();
-      this.jugadorNegras.record[0]++;
-    }
-    else if(this.resultado == 'tablas') {
-      this.jugadorBlancas = this.vJugadores.find(element => element.id == blancas) || new Jugador();
-      this.jugadorBlancas.record[2]++;
-      this.jugadorNegras = this.vJugadores.find(element => element.id == negras) || new Jugador();
-      this.jugadorNegras.record[2]++;
-    }
+
     this.listarJugadoresService.setJugador(this.jugadorBlancas).subscribe(producto => {this.jugadorBlancas = producto});
     this.listarJugadoresService.setJugador(this.jugadorNegras).subscribe(producto => {this.jugadorNegras = producto});
     this.dialogRef.close();
@@ -105,9 +104,9 @@ export class IntroducirResultadosComponent implements OnInit {
   crearFormulario() 
   {
     this.partidaForm = this.fb.group({
-    jugadorBlancas:  ['', Validators.required],
-    jugadorNegras:  ['', Validators.required],
-    resultado:  ['', Validators.required]
+    jugadorBlancas:  ['',Validators.required],
+    jugadorNegras:  ['',Validators.required],
+    resultado:  ['',Validators.required]
     });
   
     this.partidaForm.valueChanges.subscribe(datos => this.onCambioValor(datos));
@@ -115,9 +114,7 @@ export class IntroducirResultadosComponent implements OnInit {
     }
 
     onCambioValor(data?: any) {
-      if(!this.partidaForm) { 
-        return; 
-      }
+     
       const form= this.partidaForm;
       for(const field in this.erroresForm) {
         // Se borrarán los mensajes de error previos
