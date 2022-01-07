@@ -13,7 +13,7 @@
             <mat-form-field appearance="fill">
               <mat-label>Jugador blancas</mat-label>
               <mat-select [(ngModel)]="jugadorBlancas.nombre" name="jugadorBlancas" required >
-                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugadorBlancas.nombre">{{jugador.nombre}} 
+                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugador.nombre">{{jugador.nombre}} 
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -22,7 +22,7 @@
             <mat-form-field appearance="fill">
               <mat-label>Jugador negras</mat-label>
               <mat-select [(ngModel)]="jugadorNegras.nombre" name="jugadorNegras" required >
-                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugadorNegras.nombre">{{jugador.nombre}} 
+                <mat-option style="color: black;" *ngFor="let jugador of vJugadores" [value]="jugador.nombre">{{jugador.nombre}} 
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -31,7 +31,8 @@
             <mat-form-field appearance="fill">
               <mat-label>Ganador</mat-label>
               <mat-select [(ngModel)]="resultado" name="resultado" required >
-                <mat-option style="color: black;" *ngFor="let jugador of resultados" [value]="resultados">{{resultados}} 
+                <mat-option *ngFor="let resultado of resultados" [value]="resultado.value">
+                  {{resultado.viewValue}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -39,6 +40,6 @@
         <mat-dialog-actions>
           <span class="flex-spacer"></span>
           <button mat-button mat-dialog-close>Cancelar</button>
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="partidaForm.invalid">Introducir resultado</button>
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="partidaForm.invalid" (click)="onSubmit()">Introducir resultado</button>
         </mat-dialog-actions>
       </form>

@@ -3,7 +3,11 @@ import { Jugador } from '../compartido/Jugador';
 import { ListarJugadoresService } from '../services/listar-jugadores.service';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
-import { IfStmt } from '@angular/compiler';
+
+interface Result {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-introducir-resultados',
@@ -19,8 +23,14 @@ export class IntroducirResultadosComponent implements OnInit {
   vJugadores: Jugador[] = [];
   jugadorBlancas: Jugador = new Jugador();
   jugadorNegras: Jugador = new Jugador();
-  resultados: string[] = ['blancas', 'negras', 'tablas']
+  //resultados: string[] = ['blancas', 'negras', 'tablas']
   resultado: string = '';
+
+  resultados: Result[] = [
+    {value: 'blancas', viewValue: 'Blancas'},
+    {value: 'negras', viewValue: 'Negras'},
+    {value: 'tablas', viewValue: 'Tablas'},
+  ];
 
   partidaForm !: FormGroup;
 
@@ -45,6 +55,11 @@ export class IntroducirResultadosComponent implements OnInit {
   
       'required':	'El jugador de negras es obligatorio.',
       },
+
+    'ganador': {
+  
+        'required':	'El jugador de negras es obligatorio.',
+        },
   
   
     };
@@ -67,6 +82,7 @@ export class IntroducirResultadosComponent implements OnInit {
       this.jugadorBlancas.record[0]++;
       this.jugadorNegras = this.vJugadores.find(element => element.id == negras) || new Jugador();
       this.jugadorNegras.record[1]++;
+      console.log("ajjsijdbdpidb")
 
     }
     else if(this.resultado == 'negras') {
@@ -81,11 +97,9 @@ export class IntroducirResultadosComponent implements OnInit {
       this.jugadorNegras = this.vJugadores.find(element => element.id == negras) || new Jugador();
       this.jugadorNegras.record[2]++;
     }
-      this.partidaForm.reset({
-        jugadorBlancas: '',
-        jugadorNegras: '',
-        ganador: false
-        });
+    this.listarJugadoresService.setJugador(this.jugadorBlancas).subscribe(producto => {this.jugadorBlancas = producto});
+    this.listarJugadoresService.setJugador(this.jugadorNegras).subscribe(producto => {this.jugadorNegras = producto});
+    this.dialogRef.close();
   }
 
   crearFormulario() 
