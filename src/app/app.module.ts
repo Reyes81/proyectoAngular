@@ -49,6 +49,8 @@ import { ApuntarseTorneoComponent } from './apuntarse-torneo/apuntarse-torneo.co
 import { DetalleJugadorComponent } from './detalle-jugador/detalle-jugador.component';
 import { baseURL } from './compartido/baseurl';
 import { ModificarJugadorComponent } from './modificar-jugador/modificar-jugador.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 @NgModule({
   declarations: [
@@ -95,8 +97,7 @@ import { ModificarJugadorComponent } from './modificar-jugador/modificar-jugador
     MatNativeDateModule,
     ReactiveFormsModule,
     HttpClientModule,
-  
-
+    MatSlideToggleModule,
   ],
   providers: [ProcesaHTTPMsjService,AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService, ListarFederacionesService, {provide: 'baseURL', useValue: baseURL}],
   entryComponents: [ LoginComponent ],
