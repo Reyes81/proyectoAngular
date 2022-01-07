@@ -10,9 +10,14 @@ export class ReservarEntrenamientoComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ReservarEntrenamientoComponent>) { }
 
+  fecha_reserva:Date = new Date();
+
   ngOnInit(): void {
   }
 
-  onSubmit() {}
+  onSubmit() {
+
+    alert( "Dia: " +  this.fecha_reserva.getDay().toString() + " Mes: " + (Number.parseInt(this.fecha_reserva.getMonth().toString()) + 1) +  " Año: " + this.fecha_reserva.getFullYear());
+  }
 
 }

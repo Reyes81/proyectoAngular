@@ -1,0 +1,16 @@
+import { Entrenador } from "./Entrenador";
+import { Jugador}  from "./Jugador";
+
+export class Entrenamiento {
+    id: number;
+    jugadores:Jugador[];
+    entrenador:Entrenador;
+    reservado:boolean;
+    
+    constructor(){
+        
+        this.entrenador = new Entrenador();
+        this.jugadores = [];
+        this.reservado=false;
+        }
+    }
