@@ -24,7 +24,7 @@
               <mat-label>Jugador negras</mat-label>
               <mat-select formControlName="jugadorNegras" name="jugadorNegras" required >
                 <ng-container  *ngFor="let jugador of vJugadores">
-                <mat-option style="color: black;"  *ngIf="jugadorBlancas.id != jugador.id" [value]="jugador.id">{{jugador.nombre}} 
+                <mat-option style="color: black;"  *ngIf="partidaForm.value.jugadorBlancas != jugador.id" [value]="jugador.id">{{jugador.nombre}} 
                 </mat-option>
               </ng-container>
               </mat-select>
