@@ -38,6 +38,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { BajaJugadorComponent } from './baja-jugador/baja-jugador.component';
 import { CambiarClubComponent } from './cambiar-club/cambiar-club.component';
 import { ListarFederacionesComponent } from './listar-federaciones/listar-federaciones.component';
@@ -100,6 +101,7 @@ import { IntroducirResultadosComponent } from './introducir-resultados/introduci
     ReactiveFormsModule,
     HttpClientModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule,
   ],
   providers: [ProcesaHTTPMsjService,AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService, ListarFederacionesService, {provide: 'baseURL', useValue: baseURL}],
   entryComponents: [ LoginComponent ],

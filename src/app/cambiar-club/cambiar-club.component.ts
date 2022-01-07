@@ -68,11 +68,7 @@ export class CambiarClubComponent implements OnInit {
     this.clubDestino = this.vClubes.find(element => element.nombre == this.consultaForm.value.club2) || new Club();
     //console.log(this.clubDestino);
     
-    if(this.clubOrigen.nombre == this.clubDestino.nombre){
-      alert("Los clubes origen y destino deben ser diferentes");
-    }
-    
-    else{
+
       // Obtenermos id de la respuesta
       this.jugadorSeleccionado.club = this.clubDestino;
 
@@ -82,10 +78,7 @@ export class CambiarClubComponent implements OnInit {
       
       alert("Cambio de club realizado correctamente");
       this.dialogRef.close(this.jugadorSeleccionado);
-      
-    }
     
-   
   }
 
   ObtenerId(): number{
@@ -101,7 +94,6 @@ export class CambiarClubComponent implements OnInit {
     this.consultaForm.value.club1 = this.clubOrigen.nombre;
     
   }
-
 
   crearFormulario() 
   {

@@ -17,13 +17,14 @@ export class ListarJugadoresComponent implements OnInit {
 
 
   vJugadores:Jugador[]= [];
+  errorMensaje: string= "";
 
   constructor(private listarService: ListarJugadoresService, @Inject('baseURL') public BaseURL:string) {
    }
 
 
   ngOnInit(): void {
-    this.listarService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
+    this.listarService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores, errorMensaje=> this.errorMensaje=<any>errorMensaje);
 
   }
 

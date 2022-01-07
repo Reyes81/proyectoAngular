@@ -18,6 +18,13 @@
                 </div>
         </mat-list>
     </div>
+    <div [hidden]="vJugadores.length>0 || errorMensaje">
+        <mat-spinner><h4>Cargando . . . </h4></mat-spinner>
+    </div>
+    <div *ngIf="errorMensaje">
+        <h2>Error</h2>
+        <h4>{{errorMensaje</h4>
+    </div>
   
 </div>
 <!--

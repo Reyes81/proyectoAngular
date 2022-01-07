@@ -30,11 +30,13 @@ export class ListarJugadoresService {
   constructor(private http: HttpClient, private procesaHTTPMsService: ProcesaHTTPMsjService) { }
 
     getJugadores(): Observable<Jugador[]> {
-    return this.http.get<Jugador[]>(baseURL + 'jugadores');
+    return this.http.get<Jugador[]>(baseURL + 'jugadores')
+    .pipe(catchError(this.procesaHTTPMsService.gestionError));
     }
 
     getJugador(id: number): Observable<Jugador> {
-    return this.http.get<Jugador>(baseURL + 'jugadores/'+ id);
+    return this.http.get<Jugador>(baseURL + 'jugadores/'+ id)
+    .pipe(catchError(this.procesaHTTPMsService.gestionError));
     }
     getProductosIds(): Observable<number[] | any>{
     return this.getJugadores() 

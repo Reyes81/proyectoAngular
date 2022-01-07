@@ -8,11 +8,13 @@ import { Jugador } from '../compartido/Jugador';
 import { Club } from '../compartido/Club';
 import { Federacion } from '../compartido/Federacion';
 
+
 import { HttpClient } from '@angular/common/http';
 import { baseURL } from '../compartido/baseurl';
 import { HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
+
 const httpOptions = {
 headers: new HttpHeaders({
 'Content-Type': 'application/json',
@@ -63,10 +65,9 @@ ngOninit(){
 setJugador(newJugador:Jugador): Observable<Jugador> {
   alert(newJugador.nombre + " - " + newJugador.id);
   return this.http.post<Jugador>(baseURL + 'jugadores/', newJugador, httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));
-  
-
-  
 }
+
+
 
     altaClubFederacion(federacion: Federacion, club: Club): void{
 

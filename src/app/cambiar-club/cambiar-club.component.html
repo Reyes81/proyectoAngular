@@ -23,21 +23,18 @@
        
           <div>
 
-                   <mat-form-field appearance="fill">
-                    <mat-label>Club Origen</mat-label>
-                    <mat-select formControlName="club1" name="club"  value="{{jugadorSeleccionado.club.nombre}}">
-                      <mat-option style="color: black;" *ngFor="let elemento of vClubes" [value]="elemento.nombre" >{{elemento.nombre}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
+            Club de Origen: {{jugadorSeleccionado.club.nombre}}
+                
             </div>
+            <br>
             <div>
-
               <mat-form-field appearance="fill">
                <mat-label>Club Destino</mat-label>
                <mat-select formControlName="club2" name="club" required >
-                <mat-option style="color: black;" *ngFor="let elemento of vClubes" [value]="elemento.nombre" >{{elemento.nombre}}
+                 <ng-container  *ngFor="let elemento of vClubes">
+                <mat-option style="color: black;" *ngIf="elemento.nombre!=jugadorSeleccionado.club.nombre" [value]="elemento.nombre" >{{elemento.nombre}}
                 </mat-option>
+              </ng-container>
               </mat-select>
              </mat-form-field>
        </div>

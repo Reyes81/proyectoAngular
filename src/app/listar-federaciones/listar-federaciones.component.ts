@@ -11,9 +11,10 @@ export class ListarFederacionesComponent implements OnInit {
   constructor(private listarFederacionesService:ListarFederacionesService) { }
 
   vFederaciones:Federacion[]= [];
+  errorMensaje:string = "";
 
   ngOnInit(): void {
-    this.listarFederacionesService.getFederaciones().subscribe(federaciones=>this.vFederaciones=federaciones);
+    this.listarFederacionesService.getFederaciones().subscribe(federaciones=>this.vFederaciones=federaciones, errorMensaje=>this.errorMensaje= <any>errorMensaje);
   }
 
 }
