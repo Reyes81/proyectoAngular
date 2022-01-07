@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Jugador } from '../compartido/Jugador';
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { JugadoresService } from '../services/jugadores.service';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 
@@ -16,7 +16,7 @@ interface Result {
 })
 export class IntroducirResultadosComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<IntroducirResultadosComponent>,private listarJugadoresService: ListarJugadoresService) {
+  constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<IntroducirResultadosComponent>,private listarJugadoresService: JugadoresService) {
     this.crearFormulario();
    }
 

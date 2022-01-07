@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ApuntarseTorneoService } from '../services/apuntarse-torneo-service.service';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { ListarTorneosService } from '../services/listar-torneos.service';
+import { TorneosService } from '../services/torneos.service';
 import { Torneo } from '../compartido/Torneo';
 import { Jugador } from '../compartido/Jugador';
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { JugadoresService } from '../services/jugadores.service';
 
 @Component({
   selector: 'app-apuntarse-torneo',
@@ -13,7 +13,7 @@ import { ListarJugadoresService } from '../services/listar-jugadores.service';
 })
 export class ApuntarseTorneoComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ApuntarseTorneoComponent>,private apuntarseTorneoService: ApuntarseTorneoService, private listarTorneosService: ListarTorneosService, private listarJugadores: ListarJugadoresService) { }
+  constructor(public dialogRef: MatDialogRef<ApuntarseTorneoComponent>,private apuntarseTorneoService: ApuntarseTorneoService, private listarTorneosService: TorneosService, private listarJugadores: JugadoresService) { }
 
   vTorneos: Torneo[] = []; 
   vJugadores: Jugador[] = [];

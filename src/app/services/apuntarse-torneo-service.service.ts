@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Torneo } from '../compartido/Torneo';
 import { Jugador } from '../compartido/Jugador';
-import { ListarTorneosService } from '../services/listar-torneos.service';
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { TorneosService } from './torneos.service';
+import { JugadoresService } from './jugadores.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ApuntarseTorneoService {
   jugador: Jugador = new Jugador();
   vTorneos: Torneo[] = [];
 
-  constructor(private listarTorneosService:ListarTorneosService, private listarJugadoresService:ListarJugadoresService) { }
+  constructor(private listarTorneosService:TorneosService, private listarJugadoresService:JugadoresService) { }
 
   ngOnInit(): void {
     this.listarTorneosService.getTorneos().subscribe(torneos=>this.vTorneos=torneos);

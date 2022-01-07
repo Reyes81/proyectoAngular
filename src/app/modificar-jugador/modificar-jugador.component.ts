@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { JugadoresService } from '../services/jugadores.service';
 import { Jugador } from '../compartido/Jugador';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ListarClubesService } from '../services/listar-clubes.service';
+import { ClubesService } from '../services/clubes.service';
 import { Club } from '../compartido/Club';
 
 @Component({
@@ -14,7 +14,7 @@ import { Club } from '../compartido/Club';
 export class ModificarJugadorComponent implements OnInit {
 
   multaForm!: FormGroup;
-  constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<ModificarJugadorComponent>, private listarJugadoresService:ListarJugadoresService,private listarClubesService: ListarClubesService) { }
+  constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<ModificarJugadorComponent>, private listarJugadoresService:JugadoresService,private listarClubesService: ClubesService) { }
 
   vJugadores:Jugador[] = [];
   vClubes:Club[] = [];

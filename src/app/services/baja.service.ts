@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Inject } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { ListarJugadoresService } from './listar-jugadores.service';
+import { JugadoresService } from './jugadores.service';
 import { Jugador } from '../compartido/Jugador';
 import { Observable } from 'rxjs';
 
@@ -26,7 +26,7 @@ export class BajaService {
   vJugadores: Jugador[] = [];
   jugador: Jugador = new Jugador();
 
-  constructor(private http:HttpClient, private listarJugadoresService:ListarJugadoresService, @Inject('baseURL') public BaseURL:string, private procesaHttpmsjService: ProcesaHTTPMsjService) { }
+  constructor(private http:HttpClient, private listarJugadoresService:JugadoresService, @Inject('baseURL') public BaseURL:string, private procesaHttpmsjService: ProcesaHTTPMsjService) { }
 
   ngOninit(){
     this.listarJugadoresService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);

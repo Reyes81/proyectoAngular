@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Federacion } from '../compartido/Federacion';
 import { Club } from '../compartido/Club';
 import { AltaService } from '../services/alta.service';
-import { ListarFederacionesService } from '../services/listar-federaciones.service';
-import { ListarClubesService } from '../services/listar-clubes.service';
+import { FederacionesService } from '../services/federaciones.service';
+import { ClubesService } from '../services/clubes.service';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
@@ -13,7 +13,7 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 })
 export class AltaClubFederacionComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<AltaClubFederacionComponent>,private listarClubesService:ListarClubesService, private listarFederacionesService:ListarFederacionesService, private altaClubFederacionService:AltaService) { }
+  constructor(public dialogRef: MatDialogRef<AltaClubFederacionComponent>,private listarClubesService:ClubesService, private listarFederacionesService:FederacionesService, private altaClubFederacionService:AltaService) { }
 
   vFederaciones: Federacion[] = [];
   vClubes:Club[] =[];
@@ -22,7 +22,7 @@ export class AltaClubFederacionComponent implements OnInit {
   club: Club = new Club();
 
   ngOnInit(): void {
-    this.listarFederacionesService.getFederaciones().subscribe(federciones=>this.vFederaciones=federciones);
+    this.listarFederacionesService.getFederaciones().subscribe(federaciones=>this.vFederaciones=federaciones);
     this.listarClubesService.getClubes().subscribe(clubes=>this.vClubes=clubes);
   }
 

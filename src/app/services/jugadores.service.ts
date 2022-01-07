@@ -20,7 +20,7 @@ const httpOptions = {
 })
 
 
-export class ListarJugadoresService {
+export class JugadoresService {
   
   vJugadores:Jugador[] =[];
     identificador:number = this.vJugadores.length +1;

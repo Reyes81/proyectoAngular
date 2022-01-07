@@ -17,7 +17,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class ListarTorneosService {
+export class TorneosService {
 
   
 

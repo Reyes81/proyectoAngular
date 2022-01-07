@@ -2,8 +2,8 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { observable, Observable, of } from 'rxjs';
-import { ListarJugadoresService } from './listar-jugadores.service';
-import { ListarFederacionesService } from './listar-federaciones.service';
+import { JugadoresService } from './jugadores.service';
+import { FederacionesService } from './federaciones.service';
 import { Jugador } from '../compartido/Jugador';
 import { Club } from '../compartido/Club';
 import { Federacion } from '../compartido/Federacion';
@@ -36,7 +36,7 @@ export class AltaService {
 
   
 
-  constructor(private http:HttpClient, private listarJugadoresService:ListarJugadoresService, private listarFederacionesService: ListarFederacionesService, @Inject('baseURL') public BaseURL:string, private procesaHttpmsjService: ProcesaHTTPMsjService) { }
+  constructor(private http:HttpClient, private listarJugadoresService:JugadoresService, private listarFederacionesService: FederacionesService, @Inject('baseURL') public BaseURL:string, private procesaHttpmsjService: ProcesaHTTPMsjService) { }
    
   /*
     altaJugador(id:number,nombre: string, apellido:string, edad:number, club: Club, user:string, password: string, responsable: string, categoria: string) {

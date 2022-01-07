@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Federacion } from '../compartido/Federacion';
-import { ListarFederacionesService } from '../services/listar-federaciones.service';
+import { FederacionesService } from '../services/federaciones.service';
 @Component({
   selector: 'app-listar-federaciones',
   templateUrl: './listar-federaciones.component.html',
@@ -8,7 +8,7 @@ import { ListarFederacionesService } from '../services/listar-federaciones.servi
 })
 export class ListarFederacionesComponent implements OnInit {
 
-  constructor(private listarFederacionesService:ListarFederacionesService) { }
+  constructor(private listarFederacionesService:FederacionesService) { }
 
   vFederaciones:Federacion[]= [];
   errorMensaje:string = "";

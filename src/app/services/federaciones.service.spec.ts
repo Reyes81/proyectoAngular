@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ListarFederacionesService } from './listar-federaciones.service';
+import { FederacionesService } from './federaciones.service';
 
 describe('ListarFederacionesService', () => {
-  let service: ListarFederacionesService;
+  let service: FederacionesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ListarFederacionesService);
+    service = TestBed.inject(FederacionesService);
   });
 
   it('should be created', () => {

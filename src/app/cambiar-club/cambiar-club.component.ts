@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ListarClubesService } from '../services/listar-clubes.service';
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { ClubesService } from '../services/clubes.service';
+import { JugadoresService } from '../services/jugadores.service';
 import { Jugador } from '../compartido/Jugador';
 import { Club } from '../compartido/Club';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -13,7 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CambiarClubComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<CambiarClubComponent>,private listarJugadoresService:ListarJugadoresService, private listarClubesService: ListarClubesService, private fb: FormBuilder) { 
+  constructor(public dialogRef: MatDialogRef<CambiarClubComponent>,private listarJugadoresService:JugadoresService, private listarClubesService: ClubesService, private fb: FormBuilder) { 
     this.crearFormulario();
   }
 
@@ -74,7 +74,7 @@ export class CambiarClubComponent implements OnInit {
 
       //ADAPTAR A HTTP
 
-      this.listarJugadoresService.setJugador(this.jugadorSeleccionado).subscribe(producto => {this.jugadorSeleccionado = producto});
+      this.listarJugadoresService.setJugador(this.jugadorSeleccionado).subscribe(jugador => {this.jugadorSeleccionado = jugador});
       
       alert("Cambio de club realizado correctamente");
       this.dialogRef.close(this.jugadorSeleccionado);

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { AltaService } from '../services/alta.service';
 import { Jugador } from '../compartido/Jugador';
-import { ListarClubesService } from '../services/listar-clubes.service';
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { ClubesService } from '../services/clubes.service';
+import { JugadoresService } from '../services/jugadores.service';
 import { Club } from '../compartido/Club';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AltaJugadorComponent } from '../alta-jugador/alta-jugador.component';
@@ -20,7 +20,7 @@ export class DetalleJugadorComponent implements OnInit {
   jugador: Jugador = new Jugador();
   vJugadores:Jugador[] = [];
   constructor(private fb: FormBuilder,private altaJugadorService: AltaService, 
-              private listarJugadoresService: ListarJugadoresService, private listarClubesService: ListarClubesService,
+              private listarJugadoresService: JugadoresService, private listarClubesService: ClubesService,
               private router:Router, private route:ActivatedRoute,public dialog: MatDialog) { 
    
 

@@ -21,9 +21,10 @@ import { ProcesaHTTPMsjService } from './services/procesa-httpmsj.service';
 import { AutenticarService } from './services/autenticar.service';
 import { AltaService } from './services/alta.service';
 import { BajaService } from './services/baja.service';
-import { ListarJugadoresService } from './services/listar-jugadores.service';
-import { ListarClubesService } from './services/listar-clubes.service';
-import { ListarFederacionesService } from './services/listar-federaciones.service';
+import { JugadoresService } from './services/jugadores.service';
+import { ClubesService } from './services/clubes.service';
+import { TorneosService } from './services/torneos.service';
+import { FederacionesService } from './services/federaciones.service';
 
 import { AppComponent } from './app.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
@@ -103,7 +104,7 @@ import { IntroducirResultadosComponent } from './introducir-resultados/introduci
     MatSlideToggleModule,
     MatProgressSpinnerModule,
   ],
-  providers: [ProcesaHTTPMsjService,AutenticarService,AltaService,BajaService,ListarJugadoresService, ListarClubesService, ListarFederacionesService, {provide: 'baseURL', useValue: baseURL}],
+  providers: [ProcesaHTTPMsjService,AutenticarService,AltaService,BajaService,JugadoresService, TorneosService, ClubesService, FederacionesService, {provide: 'baseURL', useValue: baseURL}],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]
 })

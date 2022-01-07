@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Jugador } from '../compartido/Jugador';
 import { ListarJugadoresComponent } from '../listar-jugadores/listar-jugadores.component';
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { JugadoresService } from '../services/jugadores.service';
 import { BajaService } from '../services/baja.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
@@ -12,7 +12,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class BajaJugadorComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<BajaJugadorComponent>,private listarService: ListarJugadoresService, private bajaService: BajaService) { }
+  constructor(public dialogRef: MatDialogRef<BajaJugadorComponent>,private listarService: JugadoresService, private bajaService: BajaService) { }
  
     vJugadores:Jugador[]=[]; 
     jugadorSeleccionado:Jugador = new Jugador();

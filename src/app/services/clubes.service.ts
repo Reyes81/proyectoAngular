@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ListarClubesService {
+export class ClubesService {
 
   constructor(private http:HttpClient) { }
 

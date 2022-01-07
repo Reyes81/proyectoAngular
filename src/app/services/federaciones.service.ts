@@ -11,7 +11,7 @@ import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ListarFederacionesService {
+export class FederacionesService {
 
   constructor(private http:HttpClient, private procesaHttpmsjService:ProcesaHTTPMsjService) { }
 

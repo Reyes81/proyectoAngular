@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { JugadoresService } from '../services/jugadores.service';
 import { Jugador } from '../compartido/Jugador';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LiberarMultaComponent implements OnInit {
   multaForm!: FormGroup;
-  constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<LiberarMultaComponent>, private listarJugadoresService:ListarJugadoresService) { }
+  constructor(private fb: FormBuilder,public dialogRef: MatDialogRef<LiberarMultaComponent>, private listarJugadoresService:JugadoresService) { }
 
   vJugadores:Jugador[] = [];
   jugadorSeleccionado: Jugador = new Jugador();

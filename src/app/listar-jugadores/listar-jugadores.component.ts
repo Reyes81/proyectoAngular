@@ -2,7 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Club } from '../compartido/Club';
 import { Jugador } from '../compartido/Jugador';
 import { Persona } from "../compartido/Persona";
-import { ListarJugadoresService } from '../services/listar-jugadores.service';
+import { JugadoresService } from '../services/jugadores.service';
+
 
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -19,7 +20,7 @@ export class ListarJugadoresComponent implements OnInit {
   vJugadores:Jugador[]= [];
   errorMensaje: string= "";
 
-  constructor(private listarService: ListarJugadoresService, @Inject('baseURL') public BaseURL:string) {
+  constructor(private listarService: JugadoresService, @Inject('baseURL') public BaseURL:string) {
    }
 
 
