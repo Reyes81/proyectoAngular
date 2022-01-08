@@ -8,6 +8,11 @@
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
 
+    <p>Seleccione la hora de reserva</p>
+    <mat-form-field>
+        <input matInput type="time" class="bg-none" formControlName="_time" min="09:00" max="18:00"placeholder="Hora de reserva">
+      </mat-form-field>
+
     <mat-dialog-actions>
       
         <span class="flex-spacer"></span>
