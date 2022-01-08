@@ -2,16 +2,27 @@
     <span class="flex-spacer"></span>
     <button mat-button mat-dialog-close>&times;</button></mat-toolbar>
 <br>
+
+  <form novalidate #formularioReservaEntrenamiento="ngForm" >
     <p>Seleccione el día de reserva</p>
-    <form novalidate #formularioReservaEntrenamiento="ngForm" (ngSubmit)="onSubmit()"></form>
-    <input matInput [(ngModel)]="fecha_reserva" [matDatepicker]="picker" placeholder="Pick a date">
+    
+    
+    <input matInput [(ngModel)]="fecha_reserva" [matDatepicker]="picker" placeholder="Pick a date" name="fecha_reserva" style="border: none; ">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
 
     <p>Seleccione la hora de reserva</p>
-    <mat-form-field>
-        <input matInput type="time" class="bg-none" formControlName="_time" min="09:00" max="18:00"placeholder="Hora de reserva">
-      </mat-form-field>
+    
+        
+        <select name="from" id="from" [(ngModel)]="hora_reserva" name="hora_reserva" required>
+          <option value="10">10:00-12:00</option>
+          <option value="12">12:00-14:00</option>
+          <option value="14">14:00-16:00</option>
+          <option value="16">16:00-18:00</option>
+          <option value="18">18:00-20:00</option>
+        
+        </select>
+     
 
     <mat-dialog-actions>
       
@@ -22,3 +33,4 @@
         <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="formularioReservaEntrenamiento.form.invalid" (click)="onSubmit()">Reserva</button>
     
       </mat-dialog-actions>
+    </form>
