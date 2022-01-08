@@ -28,6 +28,7 @@
     "@mat-datetimepicker/core": "^9.0.21",
     "ngx-material-timepicker": "^5.5.3",
     "rxjs": "~7.4.0",
+    "socket.io-client": "^4.4.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

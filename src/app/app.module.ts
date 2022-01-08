@@ -54,6 +54,8 @@ import { baseURL } from './compartido/baseurl';
 import { ModificarJugadorComponent } from './modificar-jugador/modificar-jugador.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { IntroducirResultadosComponent } from './introducir-resultados/introducir-resultados.component';
+import { ChatService } from './services/chat.service';
+import { AtencionComponent } from './atencion/atencion.component';
 
 
 @NgModule({
@@ -78,6 +80,7 @@ import { IntroducirResultadosComponent } from './introducir-resultados/introduci
     DetalleJugadorComponent,
     ModificarJugadorComponent,
     IntroducirResultadosComponent,
+    AtencionComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,7 +109,16 @@ import { IntroducirResultadosComponent } from './introducir-resultados/introduci
     MatProgressSpinnerModule,
     NgxMaterialTimepickerModule,
   ],
-  providers: [ProcesaHTTPMsjService,AutenticarService,AltaService,BajaService,JugadoresService, TorneosService, ClubesService, FederacionesService, {provide: 'baseURL', useValue: baseURL}],
+  providers: [ProcesaHTTPMsjService,
+    AutenticarService,
+    AltaService,
+    BajaService,
+    JugadoresService, 
+    TorneosService, 
+    ClubesService, 
+    FederacionesService,
+    ChatService,
+    {provide: 'baseURL', useValue: baseURL}],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]
 })
