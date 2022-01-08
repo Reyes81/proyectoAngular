@@ -1,6 +1,6 @@
 import { Entrenador } from "./Entrenador";
 import { Jugador}  from "./Jugador";
-import { Fecha } from "./fecha";
+import { Fecha } from "./Fecha";
 import { Club } from "./Club";
  
 

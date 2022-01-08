@@ -17,6 +17,7 @@ import { MatDatepickerModule }from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProcesaHTTPMsjService } from './services/procesa-httpmsj.service';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 import { AutenticarService } from './services/autenticar.service';
 import { AltaService } from './services/alta.service';
@@ -103,6 +104,7 @@ import { IntroducirResultadosComponent } from './introducir-resultados/introduci
     HttpClientModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
+    NgxMaterialTimepickerModule,
   ],
   providers: [ProcesaHTTPMsjService,AutenticarService,AltaService,BajaService,JugadoresService, TorneosService, ClubesService, FederacionesService, {provide: 'baseURL', useValue: baseURL}],
   entryComponents: [ LoginComponent ],
