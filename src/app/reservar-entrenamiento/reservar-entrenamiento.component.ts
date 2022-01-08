@@ -14,9 +14,7 @@ export class ReservarEntrenamientoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   onSubmit() {
-
     alert( "Dia: " +  this.fecha_reserva.getDay().toString() + " Mes: " + (Number.parseInt(this.fecha_reserva.getMonth().toString()) + 1) +  " Año: " + this.fecha_reserva.getFullYear());
   }
 
