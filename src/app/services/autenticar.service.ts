@@ -80,10 +80,10 @@ getLogin(): Observable<any> {
       //Aquí el almacén "usuarios" ya ha esta creado y listo para ser usado
       //Introducimos usuario predefinidos
       let transaccion = db.transaction("usuarios","readwrite").objectStore("usuarios");
-      let req = transaccion.add({nombre: "admin", password: "12345"});
-      let req2 = transaccion.add({nombre: "gerente", password: "12345"});
-      let req3 = transaccion.add({nombre: "jugador1", password: "12345"});
-      let req4 = transaccion.add({nombre: "entrenador", password: "12345"});
+      let req = transaccion.add({nombre: "admin", password: "12345", type:"administrador"});
+      let req2 = transaccion.add({nombre: "gerente", password: "12345", type:"gerente"});
+      let req3 = transaccion.add({nombre: "jugador1", password: "12345", type:"jugador"});
+      let req4 = transaccion.add({nombre: "entrenador", password: "12345",type:"entrenador"});
       
       req.onsuccess = function(event) {
         console.log("Exito");

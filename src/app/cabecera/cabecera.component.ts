@@ -36,6 +36,7 @@ export class CabeceraComponent implements OnInit {
 
   constructor(public dialogo: MatDialog, private autenticarService:AutenticarService) {
     this.autenticarService.getLogin().subscribe(login =>this.login=login);
+
    }
 
   ngOnInit(): void {
