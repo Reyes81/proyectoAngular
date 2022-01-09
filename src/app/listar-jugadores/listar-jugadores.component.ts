@@ -25,7 +25,7 @@ export class ListarJugadoresComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.listarService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores, errorMensaje=> this.errorMensaje=<any>errorMensaje);
+    this.listarService.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
 
   }
 

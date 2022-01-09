@@ -56,6 +56,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { IntroducirResultadosComponent } from './introducir-resultados/introducir-resultados.component';
 import { ChatService } from './services/chat.service';
 import { AtencionComponent } from './atencion/atencion.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 
 @NgModule({
@@ -108,6 +109,7 @@ import { AtencionComponent } from './atencion/atencion.component';
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     NgxMaterialTimepickerModule,
+    RouterTestingModule,
   ],
   providers: [ProcesaHTTPMsjService,
     AutenticarService,

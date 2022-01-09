@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
     <span><img src="../assets/images/logo.png" height=50 width=90></span>
-    <a mat-button [matMenuTriggerFor]="menu"><fa-icon [icon]="faBars"></fa-icon>Menu</a>
+    <a mat-button id="menu" [matMenuTriggerFor]="menu"><fa-icon [icon]="faBars"></fa-icon>Menu</a>
     <a mat-button routerLink="/inicio"><fa-icon [icon]="faHome"></fa-icon> Inicio </a>
     <a mat-button routerLink="/nosotros"><fa-icon [icon]="faInfo"></fa-icon> Nosotros </a>
     <a mat-button routerLink="/contacto"><fa-icon [icon]="faAddressCard"></fa-icon> Contacto </a>
@@ -36,19 +36,19 @@
 
   <mat-menu #menu="matMenu">
 <button mat-menu-item [matMenuTriggerFor]="jugador">Jugador</button>
-<button mat-menu-item [matMenuTriggerFor]="administrador">Administración</button>
+<button mat-menu-item id="admin" [matMenuTriggerFor]="administrador">Administración</button>
 <button mat-menu-item [matMenuTriggerFor]="gerente">Gerencia</button>
 </mat-menu>
 
 <mat-menu #jugador="matMenu">
-<a class="submenu" mat-menu-item (click) = "abrirFormularioReservarEntrenamiento()">Reservar entrenamiento</a>
+<a class="submenu" id="reserva" mat-menu-item (click) = "abrirFormularioReservarEntrenamiento()">Reservar entrenamiento</a>
 <a class="submenu" mat-menu-item (click) = "abrirFormularioIntroducirResultados()">Introducir resultados</a>
 <a class="submenu" mat-menu-item (click)= "abrirFormularioApuntarseATorneo()">Apuntarse a un torneo</a>
 <a class="submenu" mat-menu-item  (click)="abrirFormularioCambiarClub()">Cambio de club</a>
 </mat-menu>
 
 <mat-menu #administrador="matMenu">
-<a class="submenu" mat-menu-item routerLink="/listajugadores">Listar jugadores</a>
+<a class="submenu" id="listaJugadores" mat-menu-item routerLink="/listajugadores">Listar jugadores</a>
 <a class="submenu" mat-menu-item (click)="abrirFormularioAltaJugador()">Alta jugador</a>
 <a class="submenu" mat-menu-item (click)="abrirFormularioBajaJugador()">Baja jugador</a>
 <a class="submenu" mat-menu-item (click)="abrirModificarJugador()">Modificar jugador</a>

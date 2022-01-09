@@ -8,7 +8,7 @@
             <div *ngFor="let elemento of vJugadores;" [routerLink]="['/jugador',elemento.id]">
                 <mat-card class="card">
                     <mat-card-title>
-                        Jugador:  {{elemento.nombre}}  {{elemento.apellido}}
+                        <h1 mat line>Jugador:  {{elemento.nombre}}  {{elemento.apellido}} </h1>
                     </mat-card-title>
                     <mat-card-subtitle>
                           {{elemento.categoria}} {{elemento.edad}} años 

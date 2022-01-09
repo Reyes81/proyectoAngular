@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { JugadoresService } from './jugadores.service';
+import { Jugador } from '../compartido/Jugador';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticarService {
 
+  vJugadores:Jugador[] = [];
   usuario = {nombre: '',password: '',nocerrar:false};
   usuarios:any[] =[];
   db:any;
 
-  constructor() {
+  constructor(private listarJugadores:JugadoresService) {
+    this.listarJugadores.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
     this.abrirBD();
    }
 
