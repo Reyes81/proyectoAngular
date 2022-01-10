@@ -14,7 +14,7 @@
   <ng-template #elseBlock>
     <div>
       <span class="flex-spacer">
-        {{ login.nombre }} <a href="" (click)="cerrarSesion()"> &times; </a>
+        {{ login.nombre }}<a href="" (click)="cerrarSesion()"> &times; </a>
       </span>
     </div>
   </ng-template>
@@ -35,9 +35,9 @@
       <img src="../assets/images/logo.png" alt="Logo" height=140 width=200>
 
   <mat-menu #menu="matMenu">
-<button mat-menu-item [matMenuTriggerFor]="jugador">Jugador</button>
+<button mat-menu-item [matMenuTriggerFor]="jugador" *ngIf="login.type=='jugador'">Jugador</button>
 <button mat-menu-item id="admin" [matMenuTriggerFor]="administrador">Administración</button>
-<button mat-menu-item [matMenuTriggerFor]="gerente">Gerencia</button>
+<button mat-menu-item [matMenuTriggerFor]="gerente" *ngIf="login.type=='gerente'">Gerencia</button>
 </mat-menu>
 
 <mat-menu #jugador="matMenu">

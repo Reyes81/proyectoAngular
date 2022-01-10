@@ -35,7 +35,6 @@ export class AutenticarService {
     else {
       sessionStorage.setItem("usuario", JSON.stringify(this.usuario)); 
     }
-    
     return true; 
     }
     else {

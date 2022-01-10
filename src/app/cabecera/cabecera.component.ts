@@ -30,13 +30,14 @@ export class CabeceraComponent implements OnInit {
   faAddressCard = faAddressCard;
   faBars= faBars;
   faSignInAlt = faSignInAlt;
-
-  login = {nombre:'', password:'', nocerrar:false, type:''};
+  
+  type:string;
+  login = {nombre:'', password:'', type:'', nocerrar:false};
   //jugador = {}
 
   constructor(public dialogo: MatDialog, private autenticarService:AutenticarService) {
     this.autenticarService.getLogin().subscribe(login =>this.login=login);
-
+    this.type= this.login.type;
    }
 
   ngOnInit(): void {

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   mensajesError:any = {
 
-    'nombre': {
+  'nombre': {
 	'required':	'El nombre es obligatorio.',
 
       			'minlength':     'El nombre debe tener una longitud mínima de 2 caracteres.',
@@ -79,6 +79,23 @@ export class LoginComponent implements OnInit {
 
       this.consulta = this.loginForm.value;
       console.log(this.consulta);
+
+      if(this.consulta.nombre=="jugador1"){
+        this.consulta.type="jugador";
+      }
+      else if(this.consulta.nombre=="admin"){
+        this.consulta.type="admin";
+      }
+      else if(this.consulta.nombre=="admin"){
+        this.consulta.type="administrador";
+      }
+      else if(this.consulta.nombre=="gerente"){
+        this.consulta.type="gerente";
+      }
+      else{
+        this.consulta.type="entrenador";
+      }
+
 
       
       
