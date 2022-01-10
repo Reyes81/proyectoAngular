@@ -18,6 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProcesaHTTPMsjService } from './services/procesa-httpmsj.service';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AutenticarService } from './services/autenticar.service';
 import { AltaService } from './services/alta.service';
@@ -110,6 +111,7 @@ import { RouterTestingModule } from '@angular/router/testing';
     MatProgressSpinnerModule,
     NgxMaterialTimepickerModule,
     RouterTestingModule,
+    MatSnackBarModule,
   ],
   providers: [ProcesaHTTPMsjService,
     AutenticarService,

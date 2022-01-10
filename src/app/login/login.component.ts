@@ -3,6 +3,8 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { AutenticarService } from '../services/autenticar.service';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { Login } from '../compartido/Login';
+import { Jugador } from '../compartido/Jugador';
+import { JugadoresService } from '../services/jugadores.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   loginForm !: FormGroup;
   consulta:Login;
-
+  vJugadores:Jugador[] = [];
   erroresForm:any = {
 
     'nombre': '',
@@ -47,12 +49,14 @@ export class LoginComponent implements OnInit {
 
 
   };
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<LoginComponent>,private autenticarService: AutenticarService) { 
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<LoginComponent>,private autenticarService: AutenticarService, private listarJugadores: JugadoresService) { 
     this.crearFormulario();
     this.consulta = new Login();
   }
 
   ngOnInit(): void {
+    this.listarJugadores.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
+    
   }
 
 

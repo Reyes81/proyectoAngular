@@ -9,15 +9,16 @@ export class Entrenamiento {
     jugadores:Jugador[];
     entrenador:Entrenador;
     reservado:boolean;
-    fecha_reserva:Fecha;
+    fecha_reserva:Date;
     club:Club;
+
     
     constructor(){
         this.id = -1;
         this.entrenador = new Entrenador();
         this.jugadores = [];
         this.reservado=false;
-        this.fecha_reserva = new Fecha();
+        this.fecha_reserva = new Date();
         this.club = new Club();
         }
     }

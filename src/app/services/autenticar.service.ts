@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { JugadoresService } from './jugadores.service';
 import { Jugador } from '../compartido/Jugador';
+import { CabeceraComponent } from '../cabecera/cabecera.component';
 
 @Injectable({
   providedIn: 'root'
@@ -9,23 +10,32 @@ import { Jugador } from '../compartido/Jugador';
 export class AutenticarService {
 
   vJugadores:Jugador[] = [];
-  usuario = {nombre: '',password: '',nocerrar:false};
+  usuario = {nombre: '',password: '',nocerrar:false, type: ''};
   usuarios:any[] =[];
   db:any;
 
   constructor(private listarJugadores:JugadoresService) {
-    this.listarJugadores.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
+  
     this.abrirBD();
+    this.listarJugadores.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
    }
 
+   
+   
+   setJugadores(jugs:Jugador[]){
+     this.vJugadores = jugs; 
+     console.log(this.vJugadores);
+   }
    autenticar(usuario:any): boolean {
     //Comprobar si es correcto
     if (this.comprobarUsuario(usuario)){
     if (usuario.nocerrar) {
-    localStorage.setItem("usuario", JSON.stringify(usuario)); }
+      localStorage.setItem("usuario", JSON.stringify(this.usuario)); 
+  }
     else {
-    sessionStorage.setItem("usuario", JSON.stringify(usuario)); 
+      sessionStorage.setItem("usuario", JSON.stringify(this.usuario)); 
     }
+    
     return true; 
     }
     else {
@@ -37,7 +47,7 @@ export class AutenticarService {
 cerrarSesion(): Observable<any>{
   localStorage.removeItem("usuario");
   sessionStorage.removeItem("password");
-  this.usuario={nombre: '',password: '', nocerrar:false};
+  this.usuario={nombre: '',password: '', nocerrar:false, type:''};
   return of(this.usuario);
 }
 
@@ -47,7 +57,7 @@ getLogin(): Observable<any> {
   this.usuario = JSON.parse(usuario);
   }
   else{
-  this.usuario = {nombre: '', password: '', nocerrar: false};
+  this.usuario = {nombre: '', password: '', nocerrar: false, type:''};
   }
   return of(this.usuario);
   }
@@ -66,8 +76,11 @@ getLogin(): Observable<any> {
     db.db = request.result;
     console.log(db.db);
     db.obtenerUsuarios().subscribe(usuarios => db.usuarios = usuarios);
+    
+    
     }
     request.onupgradeneeded = function(event){
+      
       console.log("Creando base de datos");
       //Crear almacén usuarios
       let db = request.result;
@@ -80,10 +93,13 @@ getLogin(): Observable<any> {
       //Aquí el almacén "usuarios" ya ha esta creado y listo para ser usado
       //Introducimos usuario predefinidos
       let transaccion = db.transaction("usuarios","readwrite").objectStore("usuarios");
+      
       let req = transaccion.add({nombre: "admin", password: "12345", type:"administrador"});
       let req2 = transaccion.add({nombre: "gerente", password: "12345", type:"gerente"});
       let req3 = transaccion.add({nombre: "jugador1", password: "12345", type:"jugador"});
       let req4 = transaccion.add({nombre: "entrenador", password: "12345",type:"entrenador"});
+      
+      
       
       req.onsuccess = function(event) {
         console.log("Exito");
@@ -123,12 +139,15 @@ getLogin(): Observable<any> {
           ;
           }
           };
+          this.listarJugadores.getJugadores().subscribe(element=> this.vJugadores =element);
           return of(usuarios);
           }        
 
       comprobarUsuario(login:any):boolean {
           let encontrado = this.usuarios.find(usuario => ((usuario.nombre == login.nombre) && (usuario.password == login.password)) );
+          
           if (encontrado){
+           this.usuario = encontrado;
           return true;
           }
           else{

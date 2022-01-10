@@ -31,7 +31,7 @@ export class CabeceraComponent implements OnInit {
   faBars= faBars;
   faSignInAlt = faSignInAlt;
 
-  login = {nombre:'', password:'', nocerrar:false};
+  login = {nombre:'', password:'', nocerrar:false, type:''};
   //jugador = {}
 
   constructor(public dialogo: MatDialog, private autenticarService:AutenticarService) {
@@ -40,6 +40,8 @@ export class CabeceraComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    
+    
   }
 
   abrirFormularioLogin() { 
@@ -112,5 +114,10 @@ export class CabeceraComponent implements OnInit {
     procesar() {
       this.autenticarService.getLogin().subscribe(login => this.login = login);
     }    
+
+    obtenerUsuario(user:any){
+      this.login = user;
+      console.log(this.login);
+    }
 
 }
