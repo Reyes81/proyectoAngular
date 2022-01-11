@@ -46,7 +46,6 @@ export class ReservarEntrenamientoComponent implements OnInit {
       console.log(element.fecha_reserva)
       if(date === element.fecha_reserva.toString()){
         iguales = true;
-
       }
     });
     if(!iguales){
@@ -55,11 +54,7 @@ export class ReservarEntrenamientoComponent implements OnInit {
     }else{
       this._snackBar.open('Seleccione otra fecha por favor, esta está reservada','OK ', {
         duration: 3000
-          });
-  
+      });
     }
-      
-    
   }
-
 }

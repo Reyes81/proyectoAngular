@@ -31,7 +31,6 @@ export class EntrenamientoService {
     }
 
   setEntrenamiento(newEntrene:Entrenamiento): Observable<Entrenamiento> {
-    
       return this.http.post<Entrenamiento>(baseURL + 'Entrenamientos/', newEntrene, httpOptions).pipe(catchError(this.procesaHTTPMsService.gestionError));
     }
 }
