@@ -34,9 +34,9 @@
       <div fxFlex fxFlex.gt-sm="10%">
       <img src="../assets/images/logo.png" alt="Logo" height=140 width=200>
 
-  <mat-menu #menu="matMenu">
+<mat-menu #menu="matMenu" >
 <button mat-menu-item [matMenuTriggerFor]="jugador" *ngIf="login.type=='jugador'">Jugador</button>
-<button mat-menu-item id="admin" [matMenuTriggerFor]="administrador">Administración</button>
+<button mat-menu-item [matMenuTriggerFor]="administrador" *ngIf="login.type=='admin'">Administración</button>
 <button mat-menu-item [matMenuTriggerFor]="gerente" *ngIf="login.type=='gerente'">Gerencia</button>
 </mat-menu>
 
