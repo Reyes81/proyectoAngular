@@ -3,7 +3,7 @@ import { Jugador } from '../compartido/Jugador';
 import { Observable } from 'rxjs';
 import { map,catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { baseURL } from '../compartido/baseurl';
+import { baseURL, baseURL2 } from '../compartido/baseurl';
 import { HttpHeaders } from '@angular/common/http';
 import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
 
@@ -30,22 +30,23 @@ export class JugadoresService {
   constructor(private http: HttpClient, private procesaHTTPMsService: ProcesaHTTPMsjService) { }
 
     getJugadores(): Observable<Jugador[]> {
-    return this.http.get<Jugador[]>(baseURL + 'jugadores')
+    return this.http.get<Jugador[]>(baseURL2 + 'jugadores/')
     .pipe(catchError(this.procesaHTTPMsService.gestionError));
     }
 
     getJugador(id: number): Observable<Jugador> {
-    return this.http.get<Jugador>(baseURL + 'jugadores/'+ id)
+    return this.http.get<Jugador>(baseURL2 + 'jugadores/'+ id)
     .pipe(catchError(this.procesaHTTPMsService.gestionError));
     }
-    getProductosIds(): Observable<number[] | any>{
+
+    getJugadoresIds(): Observable<number[] | any>{
     return this.getJugadores() 
     .pipe(map(jugadores => jugadores.map(jugador => jugador.id))) ;
     }
 
-    setJugador(producto:Jugador): Observable<Jugador> {
+    setJugador(jugador:Jugador): Observable<Jugador> {
       
-      return this.http.put<Jugador>(baseURL + 'jugadores/'+ producto.id, producto, httpOptions)
+      return this.http.put<Jugador>(baseURL2 + 'jugadores/'+ jugador.id, jugador, httpOptions)
       .pipe(catchError(this.procesaHTTPMsService.gestionError));
     }
     /*

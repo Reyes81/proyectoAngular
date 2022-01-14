@@ -10,7 +10,7 @@ import { Federacion } from '../compartido/Federacion';
 
 
 import { HttpClient } from '@angular/common/http';
-import { baseURL } from '../compartido/baseurl';
+import { baseURL, baseURL2 } from '../compartido/baseurl';
 import { HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
@@ -64,7 +64,7 @@ ngOninit(){
 }
 setJugador(newJugador:Jugador): Observable<Jugador> {
   alert(newJugador.nombre + " - " + newJugador.id);
-  return this.http.post<Jugador>(baseURL + 'jugadores/', newJugador, httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));
+  return this.http.post<Jugador>(baseURL2 + 'jugadores/', newJugador, httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));
 }
 
 
