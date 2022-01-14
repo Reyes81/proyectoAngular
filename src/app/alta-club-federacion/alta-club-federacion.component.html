@@ -14,8 +14,8 @@
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Federación</mat-label>
-            <mat-select [(ngModel)]="federacion.nombre" name="federacion" required >
-              <mat-option style="color: black;" *ngFor="let elemento of vFederaciones" [value]="elemento.nombre">{{elemento.nombre}} 
+            <mat-select [(ngModel)]="federacion.nombre_federacion" name="federacion" required >
+              <mat-option style="color: black;" *ngFor="let elemento of vFederaciones" [value]="elemento.nombre_federacion">{{elemento.nombre_federacion}} 
               </mat-option>
             </mat-select>
           </mat-form-field>

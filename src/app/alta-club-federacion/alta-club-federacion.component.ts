@@ -37,7 +37,7 @@ export class AltaClubFederacionComponent implements OnInit {
     else{
     for(var i = 0; i < this.federacion.clubes.length; i++ ){
         if(this.federacion.clubes[i].nombre == this.club.nombre){
-          alert("El club de nombre " + this.club.nombre + "ya está inscrito en la " + this.vFederaciones[i].nombre );
+          alert("El club de nombre " + this.club.nombre + "ya está inscrito en la " + this.vFederaciones[i].nombre_federacion );
         }
         else{
           this.altaClubFederacionService.altaClubFederacion(this.federacion, this.club);

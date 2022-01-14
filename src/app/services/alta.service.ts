@@ -73,10 +73,10 @@ setJugador(newJugador:Jugador): Observable<Jugador> {
     altaClubFederacion(federacion: Federacion, club: Club): void{
 
       for(var i = 0; i < this.vFederaciones.length; i++){
-        if(this.vFederaciones[i].nombre == federacion.nombre){
+        if(this.vFederaciones[i].nombre_federacion == federacion.nombre_federacion){
           this.vFederaciones[i].clubes.push(club);
           this.listarFederacionesService.setListaFederaciones(this.vFederaciones);
-          alert("El club " + club.nombre + " se ha inscrito correctamente en la federación " + federacion.nombre)
+          alert("El club " + club.nombre + " se ha inscrito correctamente en la federación " + federacion.nombre_federacion)
         }
       } 
 
