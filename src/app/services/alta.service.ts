@@ -18,7 +18,7 @@ import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
 const httpOptions = {
 headers: new HttpHeaders({
 'Content-Type': 'application/json',
-'Authorization': 'my-auth-token'
+
 })
 };
 
@@ -63,9 +63,9 @@ ngOninit(){
   this.listarFederacionesService.getFederaciones().subscribe(federaciones=>this.vFederaciones=federaciones);
 }
 setJugador(newJugador:Jugador): Observable<Jugador> {
-  alert(newJugador.nombre + " - " + newJugador.id);
+  alert(JSON.stringify(newJugador));
   
-  return this.http.post<Jugador>(baseURL2 + 'jugadores/', "{\"nombre\":\""+newJugador.nombre +"\",\"edad\":\"30\"}", httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));
+  return this.http.post<Jugador>(baseURL2 + 'jugadores/', "{\"nombre\":\""+newJugador.nombre + "\",\"edad\":\""+newJugador.edad+"\", \"moroso\":\""+newJugador.moroso+"\"}", httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));
 }
 
 
