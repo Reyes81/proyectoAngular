@@ -124,7 +124,7 @@ export class DetalleJugadorComponent implements OnInit {
   crearFormulario() 
 {
 
-  console.log("formulario " + this.jugador.nombre)
+  console.log(this.jugador)
   this.consultaForm = this.fb.group({
   nombre:  [this.jugador.nombre, Validators.required],
   apellido:  [this.jugador.apellido, Validators.required],

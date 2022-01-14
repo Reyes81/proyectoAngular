@@ -111,7 +111,7 @@ export class AltaJugadorComponent implements OnInit {
     // añandir para cambiar formulario
     this.jugador = this.consultaForm.value;
 
-    this.newJugador.id = this.listarJugadoresService.MayorId();
+    this.newJugador.id = 5;
     this.newJugador.nombre = this.jugador.nombre;
     this.newJugador.apellido = this.jugador.apellido;
     this.newJugador.edad = this.jugador.edad;
@@ -125,6 +125,8 @@ export class AltaJugadorComponent implements OnInit {
     this.newJugador.moroso = false;
     this.newJugador.responsable = this.jugador.responsable;
     this.newJugador.record = [0,0,0];
+
+    console.log(this.newJugador);
     this.altaJugadorService.setJugador(this.newJugador).subscribe(errorMensaje => this.errorMensaje = <any>errorMensaje);
     
     

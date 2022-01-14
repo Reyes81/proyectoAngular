@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Club } from '../compartido/Club';
 import { HttpClient } from '@angular/common/http';
-import { baseURL } from '../compartido/baseurl';
+import { baseURL2 } from '../compartido/baseurl';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -25,11 +25,11 @@ export class ClubesService {
   }
 
   getClubes(): Observable<Club[]> {
-    return this.http.get<Club[]>(baseURL + 'clubes');
+    return this.http.get<Club[]>(baseURL2 + 'club/');
     }
 
     getClub(id: number): Observable<Club> {
-    return this.http.get<Club>(baseURL + 'clubes/'+ id);
+    return this.http.get<Club>(baseURL2 + 'club/'+ id);
     }
     getClubesIds(): Observable<number[] | any>{
     return this.getClubes() 

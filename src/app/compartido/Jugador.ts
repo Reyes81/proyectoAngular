@@ -1,6 +1,7 @@
 //import * as internal from "stream";
 import { Club } from "./Club";
 import { Persona } from "./Persona";
+import { Partida } from "./partida";
 
 export class Jugador extends Persona {
     id: number;
@@ -12,7 +13,7 @@ export class Jugador extends Persona {
     multa: number;
     // Victorias, Derrotas, Empates
     record: number[];
-    
+    partidas: Partida[];
     
     constructor(){
         super();
@@ -31,7 +32,9 @@ export class Jugador extends Persona {
         this.moroso = false;
         this.club = new Club();
 
-        this.multa = 0;
+        this.multa = 0.0;
+        this.partidas = [];
+        
         
         }
     }
