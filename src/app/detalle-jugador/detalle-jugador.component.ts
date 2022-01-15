@@ -132,7 +132,7 @@ export class DetalleJugadorComponent implements OnInit {
   club:  this.jugador.club,
   categoria: this.vCategorias[0],
   user: [this.jugador.user, Validators.required],
-  password:  [this.jugador.passwd, Validators.required],
+  password:  [this.jugador.password, Validators.required],
   responsable:this.jugador.responsable
   });
 

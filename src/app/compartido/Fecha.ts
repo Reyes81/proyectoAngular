@@ -4,7 +4,7 @@ export class Fecha {
     anyo: number;
     horas: number;
     minutos: number;
-    segundos: number;
+    
     
     constructor(){
         this.dia = -1;
@@ -12,6 +12,6 @@ export class Fecha {
         this.anyo = -1;
         this.horas = -1;
         this.minutos = -1;
-        this.segundos = -1;
+        
         }
     }

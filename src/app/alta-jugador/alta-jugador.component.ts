@@ -6,6 +6,7 @@ import { ClubesService } from '../services/clubes.service';
 import { JugadoresService } from '../services/jugadores.service';
 import { Club } from '../compartido/Club';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Responsable } from '../compartido/Responsable';
 
 
 @Component({
@@ -120,9 +121,10 @@ export class AltaJugadorComponent implements OnInit {
     this.newJugador.club = this.club;
     this.newJugador.categoria = this.jugador.categoria
     this.newJugador.user = this.jugador.user;
-    this.newJugador.passwd = this.jugador.password;
+    this.newJugador.password = this.jugador.password;
     this.newJugador.multa = 0;
     this.newJugador.moroso = false;
+ 
     this.newJugador.responsable = this.jugador.responsable;
     this.newJugador.record = [0,0,0];
 

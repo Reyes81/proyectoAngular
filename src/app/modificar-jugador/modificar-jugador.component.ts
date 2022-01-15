@@ -5,6 +5,7 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClubesService } from '../services/clubes.service';
 import { Club } from '../compartido/Club';
+import { Responsable } from '../compartido/Responsable';
 
 @Component({
   selector: 'app-modificar-jugador',
@@ -123,7 +124,7 @@ export class ModificarJugadorComponent implements OnInit {
     this.jugador.club = this.club;
     this.jugador.categoria = this.multaForm.value.categoria;
     this.jugador.user = this.multaForm.value.user;
-    this.jugador.passwd = this.multaForm.value.password;
+    this.jugador.password = this.multaForm.value.password;
     this.jugador.responsable = this.multaForm.value.responsable;
 
 
@@ -149,7 +150,7 @@ export class ModificarJugadorComponent implements OnInit {
       categoria: [this.vCategorias[0], Validators.required],
       user: ['', Validators.required],
       password: ['', Validators.required],
-      responsable:['']
+      responsable:[new Responsable]
     });
   
     this.multaForm.valueChanges.subscribe(datos => this.onCambioValor(datos));

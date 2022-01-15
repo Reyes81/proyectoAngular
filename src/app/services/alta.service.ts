@@ -64,9 +64,11 @@ ngOninit(){
 }
 setJugador(newJugador:Jugador): Observable<Jugador> {
   alert(JSON.stringify(newJugador));
-  
-  return this.http.post<Jugador>(baseURL2 + 'jugadores/', "{\"nombre\":\""+newJugador.nombre + "\",\"edad\":\""+newJugador.edad+"\", \"moroso\":\""+newJugador.moroso+"\"}", httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));
+  //let i = "{\"nombre\":\""+newJugador.nombre + "\",\"edad\":\""+newJugador.edad+"\", \"moroso\":\""+newJugador.moroso+"\", \"user\":\""+newJugador.user+"\", \"password\":\""+newJugador.passwd+"\", \"multa\":\""+newJugador.multa+"\", \"responsable\":\""+newJugador.responsable+"\", \"club\":{\"nombre\":\""+newJugador.club.nombre +"\", \"id\":\""+newJugador.club.id +"\" } }";
+  //let i = "{\"nombre\":\""+newJugador.nombre + "\",\"edad\":\""+newJugador.edad+"\", \"moroso\":\""+newJugador.moroso+"\", \"user\":\""+newJugador.user+"\", \"password\":\""+newJugador.password+"\", \"multa\":\""+newJugador.multa+"\", \"responsable\":\""+newJugador.responsable.nombre+"\", \"club\":"+ JSON.stringify(newJugador.club)+", \"categoria\":\""+newJugador.categoria + "\"  }";
+  return this.http.post<Jugador>(baseURL2 + 'jugadores/', JSON.stringify(newJugador) , httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));
 }
+
 
 
 

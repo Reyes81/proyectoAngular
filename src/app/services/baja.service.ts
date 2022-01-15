@@ -6,14 +6,14 @@ import { Jugador } from '../compartido/Jugador';
 import { Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
-import { baseURL } from '../compartido/baseurl';
+import { baseURL2 } from '../compartido/baseurl';
 import { HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
 const httpOptions = {
   headers: new HttpHeaders({
   'Content-Type': 'application/json',
-  'Authorization': 'my-auth-token'
+ 
   })
   };
 
@@ -33,7 +33,7 @@ export class BajaService {
   }
 
   public bajaJugador(id: number): Observable<Jugador> {
-    return this.http.delete<Jugador>(baseURL + 'jugadores/'+ id, httpOptions);
+    return this.http.delete<Jugador>(baseURL2 + 'jugadores/'+ id, httpOptions);
     }
 
     

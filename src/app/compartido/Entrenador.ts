@@ -14,7 +14,7 @@ export class Entrenador extends Persona {
         this.edad = 0;
 
         this.user = '';
-        this.passwd = '';
+        this.password = '';
 
         this.clubes = [];
         }

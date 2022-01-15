@@ -9,9 +9,9 @@ export class Gerente extends Persona {
     IRPF:number;
     retenciones:number[];
     clubes: Club[];
-    club_actual:Club;
+    Club:Club;
     
-    constructor(){
+    constructor(b:Club){
         super();
         this.id = -1;
         this.nombre = '';
@@ -19,7 +19,7 @@ export class Gerente extends Persona {
         this.edad = 0;
 
         this.user = '';
-        this.passwd = '';
+        this.password = '';
 
         this.clubes = [];
 
@@ -27,6 +27,7 @@ export class Gerente extends Persona {
         this.nominas=[];
         this.IRPF=0;
         this.retenciones=[];
-        this.club_actual= new Club();
+        this.Club = b;
+       
         }
     }

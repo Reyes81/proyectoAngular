@@ -3,7 +3,7 @@ export class Persona {
     apellido: string;
     edad:number;
     user:string;
-    passwd:string;
+    password:string;
     
     constructor(){
     
@@ -11,7 +11,7 @@ export class Persona {
         this.apellido = "";
         this.edad = 0;
         this.user ="" ;
-        this.passwd ="";
+        this.password ="";
         }
     }
     

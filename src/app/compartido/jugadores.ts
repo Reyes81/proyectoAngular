@@ -14,7 +14,7 @@ export const JUGADORES: Jugador[] = [
       moroso: false,
       multa: 0,
       club: {
-        id: 0,
+        id: "0",
         nombre: "Club1",
         sede: "Sede1"
       },
@@ -36,7 +36,7 @@ export const JUGADORES: Jugador[] = [
       moroso: false,
       multa: 0,
       club: {
-        id: 1,
+        id: "1",
         nombre: "Club2",
         sede: "Sede2"
       },
@@ -58,7 +58,7 @@ export const JUGADORES: Jugador[] = [
       moroso: false,
       multa: 0,
       club: {
-        id: 2,
+        id: "2",
         nombre: "Club3",
         sede: "Sede3"
       },

@@ -2,6 +2,7 @@
 import { Club } from "./Club";
 import { Persona } from "./Persona";
 import { Partida } from "./partida";
+import { Responsable } from "./Responsable";
 
 export class Jugador extends Persona {
     id: number;
@@ -14,6 +15,7 @@ export class Jugador extends Persona {
     // Victorias, Derrotas, Empates
     record: number[];
     partidas: Partida[];
+    clubes: Club[];
     
     constructor(){
         super();
@@ -23,7 +25,7 @@ export class Jugador extends Persona {
         this.edad = 0;
 
         this.user = '';
-        this.passwd = '';
+        this.password = '';
 
         this.record = [0, 0, 0];
        
@@ -34,6 +36,7 @@ export class Jugador extends Persona {
 
         this.multa = 0.0;
         this.partidas = [];
+        this.clubes = [];
         
         
         }
