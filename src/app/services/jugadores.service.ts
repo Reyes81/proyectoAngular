@@ -11,7 +11,7 @@ import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
 const httpOptions = {
   headers: new HttpHeaders({
   'Content-Type': 'application/json',
-  'Authorization': 'my-auth-token'
+ 
   })
   };
 
@@ -46,7 +46,7 @@ export class JugadoresService {
 
     setJugador(jugador:Jugador): Observable<Jugador> {
       
-      return this.http.put<Jugador>(baseURL2 + 'jugadores/'+ jugador.id, jugador, httpOptions)
+      return this.http.put<Jugador>(baseURL2 + 'jugadores/'+ jugador.id, JSON.stringify(jugador), httpOptions)
       .pipe(catchError(this.procesaHTTPMsService.gestionError));
     }
     /*

@@ -53,7 +53,7 @@ export class LiberarMultaComponent implements OnInit {
     // el || es porque puede dar jugador o no encontrarlo,(cosa imposible pero para typescript puede courrir)
     this.jugador = this.vJugadores.find(element => element.id == this.multaForm.value.jugador) || new Jugador();
     console.log(this.jugador);
-    this.jugador.multa =  0;
+    this.jugador.multa =  -1;
     this.jugador.moroso = false;
     this.listarJugadoresService.setJugador(this.jugador).subscribe(producto => {this.jugador = producto});
     this.dialogRef.close(this.jugadorSeleccionado);

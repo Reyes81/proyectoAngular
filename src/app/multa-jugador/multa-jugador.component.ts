@@ -57,7 +57,7 @@ export class MultaJugadorComponent implements OnInit {
 
     // el || es porque puede dar jugador o no encontrarlo,(cosa imposible pero para typescript puede courrir)
     this.jugador = this.vJugadores.find(element => element.id == ident) || new Jugador();
-    this.jugador.multa +=  this.multaForm.value.multa;
+    this.jugador.multa =  this.multaForm.value.multa/2;
     this.jugador.moroso = true;
     this.listarJugadoresService.setJugador(this.jugador).subscribe(producto => {this.jugador = producto});
     //alert("Multas del jugador " + this.vJugadores[i].nombre + "=" +this.vJugadores[i].multa + "€");
