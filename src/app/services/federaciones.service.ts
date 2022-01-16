@@ -32,7 +32,7 @@ export class FederacionesService {
 
  
   getFederaciones(): Observable<Federacion[]> {
-    return this.http.get<Federacion[]>(baseURL2 + 'federaciones')
+    return this.http.get<Federacion[]>(baseURL2 + 'federaciones/')
     .pipe(catchError(this.procesaHttpmsjService.gestionError));
     }
 
