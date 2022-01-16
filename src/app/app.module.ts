@@ -58,6 +58,8 @@ import { IntroducirResultadosComponent } from './introducir-resultados/introduci
 import { ChatService } from './services/chat.service';
 import { AtencionComponent } from './atencion/atencion.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { PartidaTorneoComponent } from './partida-torneo/partida-torneo.component';
+import { PartidasService } from './services/partida.service';
 
 
 @NgModule({
@@ -83,6 +85,7 @@ import { RouterTestingModule } from '@angular/router/testing';
     ModificarJugadorComponent,
     IntroducirResultadosComponent,
     AtencionComponent,
+    PartidaTorneoComponent,
   ],
   imports: [
     BrowserModule,
@@ -122,6 +125,7 @@ import { RouterTestingModule } from '@angular/router/testing';
     ClubesService, 
     FederacionesService,
     ChatService,
+    PartidasService,
     {provide: 'baseURL', useValue: baseURL}],
   entryComponents: [ LoginComponent ],
   bootstrap: [AppComponent]

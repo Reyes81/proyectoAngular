@@ -13,7 +13,7 @@ import { JugadoresService } from '../services/jugadores.service';
 })
 export class ApuntarseTorneoComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ApuntarseTorneoComponent>,private apuntarseTorneoService: ApuntarseTorneoService, private listarTorneosService: TorneosService, private listarJugadores: JugadoresService) { }
+  constructor(public dialogRef: MatDialogRef<ApuntarseTorneoComponent>,private apuntarseTorneoService: ApuntarseTorneoService, private torneosService: TorneosService, private listarJugadores: JugadoresService) { }
 
   vTorneos: Torneo[] = []; 
   vJugadores: Jugador[] = [];
@@ -25,27 +25,28 @@ export class ApuntarseTorneoComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarJugadores.getJugadores().subscribe(jugadores=>this.vJugadores=jugadores);
-    this.listarTorneosService.getTorneos().subscribe(torneos=>this.vTorneos=torneos);
+    this.torneosService.getTorneos().subscribe(torneos=>this.vTorneos=torneos);
   }
 
   onSubmit() {
-  
-    alert(this.torneo.jugadores.length);
-    if(this.torneo.jugadores.length==0)
-    {
-      this.apuntarseTorneoService.apuntarJugadorTorneo(this.torneo, this.jugador);
-      this.dialogRef.close(this.jugador.nombre);
-    }
-    else{
+    let existe:boolean = false;
+
       for(var i = 0; i < this.torneo.jugadores.length; i++ ){
         if(this.torneo.jugadores[i].nombre == this.jugador.nombre){
+          existe = true;
           alert("El Jugador de nombre " + this.jugador.nombre + "ya está inscrito en el " + this.vTorneos[i].nombre + "Los jugadores inscritos son: " + this.vJugadores );
         }
-        else{
-          this.apuntarseTorneoService.apuntarJugadorTorneo(this.torneo, this.jugador);
-          this.dialogRef.close(this.jugador.nombre);
         }
-      }
+        if(existe == true){
+          alert("El jugador existe");
+        }
+        else{
+         
+              this.torneo.jugadores.push(this.jugador);
+              alert(this.torneo.jugadores.length);
+              this.torneosService.updateTorneo(this.torneo).subscribe(torneo => {this.torneo = torneo});;
+              this.dialogRef.close();
+
+            }
     }
-  }
 }

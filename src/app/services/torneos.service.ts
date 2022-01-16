@@ -59,6 +59,10 @@ export class TorneosService {
 
     addTorneo(newTorneo: Torneo): Observable<Torneo>{
       return this.http.post<Torneo>(baseURL + 'torneos/', newTorneo, httpOptions).pipe(catchError(this.procesaHttpmsjService.gestionError));
-  }
+    }
+      updateTorneo(torneo:Torneo):Observable<Torneo>{
+        return this.http.put<Torneo>(baseURL + 'torneos/'+ torneo.id, torneo, httpOptions)
+        .pipe(catchError(this.procesaHttpmsjService.gestionError));
+      }
+    }
 
-}

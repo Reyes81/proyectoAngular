@@ -28,22 +28,24 @@ export class AltaClubFederacionComponent implements OnInit {
 
   onSubmit() {
   
-    alert(this.federacion.clubes.length);
-    if(this.federacion.clubes.length==0)
-    {
-      this.altaClubFederacionService.altaClubFederacion(this.federacion, this.club);
-      this.dialogRef.close(this.club.nombre);
-    }
-    else{
+    let existe:boolean = false;
+
     for(var i = 0; i < this.federacion.clubes.length; i++ ){
-        if(this.federacion.clubes[i].nombre == this.club.nombre){
-          alert("El club de nombre " + this.club.nombre + "ya está inscrito en la " + this.vFederaciones[i].nombre_federacion );
-        }
-        else{
-          this.altaClubFederacionService.altaClubFederacion(this.federacion, this.club);
-          this.dialogRef.close(this.club.nombre);
-        }
+      if(this.federacion.clubes[i].nombre == this.club.nombre){
+        existe = true;
+        alert("El club de nombre " + this.club.nombre + "ya está inscrito en la " + this.vFederaciones[i].nombre_federacion + "Los clubes inscritos son: " + this.vClubes );
       }
-    }
+      }
+      if(existe == true){
+        alert("El club existe");
+      }
+      else{
+       
+            this.federacion.clubes.push(this.club);
+            alert(this.federacion.clubes.length);
+            this.listarFederacionesService.addClub(this.federacion).subscribe(federacion => {this.federacion = federacion});;
+            this.dialogRef.close();
+
+          }
   }
 }

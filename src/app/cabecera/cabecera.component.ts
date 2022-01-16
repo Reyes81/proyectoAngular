@@ -16,6 +16,7 @@ import { MultaJugadorComponent } from '../multa-jugador/multa-jugador.component'
 import { LiberarMultaComponent } from '../liberar-multa/liberar-multa.component';
 import { ModificarJugadorComponent } from '../modificar-jugador/modificar-jugador.component';
 import { IntroducirResultadosComponent } from '../introducir-resultados/introducir-resultados.component';
+import { PartidaTorneoComponent } from '../partida-torneo/partida-torneo.component';
 
 @Component({
   selector: 'app-cabecera',
@@ -105,6 +106,11 @@ export class CabeceraComponent implements OnInit {
       let dialogo = this.dialogo.open(IntroducirResultadosComponent, {width: '500px', height: '450px'});
           //dialogo.afterClosed().subscribe(result =>this.login=result);
       }
+
+      abrirFormularioPartidaTorneo() { 
+        let dialogo = this.dialogo.open(PartidaTorneoComponent, {width: '500px', height: '450px'});
+            //dialogo.afterClosed().subscribe(result =>this.login=result);
+        }
 
   cerrarSesion(){
     this.autenticarService.cerrarSesion().subscribe(login=>this.login=login);

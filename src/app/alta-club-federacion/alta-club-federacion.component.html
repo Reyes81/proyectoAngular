@@ -14,8 +14,8 @@
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Federación</mat-label>
-            <mat-select [(ngModel)]="federacion.nombre_federacion" name="federacion" required >
-              <mat-option style="color: black;" *ngFor="let elemento of vFederaciones" [value]="elemento.nombre_federacion">{{elemento.nombre_federacion}} 
+            <mat-select [(ngModel)]="federacion" name="federacion" required >
+              <mat-option style="color: black;" *ngFor="let elemento of vFederaciones" [value]="elemento">{{elemento.nombre_federacion}} 
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -25,8 +25,8 @@
           <div>
             <mat-form-field appearance="fill">
               <mat-label>Club</mat-label>
-              <mat-select formControlName="club" name="club"  required>
-                <mat-option style="color: black;" *ngFor="let club of vClubes" [value]="club.nombre">{{club.nombre}} 
+              <mat-select  [(ngModel)]="club" name="club"  required>
+                <mat-option style="color: black;" *ngFor="let club of vClubes" [value]="club">{{club.nombre}} 
                 </mat-option>
               </mat-select>
             </mat-form-field>

@@ -6,7 +6,15 @@ import { HttpClient } from '@angular/common/http';
 import { baseURL } from '../compartido/baseurl';
 import { Observable } from 'rxjs';
 import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
+import { HttpHeaders } from '@angular/common/http';
 
+
+const httpOptions = {
+  headers: new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Authorization': 'my-auth-token'
+  })
+  };
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +44,10 @@ export class FederacionesService {
     getFederacionesIds(): Observable<number[] | any>{
     return this.getFederaciones() 
     .pipe(map(federaciones => federaciones.map(federacion => federacion.id))) ;
+    }
+
+    addClub(federacion:Federacion):Observable<Federacion>{
+      return this.http.put<Federacion>(baseURL + 'federaciones/'+ federacion.id, federacion, httpOptions)
+      .pipe(catchError(this.procesaHttpmsjService.gestionError));
     }
 }
