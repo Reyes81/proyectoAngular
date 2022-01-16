@@ -3,7 +3,7 @@ import { Federacion } from '../compartido/Federacion';
 
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { baseURL } from '../compartido/baseurl';
+import { baseURL2 } from '../compartido/baseurl';
 import { Observable } from 'rxjs';
 import { ProcesaHTTPMsjService } from './procesa-httpmsj.service';
 import { HttpHeaders } from '@angular/common/http';
@@ -32,12 +32,12 @@ export class FederacionesService {
 
  
   getFederaciones(): Observable<Federacion[]> {
-    return this.http.get<Federacion[]>(baseURL + 'federaciones')
+    return this.http.get<Federacion[]>(baseURL2 + 'federaciones')
     .pipe(catchError(this.procesaHttpmsjService.gestionError));
     }
 
     getFederacion(id: number): Observable<Federacion> {
-    return this.http.get<Federacion>(baseURL + 'federaciones/'+ id)
+    return this.http.get<Federacion>(baseURL2 + 'federaciones/'+ id)
     .pipe(catchError(this.procesaHttpmsjService.gestionError));
     
     }
@@ -47,7 +47,7 @@ export class FederacionesService {
     }
 
     addClub(federacion:Federacion):Observable<Federacion>{
-      return this.http.put<Federacion>(baseURL + 'federaciones/'+ federacion.id, federacion, httpOptions)
+      return this.http.put<Federacion>(baseURL2 + 'federaciones/'+ federacion.id, federacion, httpOptions)
       .pipe(catchError(this.procesaHttpmsjService.gestionError));
     }
 }

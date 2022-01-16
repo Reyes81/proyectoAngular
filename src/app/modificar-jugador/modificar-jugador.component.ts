@@ -150,7 +150,7 @@ export class ModificarJugadorComponent implements OnInit {
       categoria: [this.vCategorias[0], Validators.required],
       user: ['', Validators.required],
       password: ['', Validators.required],
-      responsable:[new Responsable]
+      responsable:['']
     });
   
     this.multaForm.valueChanges.subscribe(datos => this.onCambioValor(datos));
